@@ -30,14 +30,14 @@ export class LodisComponent implements OnInit {
    pagebtn:any
 
   
-    fname:any
-    lname:any
-   age:any
-   sex:string
-   impression:string
-   remarks:string
-   address:string
-   issued:string
+    fname:any = ""
+    lname:any = ""
+    contact:any = ""
+    email:any = ""
+    social:any = ""
+    followers:any = ""
+    approved:any = 0
+    updateid:any
 
 
    usershow:boolean = false
@@ -66,6 +66,20 @@ export class LodisComponent implements OnInit {
     ctx.drawImage(img, 0, 0);
     var dataURL = canvas.toDataURL("image/png");
     return dataURL;
+  }
+
+  cached(item){
+    console.log(item)
+    this.fname = item.fname
+    this.lname = item.lname
+    this.email = item.email
+    this.contact = item.contact
+    this.social = item.social
+    this.followers = item.followers
+    this.updateid = item.id
+    this.approved = item.active
+
+  
   }
 
 
@@ -121,7 +135,7 @@ export class LodisComponent implements OnInit {
     var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
     this.http.getData("get-lodis.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
-       
+       console.log(res)
       this.lodis = res.json().lodis
       this.lodisCount = res.json().lodis_count
 
@@ -160,7 +174,7 @@ delete(id){
  
   var c = confirm("Are you sure?")
     if(c){
-      this.http.postData("delete-pdf.php",data).subscribe(res =>{
+      this.http.postData("delete-lodi.php",data).subscribe(res =>{
         let result = res.json()
         if(result.message = "success"){
           this.page = 1
@@ -184,44 +198,35 @@ delete(id){
 }
  
 
-viewcert(item){
-  if(this.userType == 1){
-  this.router.navigate(["certificate/"+item.id])
-  }
-}
-
-addcert(){
-  this.router.navigate(["admin-home/addcert"])
-}
-
-viewrtpcr(item,testid){
-  if(this.userType == 1 || this.userType == 3){
-    delete(this.service.cachedmeddata)
-    this.service.pdflink = item
-    this.service.testid = testid
-    this.router.navigate(['addmedical'])
-  }
-  
-   
-}
-
-
-medicals:any
-medicalhistory(item){
-  this.medicals = Array()
-  this.http.getData("get-medical-history.php?id="+item.id).subscribe(res =>{
-    this.medicals = res.json()
-  })
-}
-
-addInput() {
-  alert("awdawd")
-}
-
+ 
+ 
+ 
 // rtpcr(){
 //   this.router.navigate(["admin-home/"])
 // }
 
+
+updateLodi(){
+  let data = {
+    fname: this.fname,
+    lname: this.lname,
+    email: this.email,
+    contact: this.contact,
+    social: this.social,
+    followers: this.followers,
+    id: this.updateid,
+    active: this.approved
+
+  }
+
+  this.http.postData("update-lodi.php",data).subscribe(res =>{
+    let result = res.json()
+    if(result.message == "success"){
+      this.refreshed()
+    }
+  })
+
+}
  
 
 

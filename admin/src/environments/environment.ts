@@ -6,7 +6,7 @@ export const environment = {
   production: false
 };
 
-export const HOST_URL = 'http://192.168.1.16/lodiserver/'; 
+export const HOST_URL = 'http://192.168.1.16/lodiserver/lodi-admin/'; 
  
 /*
  * For easier debugging in development mode, you can import the following file

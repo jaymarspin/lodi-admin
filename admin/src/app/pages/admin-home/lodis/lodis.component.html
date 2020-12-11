@@ -14,9 +14,9 @@
                   <div class="alert alert-dark" role="alert" >
                           There are <strong *ngIf="lodis">{{lodisCount}}</strong> lodi right now
                       </div>
-                      <button class="tblaction upload" (click)="addcert()" >UPLOAD RT-PCR</button> 
+                      <!-- <button class="tblaction upload" (click)="addcert()" >UPLOAD RT-PCR</button>  -->
                      <!-- <button class="tblaction upload" data-toggle="modal" data-target="#report" *ngIf="userType == 1">Reports</button> -->
-                  <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search RT-PCR"> 
+                  <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search lodi"> 
                  
                   <button class="tblaction" (click)="refreshed()" >Refresh</button>
      
@@ -51,10 +51,12 @@
           <table class="table"  >
                   <thead class="thead-dark">
                     <tr>
-                      <th>Date Uploaded</th> 
-                      <th>Date Collected</th> 
-                      <th>Expiration Date</th> 
-                      <th>Name</th>
+                      <th>First Name</th> 
+                      <th>Last Name</th> 
+                      <th>Contact</th> 
+                      <th>Email</th> 
+                      <th>Social</th>
+                      <th>Followers</th>
                       
                      
                       
@@ -74,10 +76,12 @@
      
                   <tbody *ngIf="lodis">
                     <tr *ngFor="let item of lodis;index as i" [attr.data-index]="i"  >
-                      <td (click)="viewrtpcr(item.file_name,item.id)">{{item.fname}}</td>
-                      <td (click)="viewrtpcr(item.file_name,item.id)">{{item.lname}}</td>
-                      <td (click)="viewrtpcr(item.file_name,item.id)">{{item.date_expiry}}</td>
-                      <td (click)="viewrtpcr(item.file_name,item.id)">{{item.name}}</td>
+                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)" >{{item.fname}}</td>
+                      <td data-toggle="modal" data-target="#lodiinfo"(click)="cached(item)" >{{item.lname}}</td>
+                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.contact}}</td>
+                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.email}}</td>
+                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.social}}</td>
+                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.followers}}</td>
                
                       
                       <!-- <td>{{item.employment_status}}</td>  -->
@@ -88,8 +92,7 @@
                           <!-- <button data-toggle="modal" data-target="#exampleModalCenter"  (click)="familySelected(item.id)">FAMILY</button>  -->
                           <!-- <button (click)="viewCert()">PRINT</button>  -->
                           <!-- <button (click)="cacheData(item)" data-toggle="modal" data-target="#exampleModalLong" >PRINT</button> -->
-                  
-                    <button data-toggle="modal" data-target="#medicalhistory" *ngIf="userType == 1 || userType == 3" (click)="medicalhistory(item)">MEDICAL CERTIFICATES</button>
+                   
                        <button (click)="delete(item.id)" *ngIf="userType == 1">DELETE</button>
     
                      
@@ -125,58 +128,58 @@
   
   
   
-  <div class="modal fade" id="medicalhistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Medical Certificates history</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle"> </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <table class="table"  >
-            <thead class="thead-dark">
-              <tr>
-                <th>Fullname</th> 
+          <div class="row"> 
+            <div class="col">
+              <label>First Name</label>
+              <input type="text" [(ngModel)]="fname" class="form-control">
+            </div>
+            <div class="col">
+              <label>Last Name</label>
+              <input type="text" [(ngModel)]="lname" class="form-control">
+            </div>
            
-                
+          </div>
+  
+          <div class="row"> 
+            <div class="col">
+              <label>Email</label>
+              <input type="text" [(ngModel)]="email" class="form-control">
+            </div>
+            <div class="col">
+              <label>Contact</label>
+              <input type="text" [(ngModel)]="contact" class="form-control">
+            </div>
            
-                <th>IMPRESSIONS</th>
-                <!-- <th>REMARKS</th> -->
-                <th>DATE ISSUED</th>
-                <!-- <th>Actions</th> -->
-                <!-- <th>EMPLOYMENT STATUS</th> -->
-                <!-- <th>SALARY</th> -->
-                
-                
-                
-                
+          </div>
+  
+          <div class="row"> 
+            <div class="col">
+              <label>Approve?</label>
+              
+              <select [(ngModel)]="approved" class="form-control">
+                <option value="1" selected>Yes</option>
+                <option value="0">Not now</option>
+              </select>
+  
+              
+            </div>
             
-              </tr>
-            </thead>
-            
-  
-            <tbody *ngIf="medicals">
-              <tr (click)="viewcert(item)" data-dismiss="modal" *ngFor="let item of medicals;index as i" [attr.data-index]="i" title="ADDRESS:{{item.address}}, SEX: {{item.sex}}, AGE: {{item.age}}, DATE UPLOADED: {{item.date_created}}">
-                <td>{{item.fname}} {{item.mname}}. {{item.lname}}</td>
-                <td [innerHTML]="item.impression"> </td>
-                <!-- <td [innerHTML]="item.remarks"></td> -->
-                <td>{{item.issued}}</td>
-     
-              </tr>
-         
            
-  
-  
-  
-           
-  
-  
-  
-          </tbody>
-  
-        </table>
+          </div>
+      
+        
+    <button type="button"   data-dismiss="modal" class="btn btn-primary" (click)="updateLodi()" style="padding-right:60px">UPDATE</button>
+   
          
         </div>
         <!-- <div class="modal-footer">
