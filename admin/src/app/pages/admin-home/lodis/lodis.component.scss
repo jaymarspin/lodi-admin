@@ -232,4 +232,28 @@ text-align: right;
       width: 200px;
   }.alert-dark{
     max-width: 300px;
+}.filter{
+    position: relative;
+    padding: 7px;
+    border-radius: 5px;
+}.filter-wrapper{
+    position: relative;
+
+}ul{
+    
+    padding: none;
+    list-style-type: none;
+    width: 100%;
+    li{
+        width: 100%;
+        float: left;
+        display: block;
+        clear: both;
+        span{
+            position: relative;
+            display: block;
+            float: left;
+            margin-right: 10px;
+        }
+    }
 }

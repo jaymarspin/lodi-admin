@@ -38,16 +38,48 @@ export class LodisComponent implements OnInit {
     followers:any = ""
     approved:any = 0
     updateid:any
+    category:any = ""
 
+
+
+    filter:any
 
    usershow:boolean = false
   
-
+   categories:any = Array()
    userType:any
   constructor(private router: Router,public service: ServiceService,public http: HttpRequestService) {
     this.page = 1
     this.limit = 50
     this.pagebtn = Array()
+    this.filter = Array()
+
+
+    this.categories.push({
+      title: "Singer",
+      value: "singer",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Singer",
+      value: "singer",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Singer",
+      value: "singer",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Singer",
+      value: "singer",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Singer",
+      value: "singer",
+      css: "unselected"
+    })
  
 
    }
@@ -78,9 +110,15 @@ export class LodisComponent implements OnInit {
     this.followers = item.followers
     this.updateid = item.id
     this.approved = item.active
+    this.category = item.category
+
+    console.log(this.category)
+  }
 
   
-  }
+ filtercategory(){
+  alert("adwada")
+}
 
 
 
@@ -215,7 +253,8 @@ updateLodi(){
     social: this.social,
     followers: this.followers,
     id: this.updateid,
-    active: this.approved
+    active: this.approved,
+    category: this.category
 
   }
 
@@ -226,6 +265,10 @@ updateLodi(){
     }
   })
 
+}
+
+cachedfilter(e,i){
+  console.log(i)
 }
  
 
