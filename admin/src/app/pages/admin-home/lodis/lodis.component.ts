@@ -48,6 +48,8 @@ export class LodisComponent implements OnInit {
   
    categories:any = Array()
    userType:any
+
+   filtergo:boolean = false
   constructor(private router: Router,public service: ServiceService,public http: HttpRequestService) {
     this.page = 1
     this.limit = 50
@@ -56,28 +58,28 @@ export class LodisComponent implements OnInit {
 
 
     this.categories.push({
-      title: "Singer",
-      value: "singer",
+      title: "Singer1",
+      value: "singer1",
       css: "unselected"
     })
     this.categories.push({
-      title: "Singer",
-      value: "singer",
+      title: "Singer2",
+      value: "singer2",
       css: "unselected"
     })
     this.categories.push({
-      title: "Singer",
-      value: "singer",
+      title: "Singer3",
+      value: "singer3",
       css: "unselected"
     })
     this.categories.push({
-      title: "Singer",
-      value: "singer",
+      title: "Singer4",
+      value: "singer4",
       css: "unselected"
     })
     this.categories.push({
-      title: "Singer",
-      value: "singer",
+      title: "Singer5",
+      value: "singer5",
       css: "unselected"
     })
  
@@ -115,10 +117,7 @@ export class LodisComponent implements OnInit {
     console.log(this.category)
   }
 
-  
- filtercategory(){
-  alert("adwada")
-}
+ 
 
 
 
@@ -166,6 +165,8 @@ export class LodisComponent implements OnInit {
     this.getdata(this.page)
     this.searchpass = false
     delete(this.search)
+    delete(this.filterarray)
+    this.filtergo = false
   }
 
   getdata(pager){
@@ -261,14 +262,49 @@ updateLodi(){
   this.http.postData("update-lodi.php",data).subscribe(res =>{
     let result = res.json()
     if(result.message == "success"){
+    delete(this.filterarray)
       this.refreshed()
     }
   })
 
 }
-
+filterarray:any = Array()
 cachedfilter(e,i){
-  console.log(i)
+   
+
+  if(this.categories[i].css == "unselected"){
+    this.categories[i].css = 'selected'
+  }else{
+    this.categories[i].css = 'unselected'
+  }
+  delete(this.filterarray)
+  this.filterarray = Array()
+  for(var ii = 0;ii < this.categories.length;ii++){
+    if(this.categories[ii].css == "selected"){
+      this.filterarray.push(this.categories[ii].value)
+    }
+    
+  }
+
+  console.log(this.filterarray)
+}
+
+
+filternow(){
+  this.filtergo = true
+  if(this.filterarray.length > 0){  
+    let data = {
+      filterarray: this.filterarray
+  }
+
+  this.http.postData("filterlodi.php",data).subscribe(res =>{
+    this.lodis = res.json()
+    this.searchpass = true
+  })
+  }else{
+    this.refreshed()
+  }
+  
 }
  
 
