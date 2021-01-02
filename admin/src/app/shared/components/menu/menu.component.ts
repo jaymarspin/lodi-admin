@@ -30,8 +30,8 @@ export class MenuComponent implements OnInit {
 
    to:any
   constructor(public medical: MedicalService,private router:Router,private http: HttpRequestService) {
-    this.certificate = "medical"
-    this.certificateSelect.push({value: "medical", title: "Medical Certificate"})
+    this.certificate = "singer"
+    this.certificateSelect.push({value: "singer", title: "Singer"})
    }
 
   ngOnInit(): void {

@@ -58,31 +58,85 @@ export class LodisComponent implements OnInit {
 
 
     this.categories.push({
-      title: "Singer1",
-      value: "singer1",
+      title: "Actor",
+      value: "actor",
       css: "unselected"
     })
     this.categories.push({
-      title: "Singer2",
-      value: "singer2",
+      title: "Actress",
+      value: "actress",
       css: "unselected"
     })
     this.categories.push({
-      title: "Singer3",
-      value: "singer3",
+      title: "Youtuber",
+      value: "youtuber",
       css: "unselected"
     })
     this.categories.push({
-      title: "Singer4",
-      value: "singer4",
+      title: "Singer",
+      value: "singer",
       css: "unselected"
     })
     this.categories.push({
-      title: "Singer5",
-      value: "singer5",
+      title: "Rapper",
+      value: "rapper",
       css: "unselected"
     })
- 
+    this.categories.push({
+      title: "TV Host",
+      value: "tvhost",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "News Anchor",
+      value: "newsanchor",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Media",
+      value: "media",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "DJ",
+      value: "dj",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Athletes",
+      value: "athletes",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Streamer",
+      value: "streamer",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Influencer",
+      value: "influencer",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Politicians",
+      value: "politicians",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Spiritual",
+      value: "spiritual",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Wealth Coach",
+      value: "wealthcoach",
+      css: "unselected"
+    })
+    this.categories.push({
+      title: "Business Tycoon",
+      value: "businesstycon",
+      css: "unselected"
+    })
 
    }
   ngOnInit(): void {
