@@ -23,7 +23,7 @@ import { AddmedicalComponent } from './pages/addmedical/addmedical.component';
 import { SafePipe } from './safe.pipe'; 
 import { ViewcertComponent } from './pages/admin-home/viewcert/viewcert.component';
 import { LodisComponent } from './pages/admin-home/lodis/lodis.component'; 
-
+import { AngularFileUploaderModule } from "angular-file-uploader";
 // import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 @NgModule({
   declarations: [
@@ -52,6 +52,7 @@ import { LodisComponent } from './pages/admin-home/lodis/lodis.component';
     FormsModule,
     CommonModule,
     PdfJsViewerModule,
+    AngularFileUploaderModule,
     // NgxQRCodeModule
   ],
   providers: [HttpClient],

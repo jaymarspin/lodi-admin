@@ -5,6 +5,7 @@ import "rxjs-compat"
 import { Router } from '@angular/router'
 
 import { HOST_URL } from '../../environments/environment';
+import axios from 'axios'
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +32,25 @@ export class HttpRequestService {
   getData(file){
 
     return this.http.get(this.server+file)
+  }
+
+  axiospost(file,data){
+     console.log(data)
+
+    axios({
+      method: 'post',
+      url: this.server+file,
+      data: data,
+      headers: {'Content-Type': 'multipart/form-data' }
+      })
+      .then(function (response) {
+          //handle success
+          console.log(response);
+      })
+      .catch(function (response) {
+          //handle error
+          console.log(response);
+      });
   }
 
 }

@@ -92,16 +92,17 @@
                       <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.email}}</td>
                       <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.social}}</td>
                       <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.followers}}</td>
+                   
                
                       
                       <!-- <td>{{item.employment_status}}</td>  -->
                       <!-- <td>{{item.voters_status}}</td>   -->
                       
                     <td> 
-                      <!-- <button data-toggle="modal" (click)="editResident(item)">EDIT</button>  -->
+                      <button data-toggle="modal" (click)="cacheData(item)" data-toggle="modal" data-target="#teaser">Teaser</button> 
                           <!-- <button data-toggle="modal" data-target="#exampleModalCenter"  (click)="familySelected(item.id)">FAMILY</button>  -->
                           <!-- <button (click)="viewCert()">PRINT</button>  -->
-                          <!-- <button (click)="cacheData(item)" data-toggle="modal" data-target="#exampleModalLong" >PRINT</button> -->
+                          <!-- <button (click)="cacheData(item)" data-toggle="modal" data-target="#exampleModalLong" >PRINT</button>
                    
                        <button (click)="delete(item.id)" *ngIf="userType == 1">DELETE</button>
     
@@ -147,8 +148,18 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body">
-          <div class="row"> 
+
+          <div class="row">
+            <div class="col">
+              <video  *ngIf="teaserplay" width="320" height="240" controls>
+                <source   src="{{http.server}}{{teaserplay}}" type="video/mp4"> 
+               
+              </video>
+            </div>
+          </div>
+          <div class="row" > 
             <div class="col">
               <label>First Name</label>
               <input type="text" [(ngModel)]="fname" class="form-control">
@@ -203,6 +214,8 @@
         
     <button type="button"   data-dismiss="modal" class="btn btn-primary" (click)="updateLodi()" style="padding-right:60px">UPDATE</button>
    
+ 
+      
          
         </div>
         <!-- <div class="modal-footer">
@@ -237,6 +250,33 @@
         
         
     <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="filternow()">Done</button>
+   
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="modal fade" id="teaser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Teaser</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          
+          <div class="form-group col-12" >
+          <input id="input-b4" class="form-control" name="input-b4[]" data-allowed-file-extensions='["mp4"]'  type="file" class="file" multiple  (change)="handleUpload($event)"
+        data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select {files} for upload...">
+      </div>
+        
+       
+    <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="uploadteaser()">Done</button>
    
         </div>
   
