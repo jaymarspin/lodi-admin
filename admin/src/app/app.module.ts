@@ -24,6 +24,8 @@ import { SafePipe } from './safe.pipe';
 import { ViewcertComponent } from './pages/admin-home/viewcert/viewcert.component';
 import { LodisComponent } from './pages/admin-home/lodis/lodis.component'; 
 import { AngularFileUploaderModule } from "angular-file-uploader";
+import { FanComponent } from './pages/admin-home/fan/fan.component';
+ 
 // import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
     AddmedicalComponent,
     SafePipe, 
     ViewcertComponent,
-    LodisComponent, 
+    LodisComponent,
+    FanComponent, 
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ import { ReportComponent } from '../app/report/report.component'
 import {AddmedicalComponent} from '../app/pages/addmedical/addmedical.component' 
 import {ViewcertComponent} from '../app/pages/admin-home/viewcert/viewcert.component'
 import {LodisComponent} from '../app/pages/admin-home/lodis/lodis.component'
-
+import {FanComponent} from '../app/pages/admin-home/fan/fan.component'
 const routes: Routes = [
   { 
     path: '',
@@ -31,6 +31,7 @@ const routes: Routes = [
       { path: 'certlisting', component: CertlistingComponent},
       { path: 'user', component: UsersComponent}, 
       { path: 'lodis', component: LodisComponent},
+      { path: 'fan', component: FanComponent},
       
   ]},{path: 'client-home', component: ClientHomeComponent,children:[
     {  path: '',
