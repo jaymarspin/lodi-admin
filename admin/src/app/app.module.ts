@@ -25,6 +25,7 @@ import { ViewcertComponent } from './pages/admin-home/viewcert/viewcert.componen
 import { LodisComponent } from './pages/admin-home/lodis/lodis.component'; 
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { FanComponent } from './pages/admin-home/fan/fan.component';
+import { ChatsComponent } from './pages/admin-home/chats/chats.component';
  
 // import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 @NgModule({
@@ -45,7 +46,8 @@ import { FanComponent } from './pages/admin-home/fan/fan.component';
     SafePipe, 
     ViewcertComponent,
     LodisComponent,
-    FanComponent, 
+    FanComponent,
+    ChatsComponent, 
   ],
   imports: [
     BrowserModule,

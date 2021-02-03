@@ -1,0 +1,163 @@
+<div class="main-wrapper" id="canvas">
+ 
+      <div id="cover-spin"></div>
+          
+               
+          <div class="action-div" id="contentToConvert" >
+                  <div class="alert alert-dark" role="alert" >
+                          There are <strong *ngIf="chat_count">{{chat_count}}</strong> lodi chats now
+                      </div>
+                      <!-- <button class="tblaction upload" (click)="addcert()" >UPLOAD RT-PCR</button>  -->
+                     <!-- <button class="tblaction upload" data-toggle="modal" data-target="#report" *ngIf="userType == 1">Reports</button> -->
+                  <!-- <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search lodi">  -->
+                 
+                  <button class="tblaction" (click)="refreshed()" >Refresh</button>
+     
+                 
+              
+          </div>
+
+          <div class="row">
+            <div class="col-1">
+            
+            </div>
+            <div class="col-11" class="filterwrap">
+              <ng-container *ngIf="filtergo"><span *ngFor="let item of filterarray">{{item}}</span></ng-container>
+              
+            </div>
+          </div>
+          <!-- <select class="custom-select" id="selector" [(ngModel)]="filterCustomer" (change)="changeFilter()">
+            <option value="all" selected>all</option>
+            <option value="active">active</option>
+            <option value="paid" selected>paid</option>
+            <option value="repo">repo</option>
+            
+           
+        </select> -->
+         
+      <!-- <div class="pager">
+        <ul>
+          <li><select class="custom-select" id="selector" class="selector2" [(ngModel)]="limit" (change)="changeLimit()">
+            <option value="100">100 results</option>
+            <option value="250">250 results</option>
+            <option value="500">500 results</option>
+            <option value="1000">1000 results</option>
+            <option value="5000">5000 results</option>
+            <option value="13000">13000 results</option>
+            <option value="0">all results</option>
+          </select></li>
+         
+        </ul>
+      </div> -->
+    
+      
+          <table class="table"  >
+                  <thead class="thead-dark">
+                    <tr >
+                      <th>Fan Name</th> 
+                    <th>Chat Date Initiated</th>
+                   
+                    </tr>
+                  </thead>
+                  
+     
+                  <tbody *ngIf="chats">
+                    <tr *ngFor="let item of chats;index as i" [attr.data-index]="i" data-target="#openchats" data-toggle="modal" >
+                      <td data-toggle="modal"  (click)="openchat(item.chat_table)" >{{item.person.fname}} {{item.person.lname}}</td>
+                      <td data-toggle="modal" (click)="openchat(item.chat_table)" >{{item.date_created}}</td>
+                    
+                       
+                   
+               
+                      
+                      <!-- <td>{{item.employment_status}}</td>  -->
+                      <!-- <td>{{item.voters_status}}</td>   -->
+                      
+            
+                      <!-- <button type="button" (click)="gotochats()" style="padding-right:60px">Chats</button>
+                      <button data-toggle="modal" (click)="cacheData(item)" data-toggle="modal" data-target="#teaser">Teaser</button>  -->
+                          <!-- <button data-toggle="modal" data-target="#exampleModalCenter"  (click)="familySelected(item.id)">FAMILY</button>  -->
+                          <!-- <button (click)="viewCert()">PRINT</button>  -->
+                          <!-- <button (click)="cacheData(item)" data-toggle="modal" data-target="#exampleModalLong" >PRINT</button>
+                   
+                       <button (click)="delete(item.id)" *ngIf="userType == 1">DELETE</button>
+    
+                     
+                      </td>
+                    </tr>
+               
+               -->
+                    
+                    
+               
+  
+  
+                 
+  
+  
+  
+                </tbody>
+  
+              </table>
+              <div class="page showpage" *ngIf="!searchpass">
+                <div class="pagestablabel" ></div>Showing {{page}} of {{pagebtn.length}} pages&nbsp;&nbsp;<button *ngFor="let item of pagebtn" (click)="pager(item)">{{item}}</button>
+  
+              </div>
+  
+  
+  </div>
+  
+  
+  
+ 
+
+  <div class="modal fade" id="openchats" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Chats</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        
+
+          <ul class="filter-wrapper">
+            <div class="container">
+                <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" alt="Avatar">
+                <p>Hello. How are you today?</p>
+                <span class="time-right">11:00</span>
+              </div>
+              
+              <div class="container darker">
+                <img src="https://cdn.cp.adobe.io/content/2/rendition/60b2528b-eb2a-4654-9af5-232e03134e34/artwork/3246162f-1673-46df-9c7d-30391deeb110/version/0/format/jpg/dimension/width/size/300" alt="Avatar" class="right">
+                <p>Hey! I'm fine. Thanks for asking!</p>
+                <span class="time-left">11:01</span>
+              </div>
+              
+              <div class="container">
+                <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" alt="Avatar">
+                <p>Sweet! So, what do you wanna do today?</p>
+                <span class="time-right">11:02</span>
+              </div>
+              
+              <div class="container darker">
+                <img src="https://cdn.cp.adobe.io/content/2/rendition/60b2528b-eb2a-4654-9af5-232e03134e34/artwork/3246162f-1673-46df-9c7d-30391deeb110/version/0/format/jpg/dimension/width/size/300" alt="Avatar" class="right">
+                <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+                <span class="time-left">11:05</span>
+              </div>
+          </ul>
+          
+        
+        
+    <button type="button"  data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="filternow()">Done</button>
+   
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+ 
+  

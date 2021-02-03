@@ -16,6 +16,8 @@ import { AngularFileUploaderComponent } from "angular-file-uploader";
 export class LodisComponent implements OnInit {
 
   @ViewChild('fileUpload1')
+
+  loader:any
   customers = 6546798
   lodis = Array()
   lodisCount:number
@@ -91,10 +93,16 @@ export class LodisComponent implements OnInit {
     }
 };
 
+
+
 resetVar:boolean = false
 caching:any
 
 teaserplay:any
+
+dmamount:any
+videogreetingsamount
+fansignamount
  
 private fileUpload1:  AngularFileUploaderComponent;
   constructor(private cd: ChangeDetectorRef,
@@ -230,7 +238,7 @@ private fileUpload1:  AngularFileUploaderComponent;
     this.category = item.category
 
     
-
+    
     this.cd.markForCheck();
     setTimeout(() =>{
       this.caching = item
@@ -242,6 +250,50 @@ private fileUpload1:  AngularFileUploaderComponent;
      
     
   }
+
+
+  talent_fee_chached(item){
+    delete(this.dmamount)
+    delete(this.videogreetingsamount)
+    delete(this.fansignamount)
+    this.fname = item.fname
+    this.lname = item.lname
+    this.email = item.email
+    this.contact = item.contact
+    this.social = item.social
+    this.followers = item.followers
+    this.updateid = item.id
+    this.approved = item.active
+    this.category = item.category
+ 
+     this.http.getData("get-talent-fee.php?id="+this.updateid).subscribe(res =>{
+       
+      let result = res.json();
+      console.log(result)
+       for(var i = result.length - 1;i > -1;i-- ){
+          if(!this.videogreetingsamount){
+            if(result[i].role == "videogreetings"){
+              this.videogreetingsamount = result[i].amount
+            }
+             
+          }if(!this.dmamount){
+            if(result[i].role == "dm"){
+              this.dmamount = result[i].amount
+            }
+             
+          }if(!this.fansignamount){
+            if(result[i].role == "fansign"){
+              this.fansignamount = result[i].amount
+            }
+             
+          }
+       }
+     })
+  }
+
+
+
+
 
  
 
@@ -452,8 +504,12 @@ uploadteaser(){
     teaser: this.teaserarr[0],
     id: this.caching.id
   }
+  this.loader = document.getElementById("cover-spin")
+
+      this.loader.style.display = "block"
   this.http.postData("teaser-upload.php",data).subscribe(res =>{
     console.log(res)
+    this.loader.style.display = "none"
   })
 
 
@@ -507,6 +563,28 @@ handleUpload(event) {
  
  
  
+}
+
+gotochats(id){
+  this.router.navigate(["admin-home/chats",id])
+}
+
+
+update_talentfee(){
+  var loader = document.getElementById("cover-spin")
+  loader.style.display = "block"
+  let data = {
+    id: this.updateid,
+    videogreetings: this.videogreetingsamount,
+    dm: this.dmamount,
+    fansign: this.fansignamount
+  }
+  this.http.postData("update_talentfee.php",data).subscribe(res =>{
+    console.log(res)
+    loader.style.display = "none"
+
+    alert("successfully updated")
+  })
 }
 
 
