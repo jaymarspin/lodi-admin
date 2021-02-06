@@ -58,6 +58,8 @@ export class LodisComponent implements OnInit {
 
    teaser:any
 
+   bio:any
+
 
 
    afuConfig = {
@@ -584,6 +586,30 @@ update_talentfee(){
     loader.style.display = "none"
 
     alert("successfully updated")
+  })
+}
+
+addbio(){
+   
+  let data = {
+    id: this.updateid,
+    bio: this.bio
+  }
+  var loader = document.getElementById("cover-spin")
+  loader.style.display = "block"
+  this.http.postData("add-bio.php",data).subscribe(res =>{
+    let result = res.json()
+
+    if(result.message == "success"){
+      delete(this.bio)
+      alert("success")
+      loader.style.display = "none"
+    }else{
+      alert(result.message)
+      loader.style.display = "none"
+    }
+  },err =>{
+    loader.style.display = "none"
   })
 }
 

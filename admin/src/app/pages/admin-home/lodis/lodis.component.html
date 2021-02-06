@@ -102,6 +102,7 @@
                       <button type="button" (click)="gotochats(item.id)" style="padding-right:60px">Transactions</button>
                       <button data-toggle="modal" (click)="talent_fee_chached(item)" data-toggle="modal" data-target="#talent_fee">Talent Fee</button> 
                       <button data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#teaser">Teaser</button> 
+                      <button data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#bio">Bio</button> 
                           <!-- <button data-toggle="modal" data-target="#exampleModalCenter"  (click)="familySelected(item.id)">FAMILY</button>  -->
                           <!-- <button (click)="viewCert()">PRINT</button>  -->
                           <!-- <button (click)="cacheData(item)" data-toggle="modal" data-target="#exampleModalLong" >PRINT</button>
@@ -338,6 +339,35 @@
       </div>
     </div>
   </div>
+
+
+
+  <div class="modal fade" id="bio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Bio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Example label</label>
+            <textarea [(ngModel)]="bio" class="form-control" rows="7" placeholder="Example input">
+
+
+            </textarea>
+          </div>
+        
+    <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="addbio()">Done</button>
+   
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
   
   
   
