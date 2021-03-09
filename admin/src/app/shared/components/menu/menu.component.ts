@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpRequestService } from '../../../services/http-request.service'
 import pdfjs from 'jspdf';
 import {MedicalService}  from '../../../report-print/medical.service'
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',

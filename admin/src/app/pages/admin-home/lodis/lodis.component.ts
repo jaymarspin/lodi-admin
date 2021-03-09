@@ -354,8 +354,9 @@ private fileUpload1:  AngularFileUploaderComponent;
     var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
     this.http.getData("get-lodis.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
-       console.log(res)
+       
       this.lodis = res.json().lodis
+      console.log(this.lodis)
       this.lodisCount = res.json().lodis_count
 
 
@@ -611,6 +612,10 @@ addbio(){
   },err =>{
     loader.style.display = "none"
   })
+}
+
+addtalent(){
+  alert("adawdawd")
 }
 
 
