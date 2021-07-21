@@ -32,6 +32,7 @@
     "jspdf-autotable": "^3.5.13",
     "moment": "^2.29.1",
     "ng2-pdfjs-viewer": "^5.0.7",
+    "replace-string": "^3.1.0",
     "rxjs": "~6.6.0",
     "rxjs-compat": "^6.6.3",
     "sweetalert2": "^10.12.4",

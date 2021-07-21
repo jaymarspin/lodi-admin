@@ -4,7 +4,7 @@ import "rxjs"
 import "rxjs-compat"
 import { Router } from '@angular/router'
 
-import { HOST_URL } from '../../environments/environment';
+import { apiURL } from '../../environments/environment';
 import axios from 'axios'
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class HttpRequestService {
   brgyid:number
   userid:number
   constructor(public http: Http,public router: Router) {
-    this.server = HOST_URL
+    this.server = apiURL
 
    }
 

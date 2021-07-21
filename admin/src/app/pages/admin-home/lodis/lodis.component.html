@@ -26,7 +26,7 @@
 
           <div class="row">
             <div class="col-1">
-              <button class="filter" data-toggle="modal" data-target="#filter" >Filter</button>
+              <!-- <button class="filter" data-toggle="modal" data-target="#filter" >Filter</button> -->
             </div>
             <div class="col-11" class="filterwrap">
               <ng-container *ngIf="filtergo"><span *ngFor="let item of filterarray">{{item}}</span></ng-container>
@@ -99,7 +99,7 @@
                       <!-- <td>{{item.voters_status}}</td>   -->
                       
                     <td> 
-                      <button type="button" (click)="gotochats(item.id)" style="padding-right:60px">Transactions</button>
+                      <!-- <button type="button" (click)="gotochats(item.id)" style="padding-right:60px">Transactions</button> -->
                       <button data-toggle="modal" (click)="talent_fee_chached(item)" data-toggle="modal" data-target="#talent_fee">Talent Fee</button> 
                       <button data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#teaser">Teaser</button> 
                       <button data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#bio">Bio</button> 
@@ -186,7 +186,7 @@
             </div>
            
           </div>
-          <div class="row"> 
+          <!-- <div class="row"> 
             <div class="col">
               <label>Category</label>
               
@@ -199,7 +199,7 @@
             </div>
             
            
-          </div>
+          </div> -->
           <div class="row"> 
             <div class="col">
               <label>Approve?</label>
@@ -302,10 +302,10 @@
 
           
           <div class=" col-6" >
-            <input class="form-control" value="Direct Message" disabled type="text" placeholder="Default input">
+            <input class="form-control" value="Direct Message" disabled type="text" placeholder="Default input" disabled>
       </div>
       <div class=" col-6" >
-        <input class="form-control" type="text" placeholder="Amount" [(ngModel)]="dmamount">
+        <input class="form-control" type="text" placeholder="Amount" [(ngModel)]="dmamount" disabled>
   </div>
 </div>
 
@@ -316,7 +316,7 @@
     <input class="form-control" value="Fan Sign" disabled type="text" placeholder="Default input">
 </div>
 <div class=" col-6" >
-<input class="form-control" type="text" placeholder="Amount" [(ngModel)]="fansignamount">
+<input class="form-control" type="text" placeholder="Amount" [(ngModel)]="fansignamount" disabled>
 </div>
 </div>
 <div class="row">
@@ -326,12 +326,12 @@
     <input class="form-control" value="Video Greetings" disabled type="text" placeholder="Default input">
 </div>
 <div class=" col-6" >
-<input class="form-control"  type="text" placeholder="Amount" [(ngModel)]="videogreetingsamount">
+<input class="form-control"  type="text" placeholder="Amount" [(ngModel)]="videogreetingsamount" disabled>
 </div>
 </div>
         
        
-    <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="update_talentfee()">UPDATE</button>
+    <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="update_talentfee()" disabled>UPDATE</button>
    
         </div>
   
@@ -353,13 +353,13 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="formGroupExampleInput">Example label</label>
-            <textarea [(ngModel)]="bio" class="form-control" rows="7" placeholder="Example input">
+            <textarea disabled [(ngModel)]="bio" class="form-control" rows="7" placeholder="Example input">
 
 
             </textarea>
           </div>
         
-    <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="addbio()">Done</button>
+    <button type="button" disabled   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="addbio()">Done</button>
    
         </div>
   

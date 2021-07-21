@@ -8,6 +8,7 @@ import pdfjs from 'jspdf';
 import Swal from 'sweetalert2' 
 import * as $ from 'jquery'
 import { AngularFileUploaderComponent } from "angular-file-uploader";
+import * as replaceStr from 'replace-string'
 @Component({
   selector: 'app-lodis',
   templateUrl: './lodis.component.html',
@@ -238,7 +239,11 @@ private fileUpload1:  AngularFileUploaderComponent;
     this.updateid = item.id
     this.approved = item.active
     this.category = item.category
+    
+    if(item.bio != null && item.bio !== undefined){
+      this.bio = replaceStr(item.bio.bio,"<br />", "")
 
+    }
     
     
     this.cd.markForCheck();
@@ -479,6 +484,7 @@ filternow(){
   }
 
   this.http.postData("filterlodi.php",data).subscribe(res =>{
+    console.log(res)
     this.lodis = res.json()
     this.searchpass = true
   })
