@@ -27,7 +27,7 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
 import { FanComponent } from './pages/admin-home/fan/fan.component';
 import { ChatsComponent } from './pages/admin-home/chats/chats.component';
 import { UpdatesComponent } from './pages/admin-home/updates/updates.component';
- 
+import { TransactionsComponent } from './pages/admin-home/transactions/transactions.component';
 // import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { UpdatesComponent } from './pages/admin-home/updates/updates.component';
     LodisComponent,
     FanComponent,
     ChatsComponent,
-    UpdatesComponent, 
+    UpdatesComponent,
+    TransactionsComponent, 
   ],
   imports: [
     BrowserModule,

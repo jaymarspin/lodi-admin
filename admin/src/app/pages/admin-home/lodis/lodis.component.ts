@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild,NgZone, ChangeDetectorRef  } from '@angular/core';
-import pdfjs from 'jspdf';
+
  import { Router } from '@angular/router'
  import { ServiceService } from '../../../services/service.service'
  import { HttpRequestService} from '../../../services/http-request.service'
@@ -576,6 +576,10 @@ handleUpload(event) {
 
 gotochats(id){
   this.router.navigate(["admin-home/chats",id])
+}
+
+transaction(id){
+  this.router.navigate(["admin-home/transactions",id])
 }
 
 

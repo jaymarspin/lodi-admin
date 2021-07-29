@@ -15,6 +15,8 @@ import {LodisComponent} from '../app/pages/admin-home/lodis/lodis.component'
 import {FanComponent} from '../app/pages/admin-home/fan/fan.component'
 import { ChatsComponent } from '../app/pages/admin-home/chats/chats.component'
 import { UpdatesComponent } from '../app/pages/admin-home/updates/updates.component'
+import { TransactionsComponent } from './pages/admin-home/transactions/transactions.component';
+
 const routes: Routes = [
   { 
     path: '',
@@ -33,6 +35,7 @@ const routes: Routes = [
       { path: 'certlisting', component: CertlistingComponent},
       { path: 'user', component: UsersComponent}, 
       { path: 'lodis', component: LodisComponent},
+      { path: 'transactions/:id', component: TransactionsComponent},
       { path: 'fan', component: FanComponent},
       { path: 'chats/:id', component: ChatsComponent},
       { path: 'updates', component: UpdatesComponent},

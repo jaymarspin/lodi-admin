@@ -1,0 +1,54 @@
+<div class="main-wrapper" id="canvas">
+  <div id="cover-spin"></div>
+
+  <div class="action-div" id="contentToConvert">
+    <div class="alert alert-dark" role="alert">
+      There are
+      <strong *ngIf="transactions">{{ transactions_count }}</strong> lodi right
+      now
+    </div>
+    <input
+      type="text"
+      id="search"
+      [(ngModel)]="search"
+      (keyup.enter)="searchact()"
+      placeholder="Search lodi"
+    />
+
+    <button class="tblaction" (click)="refreshed()">Refresh</button>
+  </div>
+
+  <div class="row">
+    <div class="col-1"></div>
+  </div>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Social</th>
+        <th>Followers</th>
+
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody *ngIf="transactions">
+      <tr *ngFor="let item of transactions; index as i" [attr.data-index]="i">
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page showpage" *ngIf="!searchpass">
+    <div class="pagestablabel"></div>
+    Showing {{ page }} of {{ pagebtn.length }} pages&nbsp;&nbsp;<button
+      *ngFor="let item of pagebtn"
+      (click)="pager(item)"
+    >
+      {{ item }}
+    </button>
+  </div>
+</div>
