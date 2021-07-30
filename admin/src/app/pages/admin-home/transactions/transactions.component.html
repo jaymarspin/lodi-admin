@@ -3,8 +3,8 @@
 
   <div class="action-div" id="contentToConvert">
     <div class="alert alert-dark" role="alert">
-      There are
-      <strong *ngIf="transactions">{{ transactions_count }}</strong> lodi right
+      he/she has
+      <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions right
       now
     </div>
     <input
@@ -25,20 +25,38 @@
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Contact</th>
-        <th>Email</th>
-        <th>Social</th>
-        <th>Followers</th>
-
+        <th>Fan</th>
+        <th>Amount</th>
+        <th>Talent</th>
+        <th>Status</th>
+        <th>link</th>
+        <th>Redeemed</th>
+        <th>Date Request</th>
         <th>Actions</th>
       </tr>
     </thead>
 
     <tbody *ngIf="transactions">
       <tr *ngFor="let item of transactions; index as i" [attr.data-index]="i">
+        <td>{{item.fan.fname}} {{item.fan.lname}}</td>
+        <td>{{item.value}}</td>
+        <td>{{item.talent}}</td>
+        <td><span *ngIf="item.accepted === false; else accepted">not yet responded</span><ng-template #accepted><span>Responded</span></ng-template>
+        </td>
         <td></td>
+        <td>
+          <ion-label>Redem Status</ion-label>
+    <ion-select placeholder="Select One" >
+      <ion-select-option value="true" [selected]='item.redemmed'>Redemmed</ion-select-option>
+      <ion-select-option value="false" [selected]='item.redemmed'>Not Yet Redemmed</ion-select-option>
+    </ion-select>
+          <ion-label style="color: red;" *ngIf="item.redemmed === false; else redemmed">not yet redemmed</ion-label><ng-template #redemmed><ion-label style="color: green;">redemmed</ion-label></ng-template>
+        </td>
+        <td>{{item.date_created}}</td>
+        <td>
+          
+        </td>
+        
       </tr>
     </tbody>
   </table>

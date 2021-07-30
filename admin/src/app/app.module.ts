@@ -29,6 +29,7 @@ import { ChatsComponent } from './pages/admin-home/chats/chats.component';
 import { UpdatesComponent } from './pages/admin-home/updates/updates.component';
 import { TransactionsComponent } from './pages/admin-home/transactions/transactions.component';
 // import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,10 +61,11 @@ import { TransactionsComponent } from './pages/admin-home/transactions/transacti
     FormsModule,
     CommonModule,
     PdfJsViewerModule,
+    IonicModule.forRoot(),
     AngularFileUploaderModule,
     // NgxQRCodeModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient,IonicRouteStrategy],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

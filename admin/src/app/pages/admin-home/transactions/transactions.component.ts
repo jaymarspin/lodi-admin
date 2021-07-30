@@ -12,7 +12,7 @@ export class TransactionsComponent implements OnInit {
   loader: any;
 
   transactions = Array();
-  lodisCount: number;
+  transactions_count: number;
   id: any;
 
   page: number;
@@ -22,6 +22,8 @@ export class TransactionsComponent implements OnInit {
 
   searchpass: boolean = false;
   search;
+
+  
   constructor(
     private activateRoute: ActivatedRoute,
     public service: ServiceService,
@@ -51,14 +53,17 @@ export class TransactionsComponent implements OnInit {
         console.log(res);
         this.transactions = res.json().transactions;
         console.log(this.transactions);
-        this.lodisCount = res.json().transactions_count;
+        this.transactions_count = res.json().transactions_count;
 
         loader.style.display = 'none';
 
-        this.pagebtntmp = this.lodisCount / this.limit;
+        this.pagebtntmp = this.transactions_count / this.limit;
         for (var i = 1; i < this.pagebtntmp + 1; i++) {
           this.pagebtn.push(i);
         }
       });
+  }
+  redemmedaction(redembool){
+
   }
 }
