@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../../../services/service.service';
 import { HttpRequestService } from '../../../services/http-request.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-transactions',
   templateUrl: './transactions.component.html',
@@ -23,7 +23,6 @@ export class TransactionsComponent implements OnInit {
   searchpass: boolean = false;
   search;
 
-  
   constructor(
     private activateRoute: ActivatedRoute,
     public service: ServiceService,
@@ -63,7 +62,40 @@ export class TransactionsComponent implements OnInit {
         }
       });
   }
-  redemmedaction(redembool){
+  redemmedaction(e, id) {
+    var loader = document.getElementById('cover-spin');
+    loader.style.display = 'block';
 
+    let data = {
+      id: this.id,
+      value: e.detail.value,
+      transaction_id: id,
+    };
+    console.log(data)
+    this.http.postData('update-redemmed.php', data).subscribe({
+      next: (data) => {
+        loader.style.display = 'none';
+        const response = data.json();
+        if (response.message === 'success') {
+          this.getdata(this.page);
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: response.message,
+            footer: '',
+          });
+        }
+      },
+      error: (err) => {
+        loader.style.display = 'none';
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'error occures',
+          footer: err,
+        });
+      },
+    });
   }
 }

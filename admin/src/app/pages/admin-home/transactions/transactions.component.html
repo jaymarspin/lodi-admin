@@ -46,11 +46,11 @@
         <td></td>
         <td>
           <ion-label>Redem Status</ion-label>
-    <ion-select placeholder="Select One" >
-      <ion-select-option value="true" [selected]='item.redemmed'>Redemmed</ion-select-option>
-      <ion-select-option value="false" [selected]='item.redemmed'>Not Yet Redemmed</ion-select-option>
+    <ion-select placeholder="Select One" [value]="item.redemmed" (ionChange)='redemmedaction($event,item.id)'>
+      <ion-select-option value="1" >Redemmed</ion-select-option>
+      <ion-select-option value="0" >Not Yet Redemmed</ion-select-option>
     </ion-select>
-          <ion-label style="color: red;" *ngIf="item.redemmed === false; else redemmed">not yet redemmed</ion-label><ng-template #redemmed><ion-label style="color: green;">redemmed</ion-label></ng-template>
+          <ion-label style="color: red;" *ngIf="item.redemmed === 0; else redemmed">not yet redemmed</ion-label><ng-template #redemmed><ion-label style="color: green;">redemmed</ion-label></ng-template>
         </td>
         <td>{{item.date_created}}</td>
         <td>
