@@ -7,6 +7,7 @@
       <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions right
       now
     </div>
+    
     <input
       type="text"
       id="search"
@@ -14,8 +15,40 @@
       (keyup.enter)="searchact()"
       placeholder="Search lodi"
     />
+    
 
     <button class="tblaction" (click)="refreshed()">Refresh</button>
+    <div *ngIf="mybanks" class="alert alert-primary" style="margin-left: 5px;float: left;clear: left;" role="alert">
+      <ion-list>
+        <ion-radio-group value="biff">
+          <ion-list-header>
+            <ion-label>Name</ion-label>
+          </ion-list-header>
+      
+          <ion-item *ngIf="mybanks.accountno">
+            <ion-label>Bank Acount no.: {{mybanks.accountno}}</ion-label>
+            <ion-radio slot="start" value="biff"></ion-radio>
+          </ion-item>
+      
+          <ion-item *ngIf="mybanks.gcash">
+            <ion-label>Gcash: {{mybanks.gcash}}</ion-label>
+            <ion-radio slot="start" value="griff"></ion-radio>
+          </ion-item>
+      
+          <ion-item *ngIf="mybanks.paymaya">
+            <ion-label>Paymaya: {{mybanks.paymaya}}</ion-label>
+            <ion-radio slot="start" value="buford"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </div>
+
+    <div class="alert alert-warning" style="float: right;clear: right;" role="alert">
+      he/she has
+      <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions right
+      now
+      <button class="btn btn-warning" style="float: left;clear: both;width: 200px;">Redemmed All</button>
+    </div>  
   </div>
 
   <div class="row">

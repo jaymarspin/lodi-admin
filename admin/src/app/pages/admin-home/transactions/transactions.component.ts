@@ -23,6 +23,8 @@ export class TransactionsComponent implements OnInit {
   searchpass: boolean = false;
   search;
 
+  mybanks: any;
+
   constructor(
     private activateRoute: ActivatedRoute,
     public service: ServiceService,
@@ -35,16 +37,33 @@ export class TransactionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getdata(this.page);
+    this.getdata(this.page).then(() =>{
+      this.getBanks()
+    })
+   
   }
   refreshed() {}
   searchact() {}
 
-  getdata(pager) {
+
+  getBanks(){
+    this.http.getData(`get-banks.php?id=${this.id}`).subscribe({
+      next: data =>{
+        
+        this.mybanks = data.json().bankdetails
+        this.mybanks = JSON.parse(this.mybanks)
+        console.log(this.mybanks)
+      }, error: err =>{
+        console.log(err)
+      }
+    })
+  }
+
+ async getdata(pager) {
     this.pagebtn = Array();
     var loader = document.getElementById('cover-spin');
     loader.style.display = 'block';
-    this.http
+  await  this.http
       .getData(
         `get-transactions.php?id=${this.id}&limit=${this.limit}&page=${pager}`
       )
