@@ -43,11 +43,10 @@
       </ion-list>
     </div>
 
-    <div class="alert alert-warning" style="float: right;clear: right;" role="alert">
-      he/she has
-      <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions right
-      now
-      <button class="btn btn-warning" style="float: left;clear: both;width: 200px;">Redemmed All</button>
+    <div *ngIf="redemmable" class="alert alert-warning" style="float: right;clear: right;" role="alert">
+      Redemmable {{redemmable.redemable}} Pesos
+       
+      <button class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
     </div>  
   </div>
 

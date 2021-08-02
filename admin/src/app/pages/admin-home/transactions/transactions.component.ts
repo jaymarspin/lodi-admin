@@ -38,7 +38,9 @@ export class TransactionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getdata(this.page).then(() =>{
-      this.getBanks()
+      this.getBanks().then(() =>{
+        this.getRedeemable()
+      })
     })
    
   }
@@ -46,8 +48,8 @@ export class TransactionsComponent implements OnInit {
   searchact() {}
 
 
-  getBanks(){
-    this.http.getData(`get-banks.php?id=${this.id}`).subscribe({
+ async getBanks(){
+   await this.http.getData(`get-banks.php?id=${this.id}`).subscribe({
       next: data =>{
         
         this.mybanks = data.json().bankdetails
@@ -58,6 +60,8 @@ export class TransactionsComponent implements OnInit {
       }
     })
   }
+
+  
 
  async getdata(pager) {
     this.pagebtn = Array();
@@ -82,14 +86,22 @@ export class TransactionsComponent implements OnInit {
       });
   }
   redemmedaction(e, id) {
-    var loader = document.getElementById('cover-spin');
-    loader.style.display = 'block';
-
     let data = {
       id: this.id,
       value: e.detail.value,
       transaction_id: id,
     };
+    if(id === 0){
+      data = {
+        id: this.id,
+        value: 1,
+        transaction_id: 0,
+      };
+    }
+    var loader = document.getElementById('cover-spin');
+    loader.style.display = 'block';
+
+    
     console.log(data)
     this.http.postData('update-redemmed.php', data).subscribe({
       next: (data) => {
@@ -117,4 +129,22 @@ export class TransactionsComponent implements OnInit {
       },
     });
   }
+  redemmable: any;
+  async getRedeemable(){
+    
+    await this.http.getData(`get-redeemable.php?id=${this.id}`).subscribe({
+     next: data =>{
+    
+       this.redemmable = data.json()
+       console.log(this.redemmable)
+     },error: err =>{
+       Swal.fire({
+         icon: 'error',
+         title: 'Oops...',
+         text: err,
+         footer: ' '
+       })
+     }
+   })
+ }
 }
