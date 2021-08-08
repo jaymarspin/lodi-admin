@@ -30,6 +30,7 @@ import { UpdatesComponent } from './pages/admin-home/updates/updates.component';
 import { TransactionsComponent } from './pages/admin-home/transactions/transactions.component';
 // import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
     FanComponent,
     ChatsComponent,
     UpdatesComponent,
-    TransactionsComponent, 
+    TransactionsComponent,
+    RedeemRequestsComponent, 
   ],
   imports: [
     BrowserModule,

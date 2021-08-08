@@ -20,31 +20,31 @@
     <button class="tblaction" (click)="refreshed()">Refresh</button>
     <div *ngIf="mybanks" class="alert alert-primary" style="margin-left: 5px;float: left;clear: left;" role="alert">
       <ion-list>
-        <ion-radio-group value="biff">
+        <ion-radio-group [(ngModel)]="chosenAccount">
           <ion-list-header>
             <ion-label>Name</ion-label>
           </ion-list-header>
       
           <ion-item *ngIf="mybanks.accountno">
             <ion-label>Bank Acount no.: {{mybanks.accountno}}</ion-label>
-            <ion-radio slot="start" value="biff"></ion-radio>
+            <ion-radio slot="start" [value]="'bank account:'+mybanks.accountno"></ion-radio>
           </ion-item>
       
           <ion-item *ngIf="mybanks.gcash">
             <ion-label>Gcash: {{mybanks.gcash}}</ion-label>
-            <ion-radio slot="start" value="griff"></ion-radio>
+            <ion-radio slot="start" [value]="'Gcash: '+mybanks.gcash"></ion-radio>
           </ion-item>
       
           <ion-item *ngIf="mybanks.paymaya">
             <ion-label>Paymaya: {{mybanks.paymaya}}</ion-label>
-            <ion-radio slot="start" value="buford"></ion-radio>
+            <ion-radio slot="start" [value]="'Paymaya:' + mybanks.paymaya"></ion-radio>
           </ion-item>
         </ion-radio-group>
       </ion-list>
     </div>
 
     <div *ngIf="redemmable" class="alert alert-warning" style="float: right;clear: right;" role="alert">
-      Redemmable {{redemmable.redemable}} Pesos
+      Redemmable {{redemmable}} Pesos
        
       <button class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
     </div>  
@@ -62,7 +62,7 @@
         <th>Talent</th>
         <th>Status</th>
         <th>link</th>
-        <th>Redeemed</th>
+        <th>Redeem status</th>
         <th>Date Request</th>
         <th>Actions</th>
       </tr>
@@ -78,11 +78,11 @@
         <td></td>
         <td>
           <ion-label>Redem Status</ion-label>
-    <ion-select placeholder="Select One" [value]="item.redemmed" (ionChange)='redemmedaction($event,item.id)'>
-      <ion-select-option value="1" >Redemmed</ion-select-option>
-      <ion-select-option value="0" >Not Yet Redemmed</ion-select-option>
-    </ion-select>
-          <ion-label style="color: red;" *ngIf="item.redemmed === 0; else redemmed">not yet redemmed</ion-label><ng-template #redemmed><ion-label style="color: green;">redemmed</ion-label></ng-template>
+    <!-- <ion-select placeholder="Select One" [value]="item.redemmed" (ionChange)='redemmedaction($event,item.id)'>
+      <ion-select-option value="true" >Redemmed</ion-select-option>
+      <ion-select-option value="false" >Not Yet Redemmed</ion-select-option>
+    </ion-select> -->
+          <ion-label style="color: red;" *ngIf="item.redemmed === false; else redemmed">not yet redemmed</ion-label><ng-template #redemmed><ion-label style="color: green;">redemmed</ion-label></ng-template>
         </td>
         <td>{{item.date_created}}</td>
         <td>

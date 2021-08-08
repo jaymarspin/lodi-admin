@@ -14,6 +14,7 @@ export class TransactionsComponent implements OnInit {
   transactions = Array();
   transactions_count: number;
   id: any;
+  lodiid:any
 
   page: number;
   limit: number;
@@ -24,22 +25,27 @@ export class TransactionsComponent implements OnInit {
   search;
 
   mybanks: any;
+  
+  chosenAccount: any;
 
+  redemmable:any
   constructor(
     private activateRoute: ActivatedRoute,
     public service: ServiceService,
     public http: HttpRequestService
   ) {
     this.id = this.activateRoute.snapshot.paramMap.get('id');
+    this.lodiid = this.activateRoute.snapshot.paramMap.get('lodiid');
     this.page = 1;
     this.limit = 50;
     this.pagebtn = Array();
+    this.redemmable = 0
   }
 
   ngOnInit(): void {
     this.getdata(this.page).then(() =>{
       this.getBanks().then(() =>{
-        this.getRedeemable()
+        
       })
     })
    
@@ -49,7 +55,7 @@ export class TransactionsComponent implements OnInit {
 
 
  async getBanks(){
-   await this.http.getData(`get-banks.php?id=${this.id}`).subscribe({
+   await this.http.getData(`get-banks.php?id=${this.lodiid}`).subscribe({
       next: data =>{
         
         this.mybanks = data.json().bankdetails
@@ -72,7 +78,7 @@ export class TransactionsComponent implements OnInit {
         `get-transactions.php?id=${this.id}&limit=${this.limit}&page=${pager}`
       )
       .subscribe((res) => {
-        console.log(res);
+        this.redemmable = 0
         this.transactions = res.json().transactions;
         console.log(this.transactions);
         this.transactions_count = res.json().transactions_count;
@@ -83,17 +89,27 @@ export class TransactionsComponent implements OnInit {
         for (var i = 1; i < this.pagebtntmp + 1; i++) {
           this.pagebtn.push(i);
         }
+
+        this.transactions.forEach(element => {
+          console.log(element.accepted)
+          if(element.redemmed === false){
+            this.redemmable += parseFloat(element.value)
+          }
+          
+          
+        });
       });
   }
   redemmedaction(e, id) {
+    
     let data = {
-      id: this.id,
+      request_id: this.id,
       value: e.detail.value,
       transaction_id: id,
     };
     if(id === 0){
       data = {
-        id: this.id,
+        request_id: this.id,
         value: 1,
         transaction_id: 0,
       };
@@ -129,22 +145,5 @@ export class TransactionsComponent implements OnInit {
       },
     });
   }
-  redemmable: any;
-  async getRedeemable(){
-    
-    await this.http.getData(`get-redeemable.php?id=${this.id}`).subscribe({
-     next: data =>{
-    
-       this.redemmable = data.json()
-       console.log(this.redemmable)
-     },error: err =>{
-       Swal.fire({
-         icon: 'error',
-         title: 'Oops...',
-         text: err,
-         footer: ' '
-       })
-     }
-   })
- }
+   
 }

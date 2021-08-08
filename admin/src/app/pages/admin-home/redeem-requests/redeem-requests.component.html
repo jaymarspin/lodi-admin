@@ -1,0 +1,92 @@
+<div class="main-wrapper" id="canvas">
+    <div id="cover-spin"></div>
+  
+    <div class="action-div" id="contentToConvert">
+      <div class="alert alert-dark" role="alert">
+        he/she has
+        <strong *ngIf="redeem_requests">{{ redeem_requests_count }}</strong> transactions right
+        now
+      </div>
+      
+      <input
+        type="text"
+        id="search"
+        [(ngModel)]="search"
+        (keyup.enter)="searchact()"
+        placeholder="Search lodi"
+      />
+      
+  
+      <button class="tblaction" (click)="refreshed()">Refresh</button>
+      <!-- <div *ngIf="mybanks" class="alert alert-primary" style="margin-left: 5px;float: left;clear: left;" role="alert">
+        <ion-list>
+          <ion-radio-group [(ngModel)]="chosenAccount">
+            <ion-list-header>
+              <ion-label>Name</ion-label>
+            </ion-list-header>
+        
+            <ion-item *ngIf="mybanks.accountno">
+              <ion-label>Bank Acount no.: {{mybanks.accountno}}</ion-label>
+              <ion-radio slot="start" [value]="'bank account:'+mybanks.accountno"></ion-radio>
+            </ion-item>
+        
+            <ion-item *ngIf="mybanks.gcash">
+              <ion-label>Gcash: {{mybanks.gcash}}</ion-label>
+              <ion-radio slot="start" [value]="'Gcash: '+mybanks.gcash"></ion-radio>
+            </ion-item>
+        
+            <ion-item *ngIf="mybanks.paymaya">
+              <ion-label>Paymaya: {{mybanks.paymaya}}</ion-label>
+              <ion-radio slot="start" [value]="'Paymaya:' + mybanks.paymaya"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </div> -->
+  
+      <!-- <div *ngIf="redemmable" class="alert alert-warning" style="float: right;clear: right;" role="alert">
+        Redemmable {{redemmable.redemable}} Pesos
+         
+        <button class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
+      </div>   -->
+    </div>
+  
+    <div class="row">
+      <div class="col-1"></div>
+    </div>
+  
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Prefered Account</th>
+          <th>Amount</th>
+          <th>Date Request</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+  
+      <tbody *ngIf="redeem_requests">
+        <tr *ngFor="let item of redeem_requests; index as i" (click)="viewTransaction(item.id)">
+          <td>{{item.bank_data}}</td>
+          <td>{{item.value}}</td>
+          <td>{{item.date_created}}</td>
+          <td>{{item.talent}}</td>
+          
+        
+          
+          
+           
+          
+        </tr>
+      </tbody>
+    </table>
+    <div class="page showpage" *ngIf="!searchpass">
+      <div class="pagestablabel"></div>
+      Showing {{ page }} of {{ pagebtn.length }} pages&nbsp;&nbsp;<button
+        *ngFor="let item of pagebtn"
+        (click)="pager(item)"
+      >
+        {{ item }}
+      </button>
+    </div>
+  </div>
+  

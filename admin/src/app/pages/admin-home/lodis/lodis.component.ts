@@ -579,7 +579,7 @@ gotochats(id){
 }
 
 transaction(id){
-  this.router.navigate(["admin-home/transactions",id])
+  this.router.navigate(["admin-home/requests",id])
 }
 
 

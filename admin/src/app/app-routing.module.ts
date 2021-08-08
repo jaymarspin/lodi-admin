@@ -16,6 +16,7 @@ import {FanComponent} from '../app/pages/admin-home/fan/fan.component'
 import { ChatsComponent } from '../app/pages/admin-home/chats/chats.component'
 import { UpdatesComponent } from '../app/pages/admin-home/updates/updates.component'
 import { TransactionsComponent } from './pages/admin-home/transactions/transactions.component';
+import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
 
 const routes: Routes = [
   { 
@@ -35,7 +36,8 @@ const routes: Routes = [
       { path: 'certlisting', component: CertlistingComponent},
       { path: 'user', component: UsersComponent}, 
       { path: 'lodis', component: LodisComponent},
-      { path: 'transactions/:id', component: TransactionsComponent},
+      { path: 'requests/:id', component: RedeemRequestsComponent},
+      { path: 'transactions/:id/:lodiid', component: TransactionsComponent},
       { path: 'fan', component: FanComponent},
       { path: 'chats/:id', component: ChatsComponent},
       { path: 'updates', component: UpdatesComponent},
