@@ -30,7 +30,9 @@ import { UpdatesComponent } from './pages/admin-home/updates/updates.component';
 import { TransactionsComponent } from './pages/admin-home/transactions/transactions.component';
 // import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { LightboxModule } from 'ngx-lightbox';
 import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
+import {NgxImageCompressService} from 'ngx-image-compress';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,13 +63,14 @@ import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/rede
     HttpClientModule,
     HttpModule,
     FormsModule,
+    LightboxModule,
     CommonModule,
     PdfJsViewerModule,
     IonicModule.forRoot(),
     AngularFileUploaderModule,
     // NgxQRCodeModule
   ],
-  providers: [HttpClient,IonicRouteStrategy],
+  providers: [HttpClient,IonicRouteStrategy,NgxImageCompressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

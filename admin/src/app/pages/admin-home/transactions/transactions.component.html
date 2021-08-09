@@ -3,9 +3,8 @@
 
   <div class="action-div" id="contentToConvert">
     <div class="alert alert-dark" role="alert">
-      he/she has
-      <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions right
-      now
+      request has
+      <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions
     </div>
     
     <input
@@ -45,8 +44,9 @@
 
     <div *ngIf="redemmable" class="alert alert-warning" style="float: right;clear: right;" role="alert">
       Redemmable {{redemmable}} Pesos
-       
-      <button class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
+      <img class="reciept" (click)="openimage()" [src]="base64data" *ngIf="base64data"/>
+       <button (click)="promiseCompressedImg()" >Upload Transfer Screenshot</button>
+      <button class="btn btn-warning" *ngIf="base64data" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
     </div>  
   </div>
 

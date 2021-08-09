@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { Lightbox } from 'ngx-lightbox';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,5 +16,8 @@ export class ServiceService {
 
  cachedmeddata:any
  editbool:boolean = false
-  constructor() { }
+  constructor(private _lightbox: Lightbox) { }
+  lightBoxOpen(images, index) {
+    this._lightbox.open(images, index);
+  }
 }

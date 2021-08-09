@@ -15,6 +15,7 @@ export class RedeemRequestsComponent implements OnInit {
   redeem_requests = Array();
   redeem_requests_count: number;
   id: any;
+  mybank_id:any;
 
   page: number;
   limit: number;
@@ -62,9 +63,9 @@ export class RedeemRequestsComponent implements OnInit {
     })
   }
 
-  viewTransaction(id){
+  viewTransaction(id,mybank_id){
    
-    this.router.navigate([`admin-home/transactions/${id}/${this.id}`])
+    this.router.navigate([`admin-home/transactions/${id}/${this.id}/${mybank_id}`])
   }
 
   
@@ -80,7 +81,7 @@ export class RedeemRequestsComponent implements OnInit {
       .subscribe((res) => {
         this.redeem_requests = res.json().redeem_requests;
         console.log(this.redeem_requests);
-        this.redeem_requests_count = res.json().transactions_count;
+        this.redeem_requests_count = res.json().requests_count;
 
         loader.style.display = 'none';
 
