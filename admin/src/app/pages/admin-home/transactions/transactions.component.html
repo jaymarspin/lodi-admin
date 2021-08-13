@@ -6,17 +6,8 @@
       request has
       <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions
     </div>
-    
-    <input
-      type="text"
-      id="search"
-      [(ngModel)]="search"
-      (keyup.enter)="searchact()"
-      placeholder="Search lodi"
-    />
-    
+   
 
-    <button class="tblaction" (click)="refreshed()">Refresh</button>
     <div *ngIf="mybanks" class="alert alert-primary" style="margin-left: 5px;float: left;clear: left;" role="alert">
       <ion-list>
         <ion-radio-group [(ngModel)]="chosenAccount">
@@ -26,17 +17,17 @@
       
           <ion-item *ngIf="mybanks.accountno">
             <ion-label>Bank Acount no.: {{mybanks.accountno}}</ion-label>
-            <ion-radio slot="start" [value]="'bank account:'+mybanks.accountno"></ion-radio>
+            <ion-radio slot="start" value="accountno"></ion-radio>
           </ion-item>
       
           <ion-item *ngIf="mybanks.gcash">
             <ion-label>Gcash: {{mybanks.gcash}}</ion-label>
-            <ion-radio slot="start" [value]="'Gcash: '+mybanks.gcash"></ion-radio>
+            <ion-radio slot="start" value="gcash"></ion-radio>
           </ion-item>
       
           <ion-item *ngIf="mybanks.paymaya">
             <ion-label>Paymaya: {{mybanks.paymaya}}</ion-label>
-            <ion-radio slot="start" [value]="'Paymaya:' + mybanks.paymaya"></ion-radio>
+            <ion-radio slot="start" value="paymaya"></ion-radio>
           </ion-item>
         </ion-radio-group>
       </ion-list>
@@ -44,8 +35,8 @@
 
     <div *ngIf="redemmable" class="alert alert-warning" style="float: right;clear: right;" role="alert">
       Redemmable {{redemmable}} Pesos
-      <img class="reciept" (click)="openimage()" [src]="base64data" *ngIf="base64data"/>
-       <button (click)="promiseCompressedImg()" >Upload Transfer Screenshot</button>
+      <!-- <img class="reciept" (click)="openimage()" [src]="base64data" *ngIf="base64data"/> -->
+       <!-- <button (click)="promiseCompressedImg()" >Upload Transfer Screenshot</button> -->
       <button class="btn btn-warning" *ngIf="base64data" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
     </div>  
   </div>

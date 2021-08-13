@@ -37,7 +37,7 @@ const routes: Routes = [
       { path: 'user', component: UsersComponent}, 
       { path: 'lodis', component: LodisComponent},
       { path: 'requests/:id', component: RedeemRequestsComponent},
-      { path: 'transactions/:id/:lodiid/:mybank_id', component: TransactionsComponent},
+      { path: 'transactions/:id/:lodiid/:mybank_id/:choosen', component: TransactionsComponent},
       { path: 'fan', component: FanComponent},
       { path: 'chats/:id', component: ChatsComponent},
       { path: 'updates', component: UpdatesComponent},

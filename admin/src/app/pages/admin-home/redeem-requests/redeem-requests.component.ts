@@ -63,9 +63,9 @@ export class RedeemRequestsComponent implements OnInit {
     })
   }
 
-  viewTransaction(id,mybank_id){
+  viewTransaction(id,mybank_id,bank_data){
    
-    this.router.navigate([`admin-home/transactions/${id}/${this.id}/${mybank_id}`])
+    this.router.navigate([`admin-home/transactions/${id}/${this.id}/${mybank_id}/${bank_data}`])
   }
 
   

@@ -32,6 +32,7 @@ export class TransactionsComponent implements OnInit {
   chosenAccount: any;
 
   redemmable:any 
+  choosen:any
 
   imgsrc: any;
   base64data: any;
@@ -48,7 +49,13 @@ export class TransactionsComponent implements OnInit {
     
     this.lodiid = this.activateRoute.snapshot.paramMap.get('lodiid');
     this.mybank_id = this.activateRoute.snapshot.paramMap.get('mybank_id');
-    
+  
+
+    this.choosen = this.activateRoute.snapshot.paramMap.get('choosen');
+    console.log(this.choosen)
+    if(this.choosen === 'account no'){
+      this.chosenAccount = 'accountno'
+    }
     this.page = 1;
     this.limit = 50;
     this.pagebtn = Array();
@@ -73,6 +80,7 @@ export class TransactionsComponent implements OnInit {
          
         this.mybanks = data.json().bankdetails
         this.mybanks = JSON.parse(this.mybanks) 
+        console.log(this.mybanks)
       }, error: err =>{
         console.log(err)
       }
@@ -105,9 +113,11 @@ export class TransactionsComponent implements OnInit {
     this.pagebtn = Array();
     var loader = document.getElementById('cover-spin');
     loader.style.display = 'block';
+    let link = `get-transactions.php?id=${this.id}&limit=${this.limit}&page=${pager}`
+    console.log(link)
   await  this.http
       .getData(
-        `get-transactions.php?id=${this.id}&limit=${this.limit}&page=${pager}`
+        link
       )
       .subscribe((res) => {
         this.redemmable = 0

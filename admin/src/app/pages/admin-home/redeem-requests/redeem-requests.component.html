@@ -8,17 +8,7 @@
         now
       </div>
       
-      <input
-        type="text"
-        id="search"
-        [(ngModel)]="search"
-        (keyup.enter)="searchact()"
-        placeholder="Search lodi"
-      />
-      
-  
-      <button class="tblaction" (click)="refreshed()">Refresh</button>
-      <!-- <div *ngIf="mybanks" class="alert alert-primary" style="margin-left: 5px;float: left;clear: left;" role="alert">
+    <!-- <div *ngIf="mybanks" class="alert alert-primary" style="margin-left: 5px;float: left;clear: left;" role="alert">
         <ion-list>
           <ion-radio-group [(ngModel)]="chosenAccount">
             <ion-list-header>
@@ -65,11 +55,21 @@
       </thead>
   
       <tbody *ngIf="redeem_requests">
-        <tr *ngFor="let item of redeem_requests; index as i" (click)="viewTransaction(item.id,item.mybank_id)">
+        <tr *ngFor="let item of redeem_requests; index as i" (click)="viewTransaction(item.id,item.mybank_id,item.bank_data)">
           <td>{{item.bank_data}}</td>
-          <td>{{item.value}}</td>
+          <td>{{item.amount}}</td>
           <td>{{item.date_created}}</td>
-          <td>{{item.talent}}</td>
+          <td>
+            <div class="alert alert-success" *ngIf="item.redeem === 1;else notredeem" role="alert">
+              Successfully Redeemed
+            </div>
+            <ng-template #notredeem>
+              <div class="alert alert-dark" role="alert">
+                Not yet redeem
+              </div>
+            </ng-template>
+            
+          </td>
           
         
           
