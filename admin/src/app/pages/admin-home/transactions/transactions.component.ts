@@ -108,7 +108,7 @@ export class TransactionsComponent implements OnInit {
  });
 
   
-
+ redeemed:any = 0
  async getdata(pager) {
     this.pagebtn = Array();
     var loader = document.getElementById('cover-spin');
@@ -137,7 +137,7 @@ export class TransactionsComponent implements OnInit {
           if(element.redemmed === false){
             this.redemmable += parseFloat(element.value)
           }
-          
+          this.redeemed +=parseFloat(element.value)
           
         });
       });

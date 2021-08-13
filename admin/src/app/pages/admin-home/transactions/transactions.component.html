@@ -33,11 +33,11 @@
       </ion-list>
     </div>
 
-    <div *ngIf="redemmable" class="alert alert-warning" style="float: right;clear: right;" role="alert">
-      Redemmable {{redemmable}} Pesos
+    <div class="alert alert-warning" style="float: right;clear: right;" role="alert">
+      Redemmable {{redeemed}} Pesos
       <!-- <img class="reciept" (click)="openimage()" [src]="base64data" *ngIf="base64data"/> -->
        <!-- <button (click)="promiseCompressedImg()" >Upload Transfer Screenshot</button> -->
-      <button class="btn btn-warning" *ngIf="base64data" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
+      <button *ngIf="redemmable"  class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
     </div>  
   </div>
 
