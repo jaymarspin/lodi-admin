@@ -48,9 +48,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },{ path: 'cert/:id', component: CertComponent},
   { path: 'cert', component: CertComponent},
-
-  
-  
   ]},{ path: 'certview', component: ViewcertComponent}
 
 ];

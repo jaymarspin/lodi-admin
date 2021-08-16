@@ -33,6 +33,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { LightboxModule } from 'ngx-lightbox';
 import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
 import {NgxImageCompressService} from 'ngx-image-compress';
+import { FanTransactionsComponent } from './pages/admin-home/fan-transactions/fan-transactions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import {NgxImageCompressService} from 'ngx-image-compress';
     ChatsComponent,
     UpdatesComponent,
     TransactionsComponent,
-    RedeemRequestsComponent, 
+    RedeemRequestsComponent,
+    FanTransactionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,4 +75,4 @@ import {NgxImageCompressService} from 'ngx-image-compress';
   providers: [HttpClient,IonicRouteStrategy,NgxImageCompressService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } 
