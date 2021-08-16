@@ -23,41 +23,6 @@
                  
               
           </div>
-
-          <div class="row">
-            <div class="col-1">
-              <button class="filter" data-toggle="modal" data-target="#filter" >Filter</button>
-            </div>
-            <div class="col-11" class="filterwrap">
-              <ng-container *ngIf="filtergo"><span *ngFor="let item of filterarray">{{item}}</span></ng-container>
-              
-            </div>
-          </div>
-          <!-- <select class="custom-select" id="selector" [(ngModel)]="filterCustomer" (change)="changeFilter()">
-            <option value="all" selected>all</option>
-            <option value="active">active</option>
-            <option value="paid" selected>paid</option>
-            <option value="repo">repo</option>
-            
-           
-        </select> -->
-         
-      <!-- <div class="pager">
-        <ul>
-          <li><select class="custom-select" id="selector" class="selector2" [(ngModel)]="limit" (change)="changeLimit()">
-            <option value="100">100 results</option>
-            <option value="250">250 results</option>
-            <option value="500">500 results</option>
-            <option value="1000">1000 results</option>
-            <option value="5000">5000 results</option>
-            <option value="13000">13000 results</option>
-            <option value="0">all results</option>
-          </select></li>
-         
-        </ul>
-      </div> -->
-    
-      
           <table class="table"  >
                   <thead class="thead-dark">
                     <tr>
@@ -65,19 +30,7 @@
                       <th>Last Name</th> 
                       <th>Contact</th> 
                       <th>Email</th> 
-                      <th>Social</th>
-                      <th>Followers</th>
-                      
-                     
-                      
-                     
-                      <!-- <th>EMPLOYMENT STATUS</th> -->
-                      <!-- <th>SALARY</th> -->
-                      
-                      
-                      
-                      
-                      
+                  
                       <th>Actions</th> 
                       
                     </tr>
@@ -85,47 +38,16 @@
                   
      
                   <tbody *ngIf="lodis">
-                    <tr *ngFor="let item of lodis;index as i" [attr.data-index]="i"  >
+                    <tr *ngFor="let item of lodis;index as i"  >
                       <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)" >{{item.fname}}</td>
                       <td data-toggle="modal" data-target="#lodiinfo"(click)="cached(item)" >{{item.lname}}</td>
                       <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.contact}}</td>
                       <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.email}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.social}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.followers}}</td>
-                   
-               
-                      
-                      <!-- <td>{{item.employment_status}}</td>  -->
-                      <!-- <td>{{item.voters_status}}</td>   -->
-                      
-                    <td> 
-                      <!-- <button data-toggle="modal" (click)="cacheData(item)" data-toggle="modal" data-target="#teaser">Teaser</button>  -->
-                          <!-- <button data-toggle="modal" data-target="#exampleModalCenter"  (click)="familySelected(item.id)">FAMILY</button>  -->
-                          <!-- <button (click)="viewCert()">PRINT</button>  -->
-                          <!-- <button (click)="cacheData(item)" data-toggle="modal" data-target="#exampleModalLong" >PRINT</button>
-                   
-                       <button (click)="delete(item.id)" *ngIf="userType == 1">DELETE</button>
-    
-                     
-                      </td>
-                    </tr>
-               
-                 
-                    
-                   
-                    
-                   
-                    <!-- <th>EMPLOYMENT STATUS</th> -->
-                    <!-- <th>SALARY</th> -->
-                    
-                    
-               
-  
-  
-                 
-  
-  
-  
+                      <td>
+                      <button (click)="inactivate(item)" >Inactivate</button> 
+                      <button data-toggle="modal" data-target="#lodiinfo" (click)="gettransactions(item)" >Transactions</button> 
+           
+                    </td>
                 </tbody>
   
               </table>
@@ -150,72 +72,47 @@
         </div>
 
         <div class="modal-body">
-
-          <div class="row">
-            <div class="col">
-              <video  *ngIf="teaserplay" width="320" height="240" controls>
-                <source   src="{{http.server}}{{teaserplay}}" type="video/mp4"> 
-               
-              </video>
-            </div>
+          <div class="alert alert-warning" role="alert">
+            Has {{transactionsCount}} transaction(s)
           </div>
-          <div class="row" > 
-            <div class="col">
-              <label>First Name</label>
-              <input type="text" [(ngModel)]="fname" class="form-control">
-            </div>
-            <div class="col">
-              <label>Last Name</label>
-              <input type="text" [(ngModel)]="lname" class="form-control">
-            </div>
-           
-          </div>
-  
-          <div class="row"> 
-            <div class="col">
-              <label>Email</label>
-              <input type="text" [(ngModel)]="email" class="form-control">
-            </div>
-            <div class="col">
-              <label>Contact</label>
-              <input type="text" [(ngModel)]="contact" class="form-control">
-            </div>
-           
-          </div>
-          <div class="row"> 
-            <div class="col">
-              <label>Category</label>
-              
-              <select [(ngModel)]="category" class="form-control">
-                <option *ngFor="let item of categories" [value]="item.value">{{item.title}}</option>
-                
-              </select>
-  
-              
-            </div>
-            
-           
-          </div>
-          <div class="row"> 
-            <div class="col">
-              <label>Approve?</label>
-              
-              <select [(ngModel)]="approved" class="form-control">
-                <option value="1" selected>Yes</option>
-                <option value="0">Not now</option>
-              </select>
-  
-              
-            </div>
-            
-           
-          </div>
-      
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>Fan</th>
+                <th>Amount</th>
+                <th>Talent</th>
+                <th>Status</th>
+                <th>link</th>
+                <th>Redeem status</th>
+                <th>Date Request</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
         
-    <button type="button"   data-dismiss="modal" class="btn btn-primary" (click)="updateLodi()" style="padding-right:60px">UPDATE</button>
-   
- 
-      
+            <tbody *ngIf="transactions">
+              <tr *ngFor="let item of transactions; index as i" >
+                <td>{{item.fan.fname}} {{item.fan.lname}}</td>
+                <td>{{item.value}}</td>
+                <td>{{item.talent}}</td>
+                <td><span *ngIf="item.accepted === false; else accepted">not yet responded</span><ng-template #accepted><span>Responded</span></ng-template>
+                </td>
+                <td></td>
+                <td>
+                  <ion-label>Redem Status</ion-label>
+            <!-- <ion-select placeholder="Select One" [value]="item.redemmed" (ionChange)='redemmedaction($event,item.id)'>
+              <ion-select-option value="true" >Redemmed</ion-select-option>
+              <ion-select-option value="false" >Not Yet Redemmed</ion-select-option>
+            </ion-select> -->
+                  <ion-label style="color: red;" *ngIf="item.redemmed === false; else redemmed">not yet redemmed</ion-label><ng-template #redemmed><ion-label style="color: green;">redemmed</ion-label></ng-template>
+                </td>
+                <td>{{item.date_created}}</td>
+                <td>
+                  
+                </td>
+                
+              </tr>
+            </tbody>
+          </table>
          
         </div>
         <!-- <div class="modal-footer">
@@ -226,63 +123,9 @@
     </div>
   </div>
 
-  <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Filter</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <ng-container >
-            
-          </ng-container>
-
-          <ul class="filter-wrapper">
-            <li *ngFor="let item of categories; index as i" [attr.data-index]="i">
-
-              <span>{{item.title}}</span><input type="checkbox" value="item.value" (click)="cachedfilter($event,i)"/>
-            </li>
-          </ul>
-          
-        
-        
-    <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="filternow()">Done</button>
-   
-        </div>
   
-      </div>
-    </div>
-  </div>
-  
-
-  <div class="modal fade" id="teaser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Teaser</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          
-          
-          <div class="form-group col-12" >
-          <input id="input-b4" class="form-control" name="input-b4[]" data-allowed-file-extensions='["mp4"]'  type="file" class="file" multiple  (change)="handleUpload($event)"
-        data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select {files} for upload...">
-      </div>
-        
        
-    <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="uploadteaser()">Done</button>
-   
-        </div>
   
-      </div>
-    </div>
-  </div>
-  
+
   
   
