@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild,NgZone, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit,ViewChild,NgZone, ChangeDetectorRef } from '@angular/core';
 
  import { Router } from '@angular/router'
  import { ServiceService } from '../../../services/service.service'
@@ -9,6 +9,7 @@ import Swal from 'sweetalert2'
 import * as $ from 'jquery'
 import { AngularFileUploaderComponent } from "angular-file-uploader";
 import * as replaceStr from 'replace-string'
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-lodis',
   templateUrl: './lodis.component.html',
@@ -20,7 +21,7 @@ export class LodisComponent implements OnInit {
 
   loader:any
   customers = 6546798
-  lodis = Array()
+  lodis = Array<any>()
   lodisCount:number
   base64: any
 
@@ -52,7 +53,7 @@ export class LodisComponent implements OnInit {
 
    usershow:boolean = false
   
-   categories:any = Array()
+   categories:any = Array<any>()
    userType:any
 
    filtergo:boolean = false
@@ -109,7 +110,7 @@ fansignamount
  
 private fileUpload1:  AngularFileUploaderComponent;
   constructor(private cd: ChangeDetectorRef,
-    private zone: NgZone,private router: Router,public service: ServiceService,public http: HttpRequestService) {
+    private zone: NgZone,private router: Router,public service: ServiceService,public http: HttpRequestService,public dialog:MatDialog) {
     this.page = 1
     this.limit = 50
     this.pagebtn = Array()
@@ -226,6 +227,35 @@ private fileUpload1:  AngularFileUploaderComponent;
     var dataURL = canvas.toDataURL("image/png");
     return dataURL;
   }
+
+
+  addSomething(){
+    let body = {
+      name: 'king',
+      age: '16',
+    }
+    const url = 'addLodi.php'
+    this.http.postData(url,body).subscribe({
+      next: data =>{
+        //success
+        
+        // this.router.navigate([])
+      },
+      error: err =>{
+        //do something ex: console.log(`may error ${err}`)
+      }
+    })
+  }
+
+  // getSomething(){
+  //   this.http.getData('lodis.php').subscribe({
+  //     next: data =>{
+  //       console.log(data)
+  //     },error: err =>{
+  //       console.log(err)
+  //     }
+  //   })
+  // }
 
   cached(item){
     delete(this.teaserplay)
@@ -576,6 +606,7 @@ handleUpload(event) {
 
 gotochats(id){
   this.router.navigate(["admin-home/chats",id])
+  
 }
 
 transaction(id){
@@ -627,7 +658,28 @@ addbio(){
 addtalent(){
   alert("adawdawd")
 }
+opendialog(){
+  this.dialog.open(LodisModal,{
+    width:'500px',
+    height:'500px'
+  })
+}
+
 
 
 }
+@Component({
+  selector:'lodis-modal',
+  templateUrl:'./lodis.Modal.html'
+})
+export class LodisModal implements OnInit{
 
+
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  constructor(public dialogRef: MatDialogRef<LodisModal>){}
+  
+}

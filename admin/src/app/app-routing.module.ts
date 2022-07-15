@@ -17,6 +17,11 @@ import { ChatsComponent } from '../app/pages/admin-home/chats/chats.component'
 import { UpdatesComponent } from '../app/pages/admin-home/updates/updates.component'
 import { TransactionsComponent } from './pages/admin-home/transactions/transactions.component';
 import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
+import { TryComponent } from './pages/try/try.component';
+import { SpreadsheetComponent } from './pages/admin-home/spreadsheet/spreadsheet.component';
+import { ChartsComponent } from './pages/charts/charts.component';
+import { AdminChatsComponent } from './otherpages/admin-chats/admin-chats.component';
+import { EmailComponent } from './email/email.component';
 
 const routes: Routes = [
   { 
@@ -30,9 +35,14 @@ const routes: Routes = [
   { path: 'addmedical', component: AddmedicalComponent},
   { path: 'admin-home', component: AdminHomeComponent,children: [
       {  path: '',
-        redirectTo: 'lodis',
+        redirectTo: 'spreadsheet',
         pathMatch: 'full'
-      },{ path: 'addcert', component: AddcertComponent},
+      },{path:'spreadsheet',component:SpreadsheetComponent,children:[
+        { path:'',
+          redirectTo:'lodis',
+          pathMatch:'full'
+        },
+        { path: 'addcert', component: AddcertComponent},
       { path: 'certlisting', component: CertlistingComponent},
       { path: 'user', component: UsersComponent}, 
       { path: 'lodis', component: LodisComponent},
@@ -42,7 +52,15 @@ const routes: Routes = [
       { path: 'chats/:id', component: ChatsComponent},
       { path: 'updates', component: UpdatesComponent},
       
-  ]},{path: 'client-home', component: ClientHomeComponent,children:[
+      
+    ]
+  },
+  {path:'try',component:TryComponent},
+  {path:'charts',component:ChartsComponent},
+  { path: 'chat', component:AdminChatsComponent},
+  { path:'email', component:EmailComponent}    
+  ]}
+  ,{path: 'client-home', component: ClientHomeComponent,children:[
     {  path: '',
     redirectTo: 'cert',
     pathMatch: 'full'

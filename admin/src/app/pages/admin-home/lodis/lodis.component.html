@@ -2,6 +2,7 @@
  
       <div id="cover-spin"></div>
           <div class="action-div" id="contentToConvert" >
+            <button mat-button (click)="opendialog()">dialog open</button>
                   <div class="alert alert-dark" role="alert" >
                           There are <strong *ngIf="lodis">{{lodisCount}}</strong> lodi right now
                       </div>
@@ -40,7 +41,7 @@
      
                   <tbody *ngIf="lodis">
                     <tr *ngFor="let item of lodis;index as i" [attr.data-index]="i"  >
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)" >{{item.fname}}</td>
+                      <td data-toggle="modal" data-target="#lodiinfo" (click)="opendialog()" >{{item.fname}}</td>
                       <td data-toggle="modal" data-target="#lodiinfo"(click)="cached(item)" >{{item.lname}}</td>
                       <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.contact}}</td>
                       <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.email}}</td>
@@ -70,7 +71,7 @@
   
   
   
-  <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -144,7 +145,7 @@
     </div>
   </div>
 
-  <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -174,7 +175,7 @@
   </div>
   
 
-  <div class="modal fade" id="teaser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="teaser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -201,7 +202,7 @@
   </div>
   
 
-  <div class="modal fade" id="talent_fee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="talent_fee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -255,7 +256,7 @@
 
 
 
-  <div class="modal fade" id="bio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="bio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -282,7 +283,7 @@
   </div>
 
 
-  <div class="modal fade" id="talents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="talents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

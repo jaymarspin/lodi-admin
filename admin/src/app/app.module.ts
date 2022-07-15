@@ -7,7 +7,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
-import { HeadComponent } from './shared/components/head/head.component';
+import { HeadComponent, SignOutHtml } from './shared/components/head/head.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { AddcertComponent } from './pages/admin-home/addcert/addcert.component';
@@ -22,7 +22,7 @@ import { ReportComponent } from './report/report.component';
 import { AddmedicalComponent } from './pages/addmedical/addmedical.component';
 import { SafePipe } from './safe.pipe'; 
 import { ViewcertComponent } from './pages/admin-home/viewcert/viewcert.component';
-import { LodisComponent } from './pages/admin-home/lodis/lodis.component'; 
+import { LodisComponent, LodisModal } from './pages/admin-home/lodis/lodis.component'; 
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { FanComponent } from './pages/admin-home/fan/fan.component';
 import { ChatsComponent } from './pages/admin-home/chats/chats.component';
@@ -34,6 +34,16 @@ import { LightboxModule } from 'ngx-lightbox';
 import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
 import {NgxImageCompressService} from 'ngx-image-compress';
 import { FanTransactionsComponent } from './pages/admin-home/fan-transactions/fan-transactions.component';
+import { MaterialAll } from '../material.module';
+import { TryComponent, TryHtml } from './pages/try/try.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SpreadsheetComponent } from './pages/admin-home/spreadsheet/spreadsheet.component';
+import { ChartsComponent } from './pages/charts/charts.component';
+import { NgChartsModule } from 'ng2-charts';
+import { SidenavComponent } from './sidenav/sidenav/sidenav.component';
+import { AdminChatsComponent } from './otherpages/admin-chats/admin-chats.component';
+import { EmailPipe } from './email.pipe';
+import { EmailComponent } from './email/email.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +68,16 @@ import { FanTransactionsComponent } from './pages/admin-home/fan-transactions/fa
     TransactionsComponent,
     RedeemRequestsComponent,
     FanTransactionsComponent,
+    TryComponent,
+    SpreadsheetComponent,
+    ChartsComponent,
+    SidenavComponent,
+    SignOutHtml,
+    TryHtml,
+    LodisModal,
+    AdminChatsComponent,
+    EmailPipe,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +90,10 @@ import { FanTransactionsComponent } from './pages/admin-home/fan-transactions/fa
     PdfJsViewerModule,
     IonicModule.forRoot(),
     AngularFileUploaderModule,
+    MaterialAll,
+    BrowserAnimationsModule,
+    NgChartsModule
+    
     // NgxQRCodeModule
   ],
   providers: [HttpClient,IonicRouteStrategy,NgxImageCompressService],

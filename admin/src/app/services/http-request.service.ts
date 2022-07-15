@@ -5,6 +5,10 @@ import "rxjs-compat"
 import { Router } from '@angular/router'
 
 import { apiURL } from '../../environments/environment';
+// interface something {
+//     jonas: string;
+
+// }
 import axios from 'axios'
 @Injectable({
   providedIn: 'root'
@@ -13,6 +17,8 @@ export class HttpRequestService {
   server: string
   brgyid:number
   userid:number
+
+  
   constructor(public http: Http,public router: Router) {
     this.server = apiURL
 
@@ -28,6 +34,10 @@ export class HttpRequestService {
     return this.http.post(this.server + file, JSON.stringify(body), options).map(res => res)
 
   }
+
+  // delete(){
+  //   this.http.put('awdawd.php',{url:'adwdaw'})
+  // }
 
   getData(file){
 
