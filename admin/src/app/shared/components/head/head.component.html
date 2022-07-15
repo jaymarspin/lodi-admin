@@ -1,8 +1,33 @@
 <div class="head" id="head">
-    <div class="timestamp">
-        <span>{{timestamp}}</span>
+    <mat-toolbar class="head-container">
+        <button mat-button (click)="sidenavigate.toggle()" class='buttonmenu'><mat-icon>menu</mat-icon></button> 
+        <span class="example-spacer"></span>
+        <div class="timestamp">
+            <span>{{timestamp}}</span>
+        </div>
+        <mat-option (click)="signout()"><mat-icon class="icons">logout</mat-icon>SIGN OUT</mat-option>
+      </mat-toolbar>
+      <mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
+        <mat-sidenav #sidenavigate mode="push">
+            <mat-nav-list style="width: 15vh;">
+                <mat-list-item mat-stroked-button class="fontad" [routerLink]="['/admin-home/spreadsheet/lodis']" routerLinkActive="router-link-active" ><mat-icon class="icons">dashboard</mat-icon> Dashboard</mat-list-item>
+                <mat-list-item mat-stroked-button class="fontad" [routerLink]="['/admin-home/try']" routerLinkActive="router-link-active" ><mat-icon class="icons">directions-run</mat-icon>try</mat-list-item>
+                <mat-list-item mat-stroked-button class="fontad" routerLink="charts" ><mat-icon class="icons">area_chart</mat-icon>Charts</mat-list-item>
+                <mat-list-item mat-stroked-button class="fontad" [routerLink]="['/admin-home/chat']" routerLinkActive="router-link-active"><mat-icon class="icons">chat</mat-icon>Chats</mat-list-item>
+                <mat-list-item mat-stroked-button class="fontad" [routerLink]="['/admin-home/email']">Email</mat-list-item>
+                
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content >
+            <div style="height:150vh;">
+                
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 
-    </div>
+      
+    
     <!-- <div id="logo">
       
        

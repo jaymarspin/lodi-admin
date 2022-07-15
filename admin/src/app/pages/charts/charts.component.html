@@ -1,0 +1,78 @@
+<h1>charts</h1>
+<div >
+    <mat-list>
+        <mat-grid-list cols="4" rowHeight="150px">
+            <mat-list-item >
+                <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" style="height: 500px;">
+                <mat-card style="width: 100%;height: 150px;" class="List-of-activity">
+                    <mat-label>{{tile.text}}</mat-label>
+                    <mat-icon class="material-symbols-outlined">{{tile.icon}}</mat-icon>
+                    <div style="height: 50px;"></div>
+                    <p mat-card-subtitle style="font-size: 25px;">{{tile.description}}</p>
+                    <mat-progress-bar mode="determinate" value="{{tile.value}}"></mat-progress-bar>
+                </mat-card>
+                </mat-grid-tile>
+            </mat-list-item>
+            
+        </mat-grid-list>
+    </mat-list>    
+</div>
+<div class="container">
+<ng-container>
+    <div class="d-flex justify-content-start">
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+            <div >
+                <p>hello</p>
+            </div>
+        </div>
+        <div class="w-1"></div>
+        <div class="d-flex justify-content-end">
+            <mat-card style="width: 900px;margin: 0px;margin-left: 2%;height: 450px;padding: 30px;">
+                <mat-grid-list cols="2">
+                    <mat-label style="font-size: 20px;">Pie Chart</mat-label>
+                    <mat-grid-tile>
+                        <div id="piechart-container">
+                            <canvas id="piechart"></canvas>
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <p>Total of user of All the Websites{{tiles.values}}</p>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-card>
+        </div>
+    </div>
+</ng-container>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 90%;position:absolute;top:50%;height: 50%;">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Net worth </th>
+      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Fans </th>
+      <td mat-cell *matCellDef="let element"> {{element.Fans}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

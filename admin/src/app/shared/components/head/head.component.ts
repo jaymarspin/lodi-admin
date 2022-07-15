@@ -45,4 +45,25 @@ export class HeadComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['sign'])
    }
+   route($event){
+
+    this.router.navigate(["admin-home/spreadsheet/"+$event]);
+
+
+  }
+  signout(){
+    localStorage.clear()
+    this.router.navigate([''])
+  }
+
+
+
+}
+@Component({
+  selector: 'signout-html',
+  templateUrl:'signout.html',
+})
+export class SignOutHtml{
+  
+
 }
