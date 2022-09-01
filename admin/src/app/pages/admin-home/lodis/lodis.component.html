@@ -1,17 +1,56 @@
 <div class="main-wrapper" id="canvas">
  
       <div id="cover-spin"></div>
+<<<<<<< Updated upstream
           <div class="action-div" id="contentToConvert" >
                   <div class="alert alert-dark" role="alert" >
                           There are <strong *ngIf="lodis">{{lodisCount}}</strong> lodi right now
                       </div>
                   <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search lodi"> 
+=======
+      <div class="action-div" id="contentToConvert" >
+                  
+                  <div role="alert" >
+                    <h3>Lodis (
+                    <strong *ngIf="lodis">{{lodisCount}}</strong>
+                    )
+                    </h3>
+                  </div>
+>>>>>>> Stashed changes
                  
-                  <button class="tblaction" (click)="refreshed()" >Refresh</button>
-     
+                  <div>
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                          <div class="input-group">
+                              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                  aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="search" (keyup.enter)="searchact()">
+                              <div class="input-group-append" style="position: relative;top:-2px;height:42px;">
+                                  <button class="btn btn-warning" type="button"(click)="refreshed()">
+                                      <i class="bi bi-search"></i>
+                                  </button>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  
+                  <!-- <div class="dropshere dropdown justify-content-start">
+                    <ion-label style="position: relative;">Ratings</ion-label>
+                    <button class="btn btn-warning dropdown-toggle w-50" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      All
+                    </button>
+                  
+                    <ul class="dropdown-menu" style="z-index: 999998;">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div> -->
                  
               
           </div>
+          
+          
+      <div class="tabled">
+          
 
           <div class="row">
             <div class="col-1">
@@ -22,17 +61,22 @@
             </div>
           </div>
      
+<<<<<<< Updated upstream
           <table class="table"  >
                   <thead class="thead-dark">
+=======
+          <table class="table" style="border-collapse: collapse; width: 100%; ">
+                  <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
+>>>>>>> Stashed changes
                     <tr>
-                      <th>First Name</th> 
-                      <th>Last Name</th> 
-                      <th>Contact</th> 
-                      <th>Email</th> 
-                      <th>Social</th>
-                      <th>Followers</th>
+                      <th>First Name<i class="bi bi-chevron-down"></i></th> 
+                      <th>Last Name<i class="bi bi-chevron-down"></i></th> 
+                      <th>Contact<i class="bi bi-chevron-down"></i></th> 
+                      <th>Email<i class="bi bi-chevron-down"></i></th> 
+                      <th>Social<i class="bi bi-chevron-down"></i></th>
+                      <th>Followers<i class="bi bi-chevron-down"></i></th>
                     
-                      <th>Actions</th> 
+                      <th>Actions<i class="bi bi-chevron-down"></i></th> 
                       
                     </tr>
                   </thead>
@@ -48,12 +92,23 @@
                       <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.followers}}</td>
                 
                     <td> 
-                      <button data-toggle="modal" (click)="talent_fee_chached(item)" data-toggle="modal" data-target="#talent_fee">Talent Fee</button> 
+                      <!-- <button data-toggle="modal" (click)="talent_fee_chached(item)" data-toggle="modal" data-target="#talent_fee">Talent Fee</button> 
                       <button data-toggle="modal" (click)="transaction(item.id)" >View Redeem Requests</button> 
                       <button data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#bio">Bio</button> 
                       <button data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#talents">Talents</button> 
-                       
-                     
+                        -->
+                        <div class="dropshere dropdown justify-content-start">
+                          
+                            <i class="bi bi-three-dots w-50" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                          
+                        
+                          <ul class="dropdown-menu" style="z-index: 999998;">
+                            <li><button class="dropdown-item" data-toggle="modal" (click)="talent_fee_chached(item)" data-toggle="modal" data-target="#talent_fee">Talent Fee</button></li>
+                            <li><button class="dropdown-item" data-toggle="modal" (click)="transaction(item.id)" >View Redeem Requests</button> </li>
+                            <li><button class="dropdown-item" data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#bio">Bio</button></li>
+                            <li><button class="dropdown-item" data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#talents">Talents</button> </li>
+                          </ul>
+                        </div>
                       </td>
                     </tr>
                
@@ -70,7 +125,13 @@
   
   
   
+<<<<<<< Updated upstream
   <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+=======
+
+  <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
+
+>>>>>>> Stashed changes
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -144,7 +205,13 @@
     </div>
   </div>
 
+<<<<<<< Updated upstream
   <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+=======
+
+  <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
+
+>>>>>>> Stashed changes
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -201,7 +268,13 @@
   </div>
   
 
+<<<<<<< Updated upstream
   <div class="modal fade" id="talent_fee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+=======
+
+  <div class="modal fade" id="talent_fee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
+
+>>>>>>> Stashed changes
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -255,7 +328,13 @@
 
 
 
+<<<<<<< Updated upstream
   <div class="modal fade" id="bio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+=======
+
+  <div class="modal fade" id="bio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
+
+>>>>>>> Stashed changes
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -266,7 +345,7 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <!-- <label for="formGroupExampleInput">Example label</label> -->
+            <label for="formGroupExampleInput">Example label</label> -->
             <textarea disabled [(ngModel)]="bio" class="form-control" rows="7" placeholder="Example input">
 
 
@@ -282,7 +361,13 @@
   </div>
 
 
+<<<<<<< Updated upstream
   <div class="modal fade" id="talents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+=======
+
+  <div class="modal fade" id="talents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
+
+>>>>>>> Stashed changes
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -307,8 +392,14 @@
   
       </div>
     </div>
+
+
+
+    
   </div>
-  
+  <ion-footer style="height: 200px;padding: 40px;">
+    
+  </ion-footer>
   
   
   

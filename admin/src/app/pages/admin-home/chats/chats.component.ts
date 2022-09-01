@@ -146,7 +146,7 @@ caching:any
     this.pagebtn = Array()
     var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
-    this.http.getData("get-lodi-chats.php?limit="+this.limit+"&page="+pager+"&id="+this.id).subscribe(res =>{
+    this.http.getData("get-lodi-chats.php?limit="+this.limit+"&page="+pager+"&id="+51).subscribe(res =>{
        console.log(res.json())
       this.chats = res.json().chats
       this.chat_count = res.json().chat_count

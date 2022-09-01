@@ -34,6 +34,8 @@ import { LightboxModule } from 'ngx-lightbox';
 import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
 import {NgxImageCompressService} from 'ngx-image-compress';
 import { FanTransactionsComponent } from './pages/admin-home/fan-transactions/fan-transactions.component';
+import { FeedsComponent } from './feeds/feeds.component';
+import { ChartsComponent } from './pages/charts/charts.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +60,8 @@ import { FanTransactionsComponent } from './pages/admin-home/fan-transactions/fa
     TransactionsComponent,
     RedeemRequestsComponent,
     FanTransactionsComponent,
+    FeedsComponent,
+    ChartsComponent,
   ],
   imports: [
     BrowserModule,

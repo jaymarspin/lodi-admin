@@ -7,6 +7,7 @@
        <img id="right" src="assets/logo/moh-logo.png" />
      </div>
     </div> -->
+<<<<<<< Updated upstream
       <div id="cover-spin"></div>
           <!-- <app-modal [method]="method" [showId] = "showId" (done)='doneChange($event)'></app-modal> -->
                
@@ -14,15 +15,41 @@
                   <div class="alert alert-dark" role="alert" >
                           There are <strong *ngIf="updates">{{updatescount}}</strong> lodi right now
                       </div>
+=======
+    <div class="action-div" id="contentToConvert" >
+                  
+>>>>>>> Stashed changes
                       <!-- <button class="tblaction upload" (click)="addcert()" >UPLOAD RT-PCR</button>  -->
                      <!-- <button class="tblaction upload" data-toggle="modal" data-target="#report" *ngIf="userType == 1">Reports</button> -->
-                  <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search lodi"> 
+                  
+                  <div role="alert" >
+                    <h3>Updates (
+                    <strong *ngIf="updates">{{updatescount}}</strong>
+                    )
+                    </h3>
+                  </div>
                  
-                  <button class="tblaction" (click)="refreshed()" >Refresh</button>
-     
+                  <div>
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                          <div class="input-group">
+                              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                  aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="search" (keyup.enter)="searchact()">
+                              <div class="input-group-append" style="position: relative;top:-2px;height:42px;">
+                                  <button class="btn btn-warning" type="button"(click)="refreshed()">
+                                      <i class="bi bi-search"></i>
+                                  </button>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
                  
               
           </div>
+    <div class="tabled">
+          
+      <div id="cover-spin"></div>
+          <!-- <app-modal [method]="method" [showId] = "showId" (done)='doneChange($event)'></app-modal> -->
+          
 
           <div class="row">
             <div class="col-1">
@@ -56,12 +83,16 @@
     
       
           <table class="table"  >
+<<<<<<< Updated upstream
                   <thead class="thead-dark">
+=======
+                  <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
+>>>>>>> Stashed changes
                     <tr>
-                      <th>Date Created</th> 
-                      <th>Descriptions</th> 
-                      <th>Media</th> 
-                      <th>Actions</th> 
+                      <th>Date Created<i class="bi bi-chevron-down"></i></th> 
+                      <th>Descriptions<i class="bi bi-chevron-down"></i></th> 
+                      <th>Media<i class="bi bi-chevron-down"></i></th> 
+                      <th>Actions<i class="bi bi-chevron-down"></i></th> 
                       
                       
                      

@@ -196,6 +196,7 @@ private fileUpload1:  AngularFileUploaderComponent;
       value: "businesstycon",
       css: "unselected"
     })
+    
 
    }
   ngOnInit(): void {
@@ -217,6 +218,19 @@ private fileUpload1:  AngularFileUploaderComponent;
 
 
   }
+  
+
+
+
+
+
+
+
+
+
+
+
+
   getBase64Image(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;

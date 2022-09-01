@@ -194,7 +194,13 @@ caching:any
 
 
 reportData:any
+<<<<<<< Updated upstream
 
+=======
+navigateFanTransactions($event){
+  this.router.navigate([`/admin-home/transactions/id=${$event}`])
+}
+>>>>>>> Stashed changes
 
 delete(id){
   let data = {

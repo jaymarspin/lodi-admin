@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .main-wrapper{
     padding-top: 50px;
     
@@ -65,127 +66,24 @@ table thead tr th,table tbody tr td,table tbody tr th{
     background-color: #ccc;
     
 }#selector{
+=======
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+>>>>>>> Stashed changes
     width: 100%;
-    margin-top: -20px;
-    margin-bottom: 30px;
-    clear: both;
-    display: block;
-    position: relative;
-}.pager{
-    float: right;
-    position: relative;
-    clear: right; 
-    margin-right: 20px;
-    top: 20px;
-}.pager ul li{
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer;
-     
-}.pager ul{
-    list-style-type: none;
-    padding: 0
-}.pager ul li span:hover{
-    text-decoration: underline;
-}.btn{
-    position: relative;
-    margin-right: 5px;
-    width: 50px;
-    float: right;
-}.action-btn:hover{
-    height: 40px;
-    width: 40px;
-    transition: all 0.8s;
-}
-img{
-    height: 20px;
-    width: 20px;
-}.residentadd{
-    position: relative;
-    float: left;
-    clear: both;
-    width: 200px;
-    margin-bottom: 10px;
-}.form-control{
-    margin-bottom: 10px;
-}.tab-content-wrapper{
-    position: relative;
-    margin-top: 20px;
-}.tblaction{
-    position: relative;
-    float: right;
-    margin-right: 5px;
-    margin-top: 2px;
-     
-    border-radius: 5px;
-    outline: none;
-}
-.page{
-    position: relative;
-text-align: right;
- top: -50px;
-   margin-left: auto;
-   margin-right: auto;
+  }
   
-}
-.page button{
-    position: relative;
-    background-color: #333;
-    border-radius: 5px;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-right: 5px;
-    font-size: large;
-    color: white;
-}
-.page button:hover{
-   background-color: #4a4a4a;
-}
+  #customers td, #customers th {
 
-.showpage{
-    position: relative;
-    padding-top: 50px;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-   
-}.pagestablabel{
-    width: 200px;
-    height: 50px;
-    float: left;
-    clear: left;
-    position: relative;
-    
-}
- .family{
-     font-weight: bold;
- } .table-editable {
-    position: relative;
-    
-    .glyphicon {
-      font-size: 20px;
-    }
+    padding: 8px;
   }
   
-  .table-remove {
-    color: #700;
-    cursor: pointer;
-    
-    &:hover {
-      color: #f00;
-    }
-  }
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
   
-  .table-up, .table-down {
-    color: #007;
-    cursor: pointer;
-    
-    &:hover {
-      color: #00f;
-    }
-  }
+  tbody tr:hover {background-color: #ddd;}
   
+<<<<<<< Updated upstream
   .table-add {
     color: #070;
     cursor: pointer;
@@ -273,3 +171,23 @@ text-align: right;
     position: relative;
     clear: both;
 }
+=======
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+  }
+
+.loading-tables{
+    left:13rem;
+    width: 200px;
+    height:3rem;
+}
+
+
+
+
+
+
+>>>>>>> Stashed changes

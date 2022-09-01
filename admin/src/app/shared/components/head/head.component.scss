@@ -1,7 +1,12 @@
+
+.nav-tabs .nav-item .nav-link.active {
+    color: #ffffff;
+    background-color: gold;
+  }
 .head{
     height: 80px;
     background-color: #fff;
-    position: absolute;
+
     top: 0px;
     left: 0px;
 
@@ -92,3 +97,18 @@ small:link{
     padding: 10px;
 
 }
+// .navB{
+//     margin: -18%;
+// }
+.container-fluid{
+    margin: auto;
+}
+#profile{
+    border-radius: 50px;
+    margin:0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 50px;
+    height: 50px;
+}
+
+

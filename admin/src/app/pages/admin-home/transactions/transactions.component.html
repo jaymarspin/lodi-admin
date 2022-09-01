@@ -1,7 +1,11 @@
 <div class="main-wrapper" id="canvas">
+<<<<<<< Updated upstream
   <div id="cover-spin"></div>
 
   <div class="action-div" id="contentToConvert">
+=======
+  <!-- <div class="action-div" id="contentToConvert">
+>>>>>>> Stashed changes
     <div class="alert alert-dark" role="alert">
       request has
       <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions
@@ -35,15 +39,33 @@
 
     <div class="alert alert-warning" style="float: right;clear: right;" role="alert">
       Redemmable {{redeemed}} Pesos
-      <!-- <img class="reciept" (click)="openimage()" [src]="base64data" *ngIf="base64data"/> -->
+       <img class="reciept" (click)="openimage()" [src]="base64data" *ngIf="base64data"/> -->
        <!-- <button (click)="promiseCompressedImg()" >Upload Transfer Screenshot</button> -->
-      <button *ngIf="redemmable"  class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
+      <!-- <button *ngIf="redemmable"  class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
     </div>  
+  </div> -->
+  <div class="container overflow-hidden text-center">
+    <div class="row gx-5">
+      <div class="col">
+       <div class="p-3 border bg-light">Custom column padding</div>
+      </div>
+      <div class="col">
+        <div class="p-3 border bg-light">Custom column padding</div>
+      </div>
+    </div>
   </div>
-
-  <div class="row">
-    <div class="col-1"></div>
+<div id="cover-spin"></div>
+<nav class="navbar">
+<div class="card" style="width: 28rem;margin: 5rem;height: 15rem;border-radius: 10px;">
+  <div class="card-body">
+    <h5 class="card-title">Gcash</h5>
+    <h6 class="card-subtitle mb-2 text-muted">2731123809</h6>
+    <p class="card-text">1827398iouqeoiu</p>
+    <a href="#" class="card-link">Pay</a>
+    <a href="#" class="card-link">Delete Acc</a>
+    <img style="top:20%;left: 38%;width: 270px;height:150px;position:absolute;" src="https://watchmendailyjournal.com/wp-content/uploads/2021/05/20200926-GCash-620x349.png" alt="">
   </div>
+<<<<<<< Updated upstream
 
   <table class="table">
     <thead class="thead-dark">
@@ -93,3 +115,73 @@
     </button>
   </div>
 </div>
+=======
+</div>
+<div class="card" style="width: 28rem;margin: 5rem;height: 15rem;border-radius: 10px;">
+  <div class="card-body">
+    <h5 class="card-title">Paymaya</h5>
+    <h6 class="card-subtitle mb-2 text-muted">2731123809</h6>
+    <p class="card-text">1827398iouqeoiu</p>
+    <a href="#" class="card-link">Pay</a>
+    <a href="#" class="card-link">Delete Acc</a>
+    <img style="top:20%;left: 38%;width: 270px;height:150px;position:absolute;" src="https://www.logolynx.com/images/logolynx/d2/d2099521063a298617ce8b17ae3c367a.png" alt="">
+  </div>
+</div>
+<div class="card" style="width: 28rem;margin: 5rem;height: 15rem;border-radius: 10px;">
+  <div class="card-body">
+    <h5 class="card-title">Visa</h5>
+    <h6 class="card-subtitle mb-2 text-muted">2731123809</h6>
+    <p class="card-text">1827398iouqeoiu</p>
+    <a href="#" class="card-link">Pay</a>
+    <a href="#" class="card-link">Delete Acc</a>
+    <img style="top:20%;left: 38%;width: 270px;height:150px;position:absolute;" src="https://www.freepnglogos.com/uploads/visa-and-mastercard-logo-26.png" alt="">
+  </div>
+</div>
+</nav>
+
+  
+
+  <table id="customers">
+    <thead class="bg-warning">
+    <tr>
+      <th>name</th>
+      <th>Talent</th>
+      <th>Value</th>
+      <th>Date Created</th>
+      <th>Date Done</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr  *ngFor="let transaction of transactions;index as i"[attr.data-index]="i">
+      <td>{{transaction.fan.fname}} {{transaction.fan.lname}}</td>
+      <td>{{transaction.talent}}</td>
+      <td>{{transaction.value}}</td>
+      <td>{{transaction.date_created}}</td>
+      <td>Not yet</td>
+      <td><button>actions</button></td>
+    </tr>
+    <tr class="placeholder-glow" id="loading">
+      <td class="placeholder position-absolute"style="left:1rem;width: 160px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:13rem;width: 200px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:30rem;width: 200px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:45rem;width: 260px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:75rem;width: 260px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:100rem;width:260px;height:3rem;border-radius:20px;"></td>
+    </tr>
+    </tbody>
+  </table >
+  
+
+
+
+
+  <div style="font-size: 30px;float:right;">* * * * *</div>
+
+  <footer class="footer" style="height: 200px;">
+    
+  </footer>
+
+
+  
+>>>>>>> Stashed changes

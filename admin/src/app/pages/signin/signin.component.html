@@ -1,17 +1,49 @@
 <div id="cover-spin"></div>
+<<<<<<< Updated upstream
 <div class="row header">
   <div class="col-3 imgwrapper">
     <img  draggable="false" class="left" src="assets/logo.png" />
   </div>
+=======
+
+
+
+<div class="wrapper"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <img src="assets/example/stars.svg" alt="" id="wall-star"> -->
+<!-- <div class="row header">
+  <div class="col-3 imgwrapper"> -->
+    <!-- <img  draggable="false" class="left" src="assets/logo.png" /> -->
+  <!-- </div>
+>>>>>>> Stashed changes
   <div class="col-6 ">
     <h1>LODI.ph</h1>
     <h4>Where amazing meets</h4>
   </div>
-  <div class="col-3 imgwrapper">
+  <div class="col-3 imgwrapper"> -->
     <!-- <img draggable="false" class="right" src="assets/logo/barmm-logo.png"/>  -->
+<<<<<<< Updated upstream
   </div>
 </div>
 <div class="row form">
+=======
+  <!-- </div>
+</div> -->
+<!-- <div class="row form" id="sign-form">
+>>>>>>> Stashed changes
   <div class="col-12">
     <div class="card">
       <div class="row">
@@ -29,66 +61,26 @@
           <input   (click)="login()" type="button" class="btn btn-warning" value="LOGIN" />
         </div>
       </div>
-      
+
+    </div>
+  </div>
+</div> -->
+
+<div class="form">
+  <div class="form__box">
+    <div class="form__left">
+      <div class="form__padding"><img class="form__image" src="assets/logo.png"/></div>
+    </div>
+    <div class="form__right">
+      <div class="form__padding-right">
+        
+          <h1 class="form__title">Member Login</h1>
+          <input class="form__email" id="email" type="text" placeholder="Email" [(ngModel)]="username" (keyup.enter)="login()"/>
+          <input class="form__password" id="password" type="password" placeholder="Password" [(ngModel)]="password" (keyup.enter)="login()"/>
+          <input class="form__submit-btn btn-warning" type="button" value="LOGIN"  (click)="login()"/>
+        <span>Forgot <a class="form__link" href="#">Username</a><a>/</a><a class="form__link" href="#">Password</a></span>
+        <p> <a class="form__link" href="#">Create your account</a></p>
+      </div>
     </div>
   </div>
 </div>
-<!-- <div class="wrap">
-
-
-
-
-    <div class="row">
-     
-      <div class="col">
-         <div class="loginform">
-           <div class="wrapper">
-          
-            <div class="row" style="margin-top: 40px;">
-              <div class="col">
-                <img draggable="false" src="assets/logo/barmm-logo.png"/> 
-              </div>
-              <div class="col">
-                <img  draggable="false" src="assets/logo/moh-logo.png" />
-              </div>
-            </div>
-           <div class="row" style="position: relative; margin-top: -50px;">
-
-             <div class="col" style="margin-top:60px;">
-
-
-             
-
-                <input type="text" placeholder="Username" [(ngModel)]="username" style="position: relative; top: 20px;"/>
-
-
-             </div>
-           </div>
-
-           <div class="row login">
-            <div class="col">
-
-               <input type="password"  placeholder="Password" [(ngModel)]="password" style="position: relative; top: 10px;"/>
-
-
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col">
-
-               <input   (click)="login()"   type="submit" class="btn btn-success" value="LOGIN" />
-
-
-            </div>
-          </div>
-
-         </div>
-        </div>
-      </div>
-    </div>
-
-
-
-  </div> -->

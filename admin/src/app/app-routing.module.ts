@@ -17,6 +17,8 @@ import { ChatsComponent } from '../app/pages/admin-home/chats/chats.component'
 import { UpdatesComponent } from '../app/pages/admin-home/updates/updates.component'
 import { TransactionsComponent } from './pages/admin-home/transactions/transactions.component';
 import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
+import { FeedsComponent } from './feeds/feeds.component';
+import { ChartsComponent } from './pages/charts/charts.component';
 
 const routes: Routes = [
   { 
@@ -29,6 +31,7 @@ const routes: Routes = [
   { path: 'sign', component: SigninComponent},
   { path: 'addmedical', component: AddmedicalComponent},
   { path: 'admin-home', component: AdminHomeComponent,children: [
+    
       {  path: '',
         redirectTo: 'lodis',
         pathMatch: 'full'
@@ -39,10 +42,15 @@ const routes: Routes = [
       { path: 'requests/:id', component: RedeemRequestsComponent},
       { path: 'transactions/:id/:lodiid/:mybank_id/:choosen', component: TransactionsComponent},
       { path: 'fan', component: FanComponent},
+      { path: 'chats', component: ChatsComponent},
       { path: 'chats/:id', component: ChatsComponent},
       { path: 'updates', component: UpdatesComponent},
       
-  ]},{path: 'client-home', component: ClientHomeComponent,children:[
+      
+  ]},
+  { path: 'feeds' , component:FeedsComponent },
+  { path:'charts' ,component:ChartsComponent},
+  {path: 'client-home', component: ClientHomeComponent,children:[
     {  path: '',
     redirectTo: 'cert',
     pathMatch: 'full'

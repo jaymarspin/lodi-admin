@@ -1,6 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from "moment"
+import { HttpRequestService } from 'src/app/services/http-request.service';
+
+
+
+
 @Component({
   selector: 'app-head',
   templateUrl: './head.component.html',
@@ -8,10 +13,12 @@ import * as moment from "moment"
 })
 export class HeadComponent implements OnInit {
 
-  
+
+  album:any;
+  active = 'active'
   timestamp:any
   usershow:boolean = false
-  constructor(private router:Router) { }
+  constructor(private router:Router,public http:HttpRequestService) { }
   @Output() valueChange = new EventEmitter();
   ngOnInit(): void {
     this.timestamp = moment().format('LLLL');
@@ -45,4 +52,10 @@ export class HeadComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['sign'])
    }
+   navigate($event){
+    this.router.navigate([$event])
+   }
+   
+
+
 }

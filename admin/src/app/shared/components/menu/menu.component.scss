@@ -4,7 +4,7 @@
     width: 100%;
     text-align: center;
     z-index: 888;
-    top: 60px;
+    top: 0px;
     .col-6,.col-3
     { 
         .menu{
@@ -38,6 +38,19 @@
         height: 200px;
         display: block;
     }
+<<<<<<< Updated upstream
+=======
+}#stars{
+    object-fit: scale-down;
+    position: absolute;
+    z-index: -9999999;
+    height: auto;
+    width: auto;
+    overflow: hidden;
+}#wrapper{
+    position: relative;
+
+>>>>>>> Stashed changes
 }
 // @media only screen and (min-width: 1201px)
 // {

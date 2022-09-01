@@ -1,8 +1,82 @@
-<div class="head" id="head">
+<nav class="navbar bg-light nav-pills">
+    <div class="container-fluid">
+        <i class="bi bi-list navbar-toggler " data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"></i>
+       
+        
+        
+        <ul class="nav justify-content-center nav-tabs">
+            <li class="nav-item">
+                <a class="navB nav-link " aria-current="page" href="#" data-toggle="tab" (click)="navigate('admin-home')">Home</a>
+            </li>  
+            <li class="nav-item">
+                <a class="navB nav-link" (click)="navigate('admin-home/chats')" data-toggle="tab">Chats</a>
+            </li>
+            <li class="nav-item">
+                <a class="navB nav-link" (click)="navigate('charts')" data-toggle="tab">Charts</a>
+            </li>
+            <li class="nav-item">
+                <a class="navB nav-link" data-toggle="tab" (click)="navigate('feeds')">Feeds</a>
+            </li>    
+          
+        </ul>
+        <div class="justify-content-end">
+        <img src="assets/logo.png" alt="" class="rounded-5 bg-light" id="profile">
+        <i class="bi bi-bell-fill" style="font-size:30px;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        
+          <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+    </div>  
+    
+    </div>
+</nav>
+
+<div>
+  
+</div>
+
+
+
+
+
+
+
+<!-- <div class="head" id="head">
     <div class="timestamp">
         <span>{{timestamp}}</span>
 
     </div>
+       </div> -->
     <!-- <div id="logo">
       
        
@@ -22,5 +96,5 @@
        
    
     <!-- </div> --> 
-   </div>
+
    
