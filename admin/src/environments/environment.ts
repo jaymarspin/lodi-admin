@@ -3,13 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  apiUrl: "http://localhost/lodiserver/v1/",
+  baselink: "http://localhost/lodiserver",
+  slsDeployed: "https://j9ky1won93.execute-api.ap-southeast-1.amazonaws.com/dev/",
+  beanstalk: "http://lodiserverphp-env.eba-vsrebp3p.ap-southeast-1.elasticbeanstalk.com/v1/"
 };
 
 // export const HOST_URL = 'http://192.168.1.16/lodiserver/lodi-admin/'; 
  
 export const HOST_URL = "http://lodiserverphp-env.eba-vsrebp3p.ap-southeast-1.elasticbeanstalk.com/v1/"
-export const apiURL = "http://localhost/lodiserver/v1/lodi-admin/"
+export const apiURL = "http://localhost/lodiserver/v1/"
  
  
 /*
@@ -19,4 +24,4 @@ export const apiURL = "http://localhost/lodiserver/v1/lodi-admin/"
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

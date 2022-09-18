@@ -1,31 +1,25 @@
-.main-wrapper{
-    padding-top: 50px;
-    
-    width: 80%;
-    margin: auto;
-    margin-top: 80px;
+.sidenav{
+    position: fixed;
+    height: 100%;
+    width: 300px;
 }
-
-.action-div{
-    position: relative;
-    width: 100%;
-    float: left;
-    clear: both;
-  
- 
-    
-}.action-div input[type="text"]{
-    float: right;
-    width: 400px;
-    padding: 5px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    background-color: #e3deda;
-    padding-right: 30px;
-}.fa{
-    float: right;
+.search{
+    margin: 10px;
+    border-radius: 20px;
+    width: 15rem;
+    height: 3rem;
+    border: transparent;
+}
+.chat-section{
+    background-color: white;
+    border-radius: 20px;
+    width: 250px;
+    height: 100px;
+    margin: 20px;
+}
+.avatar{
     position: absolute;
+<<<<<<< Updated upstream
     right: 0px;
     top: 10px;
     right: 5px;
@@ -90,230 +84,69 @@ table thead tr th,table tbody tr td,table tbody tr th{
 }.btn{
     position: relative;
     margin-right: 5px;
+=======
+    left: 1rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+#logo{
+>>>>>>> Stashed changes
     width: 50px;
-    float: right;
-}.action-btn:hover{
-    height: 40px;
-    width: 40px;
-    transition: all 0.8s;
-}
-img{
-    height: 20px;
-    width: 20px;
-}.residentadd{
-    position: relative;
-    float: left;
-    clear: both;
-    width: 200px;
-    margin-bottom: 10px;
-}.form-control{
-    margin-bottom: 10px;
-}.tab-content-wrapper{
-    position: relative;
-    margin-top: 20px;
-}.tblaction{
-    position: relative;
-    float: right;
-    margin-right: 5px;
-    margin-top: 2px;
-     
-    border-radius: 5px;
-    outline: none;
-}
-.page{
-    position: relative;
-text-align: right;
- top: -50px;
-   margin-left: auto;
-   margin-right: auto;
-  
-}
-.page button{
-    position: relative;
-    background-color: #333;
-    border-radius: 5px;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-right: 5px;
-    font-size: large;
-    color: white;
-}
-.page button:hover{
-   background-color: #4a4a4a;
-}
-
-.showpage{
-    position: relative;
-    padding-top: 50px;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-   
-}.pagestablabel{
-    width: 200px;
     height: 50px;
-    float: left;
-    clear: left;
-    position: relative;
-    
+    background-color: rgb(238, 238, 238);
+    border-radius: 50px;
 }
- .family{
-     font-weight: bold;
- } .table-editable {
-    position: relative;
-    
-    .glyphicon {
-      font-size: 20px;
-    }
-  }
-  
-  .table-remove {
-    color: #700;
-    cursor: pointer;
-    
-    &:hover {
-      color: #f00;
-    }
-  }
-  
-  .table-up, .table-down {
-    color: #007;
-    cursor: pointer;
-    
-    &:hover {
-      color: #00f;
-    }
-  }
-  
-  .table-add {
-    color: #070;
-    cursor: pointer;
+h3{
+    margin-left: 20rem;
+    margin: auto;
+}
+#message{
+    margin: auto;
+    border-radius: 20px;
+    width: 35rem;
+    height: 3rem;
+    border: transparent;
+    z-index: 1;
+    background-color: rgb(233, 233, 233);
+}#send-container{
+    background-color: gold;
+    height: 50px;
+    width: 50px;
+    font-size: 40px;
+    border-radius: 50px;
+}#gallary{
     position: absolute;
-    top: 8px;
-    right: 0;
-    
-    &:hover {
-      color: #0b0;
-    }
-  }.printbtn{
-      position: relative;
-      width: 100%;
-      clear: both;
-      float: left;
-      border: none;
-      outline: none;
-      padding: 7px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      border: 1px solid #dedede;
-  }.printbtn:hover{
-      background-color: #dedede;
-      
-  }.upload{
-      position: relative;
-      float: left;
-      margin-left: 10px;
-      height: 45px;
-  }.logo-wrapper{  
- 
-    #left{
-        float: right;
-        width: 100px;
-        height: 100px;
-    }#right{
-        float: left;
-        width: 100px;
-        height: 100px;
-    }
-    
-  }.submitreport{
-      position: relative;
-      width: 200px;
-  }.alert-dark{
-    max-width: 300px;
-}.filter{
-    position: relative;
-    padding: 7px;
-    border-radius: 5px;
-}.filter-wrapper{
-    position: relative;
-
-}ul{
-    
-    padding: none;
-    list-style-type: none;
-    width: 100%;
-    li{
-        width: 100%;
-        float: left;
-        display: block;
-        clear: both;
-        span{
-            position: relative;
-            display: block;
-            float: left;
-            margin-right: 10px;
-        }
-    }
-}.filterwrap{
-    position: relative;
-    span{
-        display: block;
-        position: relative;
-        margin-right: 10px;
-        padding: 7px;
-        float: left;
-        background-color: #ffc107;
-        border-radius: 5px;
-    }
+    left: 60%;
+    background-color: gold;
+    font-size: 30px;
+    border-radius: 50px;
+    width: 50px;
 }
-/* Chat containers */
-.container {
-    border: 2px solid #dedede;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-  }
-  
-  /* Darker chat container */
-  .darker {
-    border-color: #ccc;
-    background-color: #ddd;
-  }
-  
-  /* Clear floats */
-  .container::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-  /* Style images */
-  .container img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
-  }
-  
-  /* Style the right image */
-  .container img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right:0;
-  }
-  
-  /* Style time text */
-  .time-right {
-    float: right;
-    color: #aaa;
-  }
-  
-  /* Style time text */
-  .time-left {
-    float: left;
-    color: #999;
-  }
+.message-bubble{
+    width: 500px;
+    height: 200px;
+    margin: auto;
+    border-radius: 20px;
+}
+#body{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.avatar-chat{
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 50px;
+    left: 35rem;
+}
+#dotss{
+    font-size: 30px;
+}
+
+
+
+
+
+

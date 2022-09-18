@@ -1,4 +1,154 @@
+<<<<<<< Updated upstream
 <div class="head" id="head">
+=======
+<!-- <nav class="navbar bg-light nav-pills">
+
+
+    <div class="container-fluid">
+        <i class="bi bi-list navbar-toggler " data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"></i>
+       
+        
+        
+        <ul class="nav justify-content-center nav-tabs">
+            <li class="nav-item">
+                <a class="navB nav-link " aria-current="page" href="#" data-toggle="tab" (click)="navigate('admin-home')">Home</a>
+            </li>  
+            <li class="nav-item">
+                <a class="navB nav-link" (click)="navigate('chats')" data-toggle="tab">Chats</a>
+            </li>
+            <li class="nav-item">
+                <a class="navB nav-link" (click)="navigate('charts')" data-toggle="tab">Charts</a>
+            </li>
+            <li class="nav-item">
+                <a class="navB nav-link" data-toggle="tab" (click)="navigate('feeds')">Feeds</a>
+            </li>    
+          
+        </ul>
+        <div class="justify-content-end">
+        <img src="assets/logo.png" alt="" class="rounded-5 bg-light" id="profile">
+        <i class="bi bi-bell-fill" style="font-size:30px;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        
+          <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+    </div>  
+    
+    </div>
+</nav>
+
+<div>
+  
+</div> -->
+
+<i class="bi bi-alipay"></i>
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()"><i class="bi bi-list"></i></button>
+    <div class="logo-text" *ngIf="collapsed">Admin</div>
+    <!-- <button class="btn-close" *ngIf="collapsed">
+      <i class="bi bi-x-circle-fill"></i>
+    </button> -->
+  </div>
+  <ul class="sidenav-nav">
+    <!-- <li class="sidenav-nav-item" *ngFor="let data of navData" (click)="navigates('admin-home/chats')">
+      <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> -->
+      <!-- <a class="sidenav-nav-link" (click)="navigates(data.routerLink)"> -->
+        <!-- <i class="sidenav-link-icon" [class]="data.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+        
+      </a>
+    </li> -->
+    <li class="sidenav-nav-item" (click)="navigates('admin-home/useroption')">
+      <a class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <!-- <a class="sidenav-nav-link" (click)="navigates(data.routerLink)"> -->
+        <i class="sidenav-link-icon bi bi-table"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">Dashboard</span>
+        
+      </a>
+    </li>
+    <li class="sidenav-nav-item" (click)="navigates('admin-home/charts')">
+      <a class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <!-- <a class="sidenav-nav-link" (click)="navigates(data.routerLink)"> -->
+        <i class="sidenav-link-icon bi bi-graph-up"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">Charts</span>
+        
+      </a>
+    </li>
+    <li class="sidenav-nav-item" (click)="navigates('admin-home/chats')">
+      <a class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <!-- <a class="sidenav-nav-link" (click)="navigates(data.routerLink)"> -->
+        <i class="sidenav-link-icon bi bi-chat"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">Chats</span>
+        
+      </a>
+    </li>
+    <li class="sidenav-nav-item" (click)="navigates('admin-home/settings')">
+      <a class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <!-- <a class="sidenav-nav-link" (click)="navigates(data.routerLink)"> -->
+        <i class="sidenav-link-icon bi bi-sliders"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">Settings</span>
+        
+      </a>
+    </li>
+    <li class="sidenav-nav-item" (click)="navigates('admin-home/feeds')">
+      <a class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <!-- <a class="sidenav-nav-link" (click)="navigates(data.routerLink)"> -->
+        <i class="sidenav-link-icon bi bi-cone"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">Feeds</span>
+        
+      </a>
+    </li>
+    <li class="sidenav-nav-item" (click)="signout()">
+      <a class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <!-- <a class="sidenav-nav-link" (click)="navigates(data.routerLink)"> -->
+        <i class="sidenav-link-icon bi bi-box-arrow-left"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">Sign Out</span>
+        
+      </a>
+    </li>
+    
+    <!-- <i class="bi bi-box-arrow-left"></i>
+    <span id="log-out" *ngIf="collapsed">log out</span> -->
+  </ul>
+
+</div>
+
+
+
+
+
+<!-- <div class="head" id="head">
+>>>>>>> Stashed changes
     <div class="timestamp">
         <span>{{timestamp}}</span>
 

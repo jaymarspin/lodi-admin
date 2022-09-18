@@ -1,0 +1,13 @@
+.side-bar{
+    height: 100%;
+    width: 500px;
+    position: fixed;
+    z-index: 100;
+    
+    background-color: dark;
+}
+#dark-back{
+    ion-title{
+        color: #fff;
+    }
+}

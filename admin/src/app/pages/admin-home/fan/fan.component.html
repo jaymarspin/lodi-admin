@@ -1,3 +1,4 @@
+
 <div class="main-wrapper" id="canvas">
     <!-- <div class="row logo-wrapper">
       <div class="col">
@@ -7,6 +8,7 @@
        <img id="right" src="assets/logo/moh-logo.png" />
      </div>
     </div> -->
+<<<<<<< Updated upstream
       <div id="cover-spin"></div>
           <!-- <app-modal [method]="method" [showId] = "showId" (done)='doneChange($event)'></app-modal> -->
                
@@ -14,6 +16,10 @@
                   <div class="alert alert-dark" role="alert" >
                           There are <strong *ngIf="lodis">{{lodisCount}}</strong> fans right now
                       </div>
+=======
+    <div class="action-div" id="contentToConvert" >
+                  
+>>>>>>> Stashed changes
                       <!-- <button class="tblaction upload" (click)="addcert()" >UPLOAD RT-PCR</button>  -->
                      <!-- <button class="tblaction upload" data-toggle="modal" data-target="#report" *ngIf="userType == 1">Reports</button> -->
                   <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search fans"> 
@@ -23,6 +29,7 @@
                  
               
           </div>
+<<<<<<< Updated upstream
           <table class="table"  >
                   <thead class="thead-dark">
                     <tr>
@@ -51,6 +58,44 @@
                 </tbody>
   
               </table>
+=======
+      
+          <!-- <app-modal [method]="method" [showId] = "showId" (done)='doneChange($event)'></app-modal> -->
+          <div class="tabled">   
+          
+          
+            <table class="table"  >
+              <div id="cover-spin"></div>
+                    <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
+                      <tr>
+                        <th>First Name<i class="bi bi-chevron-down"></i></th> 
+                        <th>Last Name<i class="bi bi-chevron-down"></i></th> 
+                        <th>Contact<i class="bi bi-chevron-down"></i></th> 
+                        <th>Email<i class="bi bi-chevron-down"></i></th> 
+                    
+                        <th>Actions<i class="bi bi-chevron-down"></i></th> 
+                        
+                      </tr>
+                    </thead>
+                    
+      
+                    <tbody *ngIf="lodis">
+                      <tr *ngFor="let item of lodis;index as i"  >
+                        <td data-toggle="modal" (click)="navigateFanTransactions(item.id)" >{{item.fname}}</td>
+                        <td data-toggle="modal" (click)="navigateFanTransactions(item.id)" >{{item.lname}}</td>
+                        <td data-toggle="modal" (click)="navigateFanTransactions(item.id)">{{item.contact}}</td>
+                        <td data-toggle="modal" (click)="navigateFanTransactions(item.id)">{{item.email}}</td>
+                        <td>
+                        <button (click)="inactivate(item)" >Inactivate</button> 
+                        <button data-toggle="modal" data-target="#lodiinfo" (click)="gettransactions(item)" >Transactions</button> 
+            
+                      </td>
+                  </tbody>
+    
+            </table>
+          </div>  
+
+>>>>>>> Stashed changes
               <div class="page showpage" *ngIf="!searchpass">
                 <div class="pagestablabel" ></div>Showing {{page}} of {{pagebtn.length}} pages&nbsp;&nbsp;<button *ngFor="let item of pagebtn" (click)="pager(item)">{{item}}</button>
   
@@ -61,7 +106,7 @@
   
   
   
-  <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -75,6 +120,7 @@
           <div class="alert alert-warning" role="alert">
             Has {{transactionsCount}} transaction(s)
           </div>
+          <button class="btn-warning">Wide View</button>
           <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -91,7 +137,7 @@
         
             <tbody *ngIf="transactions">
               <tr *ngFor="let item of transactions; index as i" >
-                <td>{{item.fan.fname}} {{item.fan.lname}}</td>
+                <td>{{item.id}} {{item.fan.lname}}</td>
                 <td>{{item.value}}</td>
                 <td>{{item.talent}}</td>
                 <td><span *ngIf="item.accepted === false; else accepted">not yet responded</span><ng-template #accepted><span>Responded</span></ng-template>
@@ -123,7 +169,9 @@
     </div>
   </div>
 
-  
+  <ion-footer style="height: 200px;padding: 40px;" class="bg-dark"> 
+    
+  </ion-footer>
        
   
 

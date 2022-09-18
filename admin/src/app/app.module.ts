@@ -34,6 +34,17 @@ import { LightboxModule } from 'ngx-lightbox';
 import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
 import {NgxImageCompressService} from 'ngx-image-compress';
 import { FanTransactionsComponent } from './pages/admin-home/fan-transactions/fan-transactions.component';
+<<<<<<< Updated upstream
+=======
+import { FeedsComponent } from './feeds/feeds.component';
+import { ChartsComponent } from './pages/charts/charts.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BodyComponent } from './body/body.component';
+import { TopHeadComponent } from './shared/components/top-head/top-head.component';
+import { UseroptionComponent } from './useroption/useroption.component';
+import { NgChartsModule } from 'ng2-charts';
+import { SettingsComponent } from './settings/settings.component';
+>>>>>>> Stashed changes
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +69,15 @@ import { FanTransactionsComponent } from './pages/admin-home/fan-transactions/fa
     TransactionsComponent,
     RedeemRequestsComponent,
     FanTransactionsComponent,
+<<<<<<< Updated upstream
+=======
+    FeedsComponent,
+    ChartsComponent,
+    BodyComponent,
+    TopHeadComponent,
+    UseroptionComponent,
+    SettingsComponent,
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -70,6 +90,8 @@ import { FanTransactionsComponent } from './pages/admin-home/fan-transactions/fa
     PdfJsViewerModule,
     IonicModule.forRoot(),
     AngularFileUploaderModule,
+    FontAwesomeModule,
+    NgChartsModule
     // NgxQRCodeModule
   ],
   providers: [HttpClient,IonicRouteStrategy,NgxImageCompressService],

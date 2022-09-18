@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { HttpRequestService } from '../../../services/http-request.service'
 import pdfjs from 'jspdf';
 import {MedicalService}  from '../../../report-print/medical.service'
+import { navigationINFORMATION } from './navigationData';
+
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +14,7 @@ import {MedicalService}  from '../../../report-print/medical.service'
 })
 export class MenuComponent implements OnInit {
 
-
+  navigation = navigationINFORMATION;
   @Output() valueChange = new EventEmitter();
 
   usershow:boolean = false

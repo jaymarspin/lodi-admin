@@ -85,7 +85,7 @@ export class UsersComponent implements OnInit {
       }else{
         var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
-    this.http.getData("search-user.php?search="+this.search).subscribe(res =>{
+    this.http.getData("lodi-admin/search-user.php?search="+this.search).subscribe(res =>{
       console.log(res)
       this.user = res.json()
       this.searchpass = true
@@ -106,7 +106,7 @@ export class UsersComponent implements OnInit {
     this.pagebtn = Array()
     var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
-    this.http.getData("get-users.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
+    this.http.getData("lodi-admin/get-users.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
       console.log(res.json())
       this.user = res.json().users
       this.userCount = res.json().user_count
@@ -137,7 +137,7 @@ export class UsersComponent implements OnInit {
    }
    console.log(data)
    
-   this.http.postData("add-user.php",data).subscribe(res =>{
+   this.http.postData("lodi-admin/add-user.php",data).subscribe(res =>{
      console.log(res)
      let result = res.json()
 
@@ -171,7 +171,7 @@ export class UsersComponent implements OnInit {
     id: id,
     userid: localStorage.getItem("userid")
   }
-   this.http.postData("delete-user.php",data).subscribe(res =>{
+   this.http.postData("lodi-admin/delete-user.php",data).subscribe(res =>{
     let result = res.json()
 
     if(result.message == "success"){

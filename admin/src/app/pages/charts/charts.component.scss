@@ -1,0 +1,133 @@
+.main-wrapper{
+    margin-top: -8px;
+    background-color: #f0f0f0;
+    h2{
+
+        font-weight: 700;
+    }
+    .container-fluid{
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+
+        margin-bottom: 20px;
+        width: 80%;
+        .box{
+            width: 45vh;
+            height: 25vh;
+            background-color: #fff;
+            border-radius: 50px;
+            padding: 20px;
+            .chart-container-bar{
+                margin-left: 24px;
+                width: 25vh;
+                margin-left: 9vh;
+                height: 15vh;
+                display: flex;
+                justify-content: space-evenly;
+            }
+        }
+        .box:hover{
+            cursor: pointer;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+    }
+
+
+    .charts-container{
+        width: 90%;
+        height: 500px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        margin: auto;
+        padding: 20px;
+        .first-chart-container{
+            width: 800px;
+            height: 800px;
+            color: #cacaca;
+            
+        }
+        .card-main{
+            width: 800px;
+            height: 450px;
+            margin: 20px;
+            color: #252525;
+            padding: 20px;
+            nav{
+                border-bottom: solid 1px #cacaca;
+            }
+            ul{
+                font-size: 30px;
+                li{
+                    list-style: none;
+                    border-bottom: solid rgba(100, 100, 111, 0.2) 2px ;
+                }
+            }
+        }
+    }
+
+
+
+
+    .infocontainer{
+        background-color: #faf9f9;
+        width: 95%;
+        margin: auto;
+        margin-top: 20px;
+        border-left: solid 1px #cacaca;
+        border-right: solid 1px #cacaca;
+        border-radius: 20px;
+        .navbar{
+            border-top: solid 1px #cacaca;
+            border-bottom: solid 1px #cacaca;
+            border-radius: 20px;
+            h4{
+                color: #cacaca;
+            }
+        }
+        .navbar-bottom{
+            display: flex;
+            justify-content: center;
+            .btn-full-report{
+                border: solid transparent;
+                border-radius: 20px;
+                font-size: 24px;
+                background-color: #FFCC00;
+            }
+            
+        }
+        .information-container{
+            width: 100%;
+            display: flex;
+            justify-content:space-evenly;
+            margin-top: 25px;
+    
+            .block{
+                width: 26rem;
+                height: 12rem;
+                color: #cacaca;
+                text-align: center;
+                
+                span{
+                    font-size: 40px;
+                    font-weight: 900;
+                }
+                .bi-cash-stack{
+                    font-size: 50px;
+                }
+            }
+        }
+    }
+
+
+    .Spread-sheet{
+        width: 100%;
+        height: 50rem;
+    }
+}
+
+
+
+
+

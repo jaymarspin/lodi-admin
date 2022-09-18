@@ -40,7 +40,7 @@ export class SigninComponent implements OnInit {
 
         var loader = document.getElementById("cover-spin")
         loader.style.display = "block"
-        this.service.postData("signin.php",data).subscribe(res =>{
+        this.service.postData("lodi-admin/signin.php",data).subscribe(res =>{
          console.log(res)
           let message = res.json().message
            

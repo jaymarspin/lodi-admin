@@ -1,30 +1,66 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from "moment"
+<<<<<<< Updated upstream
+=======
+import { HttpRequestService } from 'src/app/services/http-request.service';
+import { NavData } from './variables'
+
+interface SideNavToggle{
+  screenWidth: number;
+  collapsed:boolean;
+}
+
+>>>>>>> Stashed changes
 @Component({
   selector: 'app-head',
   templateUrl: './head.component.html',
   styleUrls: ['./head.component.scss']
 })
 export class HeadComponent implements OnInit {
+<<<<<<< Updated upstream
 
   
   timestamp:any
   usershow:boolean = false
   constructor(private router:Router) { }
+=======
+  @Output() onToggleSidenav:EventEmitter<SideNavToggle> = new EventEmitter();
+  collapsed = false;
+  screenWidth = 0;
+  navData = NavData;
+  album:any;
+  active = 'active'
+  timestamp:any
+  usershow:boolean = false
+  name:string;
+  
+>>>>>>> Stashed changes
   @Output() valueChange = new EventEmitter();
-  ngOnInit(): void {
-    this.timestamp = moment().format('LLLL');
-    setInterval(() =>{
-      this.timestamp = moment().format('LLLL');
-    },60000)
-
-
-    if(localStorage.getItem("role")){
-      if(localStorage.getItem("role") == "1"){
-        this.usershow = true
-      }
+  @HostListener('window:resize',['$event'])
+  onResize(event:any) {
+    this.screenWidth = window.innerWidth;
+    if(this.screenWidth <= 768) {
+      this.collapsed = false
     }
+  }
+  constructor(private router:Router,public http:HttpRequestService) { }
+  ngOnInit(): void {
+    // this.timestamp = moment().format('LLLL');
+    // setInterval(() =>{
+    //   this.timestamp = moment().format('LLLL');
+    // },60000)
+
+
+    // if(localStorage.getItem("role")){
+    //   if(localStorage.getItem("role") == "1"){
+    //     this.usershow = true
+    //   }
+    // }
+    this.screenWidth = window.innerWidth;
+
+
+
   }
   head(){
 
@@ -33,6 +69,10 @@ export class HeadComponent implements OnInit {
    this.router.navigate(['sign'])
 
 
+  }
+  signout(){
+    localStorage.clear()
+    this.router.navigate([''])
   }
 
   menu(nagivate){
@@ -45,4 +85,24 @@ export class HeadComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['sign'])
    }
+<<<<<<< Updated upstream
+=======
+   navigate($event){
+    this.router.navigate([$event])
+   }
+   
+   toggleCollapse():void{
+    this.collapsed = !this.collapsed
+    this.onToggleSidenav.emit({
+      collapsed:this.collapsed,
+      screenWidth:this.screenWidth,
+    })
+   }
+   navigates($event){
+  
+    this.router.navigate([$event])
+    console.log($event)
+   }
+
+>>>>>>> Stashed changes
 }

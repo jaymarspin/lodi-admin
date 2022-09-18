@@ -3,6 +3,7 @@
 
 
         <div class="row menu-wrap">
+<<<<<<< Updated upstream
                 <div class="col-3">
 
                         <img  draggable="false" src="assets/logo.png" style="float: right; " />
@@ -21,15 +22,25 @@
                                 
                                 <li (click)="signout()" style="color: #333;">SIGN OUT</li>
                         </ul>
+=======
+                
+              <div class="row"><h2> </h2>
+                <div class="col-contains">
+                        <div class="container-box bg-light" *ngFor="let box of navigation" (click)="menu(box.menu)">
+                          <nav class="navbar">
+                          <h1>{{box.title}}</h1>
+                          <i class="bi bi-graph-down text-{{box.rate}}"></i>
+                          </nav>
+                          <h4><i class="{{box.icon}}"></i>total : {{lodis_count}}19</h4>
+                        </div>
+>>>>>>> Stashed changes
                 </div>
-                <div class="col-3">
-                  <!-- <img draggable="false" src="assets/logo/barmm-logo.png" style="float: left; "/> -->
-                 </div>
+              </div>
         </div>
 </div>
 
 
-<div class="modal fade" id="report" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<!-- <div class="modal fade" id="report" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -64,14 +75,14 @@
               </div>
               
                <button class="btn btn-primary submitreport" style="margin-top: 10px;" (click)="report()" data-dismiss="modal">CONTINUE</button>
-            </div>
+            </div> -->
             <!-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
             </div> -->
-          </div>
+          <!-- </div>
         </div>
       </div>
-      
+       -->
   
  

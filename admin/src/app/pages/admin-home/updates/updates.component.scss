@@ -2,8 +2,8 @@
     padding-top: 50px;
     
     width: 80%;
-    margin: auto;
-    margin-top: 80px;
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 .action-div{
@@ -37,7 +37,6 @@
     position: relative;
     margin-right: 5px;
 }table{
-    border: 1px solid #f0eded;
     background-color: #fff; 
     button{
         outline: none;
@@ -54,10 +53,24 @@
         overflow: hidden;
         
     }
+<<<<<<< Updated upstream
+=======
+}.tabled{
+    
+    padding: 10px;
+
+
+    width: 100%;
+    border-radius: 30px;
+    height: 1000px;
+    overflow-y: auto;
+>>>>>>> Stashed changes
 }
+
+
+
 table thead tr th,table tbody tr td,table tbody tr th{
     text-align: center;
-    border: 1px solid #dedede;
 }.table tbody tr:hover{
     background-color: #dedede;
     cursor: pointer;

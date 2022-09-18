@@ -1,0 +1,73 @@
+
+<div class="main-wrapper">
+    <h2> </h2>
+    
+    <div class="container-fluid">
+        <div class="box">
+            <span>Revenue</span>
+            <h1>₱ 100,000</h1>
+            <div class="chart-container-bar text-success">
+                <canvas id="first-chart"></canvas>
+                <i class="bi bi-chevron-up"></i>
+                <h4>45% increase</h4>
+            </div>
+        </div>
+        <div class="box">
+            <span>Total Net Worth</span>
+        </div>
+        <div class="box">
+            <span>Total of Visits</span>
+        </div>
+    </div>
+
+
+    <div class="charts-container bg-light">
+        <div class="first-chart-container">
+            <h4>Income in month</h4>
+            <canvas id="first-charts"></canvas>
+        </div>
+        <div class="card-main bg-light">
+            <nav>
+                <h5>Timeline</h5>
+            </nav>
+            <ul>
+                <li>asdkjaskldasldjkas</li>
+                <li>asdkjaskldasldjkas</li>
+                <li>asdkjaskldasldjkas</li>
+                <li>asdkjaskldasldjkas</li>
+                <li>asdkjaskldasldjkas</li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <div class="infocontainer" >
+        <nav class="navbar">
+            <h4>Incomes</h4>
+            <button class="btn btn-primary">View all</button>
+        </nav>
+        <div class="information-container">
+        <div class="block " *ngFor="let blocks of block">
+            <h4>{{blocks.title}}</h4>
+            <i class="bi bi-cash-stack"></i>
+            <span class="{{blocks.textColor}}">{{blocks.cash}}</span>
+            <h2 class="text-danger"><i class="bi bi-chevron-down"></i>50%</h2>
+        </div>
+        </div>
+        <nav class="navbar navbar-bottom">
+            <button class="btn btn-full-report">View the full Report</button>
+        </nav>
+    </div>
+    
+    
+    <div class="Spread-sheet">
+        <nav class="navbar">
+            <h3>Popular Lodis</h3>
+            <button class="btn btn-primary">Hide</button>
+        </nav>
+    </div>
+
+
+
+</div>

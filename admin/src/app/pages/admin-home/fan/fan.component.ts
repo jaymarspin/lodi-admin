@@ -141,7 +141,7 @@ caching:any
       }else{
         var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
-    this.http.getData("search-lodis.php?search="+this.search).subscribe(res =>{
+    this.http.getData("lodi-admin/search-lodis.php?search="+this.search).subscribe(res =>{
       console.log(res)
       this.lodis = res.json()
       this.searchpass = true
@@ -164,7 +164,7 @@ caching:any
     this.pagebtn = Array()
     var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
-    this.http.getData("get-fans.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
+    this.http.getData("lodi-admin/get-fans.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
        console.log(res)
       this.lodis = res.json().lodis
       this.lodisCount = res.json().lodis_count
@@ -194,7 +194,13 @@ caching:any
 
 
 reportData:any
+<<<<<<< Updated upstream
 
+=======
+navigateFanTransactions($event){
+  this.router.navigate([`/admin-home/transactions/id=${$event}`])
+}
+>>>>>>> Stashed changes
 
 delete(id){
   let data = {
@@ -290,7 +296,7 @@ inactivate(item){
 transactions: any;
 transactionsCount: any;
 gettransactions(item){
-  this.http.getData(`get-fan-transactions.php?id=${item.id}`).subscribe({
+  this.http.getData(`get-transactions.php?id=${item.id}&limit=${50}&page=${1}&filter=action`).subscribe({
     next: data =>{
       setTimeout(() =>{
         const result = data.json()
@@ -307,6 +313,8 @@ gettransactions(item){
     }
   })
 }
+
+
 }
 
 

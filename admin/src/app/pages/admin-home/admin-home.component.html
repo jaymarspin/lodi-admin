@@ -1,9 +1,15 @@
 
+<<<<<<< Updated upstream
 <app-head (valueChange)="route($event)"></app-head>
 
 <app-menu (valueChange)="route($event)" ></app-menu>
 <div class="content" >
 <router-outlet></router-outlet>
 </div>
+=======
+<app-head (onToggleSidenav)="onToggleSideNav($event)"></app-head>
+<app-body [collapsed]="isSideNavCollapsed" [screenWidth]="isscreenWidth"></app-body>
+
+>>>>>>> Stashed changes
 
 

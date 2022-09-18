@@ -1,0 +1,22 @@
+.top-head-tool{
+    background-color: #f3f3f3;
+    height: 50px;
+    // margin-bottom: 12px;
+    i{
+        font-size: 25px;
+    }
+    input{
+        border: transparent;
+        border-radius: 20px;
+        margin: 6px;
+        width: 32rem;
+        height: 2.5rem;
+
+    }
+    input:focus{
+        border-style: none;
+        border-color: transparent;
+        border: none solid;
+        outline-style: none;
+    }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../../../services/service.service';
 import { HttpRequestService } from '../../../services/http-request.service';
@@ -12,7 +12,7 @@ import S3 from 'aws-s3';
 })
 export class TransactionsComponent implements OnInit {
   loader: any;
-
+  payment_data:any;
   transactions = Array();
   transactions_count: number;
   id: any;
@@ -44,6 +44,7 @@ export class TransactionsComponent implements OnInit {
     public service: ServiceService,
     public http: HttpRequestService,
     private imageCompress: NgxImageCompressService,
+    private cd: ChangeDetectorRef,
   ) {
     this.id = this.activateRoute.snapshot.paramMap.get('id');
     
@@ -63,21 +64,63 @@ export class TransactionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+<<<<<<< Updated upstream
     this.getdata(this.page).then(() =>{
       this.getBanks().then(() =>{
         
       })
     })
    
+=======
+    // this.getdata(this.page).then(() =>{
+    //   this.getBanks().then(res =>{
+    //     console.log(res)
+    //   })
+    // })
+   this.getTransactions()
+   this.getInfo()
+>>>>>>> Stashed changes
   }
   refreshed() {}
   searchact() {}
 
 
+<<<<<<< Updated upstream
+=======
+  infoname:any;
+  getInfo(){
+    this.http.getData(`website/get-lodi-individual.php?id=${this.id}`).subscribe( res =>{
+      this.infoname = res.json().name
+    })
+  }
+  getTransactions(){
+    var loader = document.getElementById('cover-spin').setAttribute('style','display:block;');
+    var tableloader = document.getElementById('loading').setAttribute('style','display:block;');
+    this.http.getData(`get-transactions.php?${this.id}&limit=${50}&page=${1}&filter=action`).subscribe({
+      next:data => {
+        var loader = document.getElementById('cover-spin').setAttribute('style','display:none;');
+        var tableloader = document.getElementById('loading').setAttribute('style','display:none;');
+        setTimeout(() =>{
+          const result = data.json()
+        this.transactions_count = result.transactions_count
+        this.transactions = result.transactions
+          
+          this.cd.detectChanges()
+        },1000)
+      },error: err =>{
+        console.log(err)
+      }
+    })
+  }
+  
+
+
+>>>>>>> Stashed changes
  async getBanks(){
-   await this.http.getData(`get-banks.php?id=${this.mybank_id}`).subscribe({
+
+   await this.http.getData(`lodi-admin/get-banks.php?${this.id}`).subscribe({
       next: data =>{
-         
+
         this.mybanks = data.json().bankdetails
         this.mybanks = JSON.parse(this.mybanks) 
         console.log(this.mybanks)
@@ -109,6 +152,7 @@ export class TransactionsComponent implements OnInit {
 
   
  redeemed:any = 0
+<<<<<<< Updated upstream
  async getdata(pager) {
     this.pagebtn = Array();
     var loader = document.getElementById('cover-spin');
@@ -138,6 +182,37 @@ export class TransactionsComponent implements OnInit {
             this.redemmable += parseFloat(element.value)
           }
           this.redeemed +=parseFloat(element.value)
+=======
+//  async getdata(pager) {
+//     this.pagebtn = Array();
+//     var loader = document.getElementById('cover-spin');
+//     loader.style.display = 'block';
+//     let link = `get-transactions.php?${this.id}&limit=${this.limit}&page=${pager}&filter=actions`
+//     console.log(link)
+//   await  this.http
+//       .getData(
+//         link
+//       )
+//       .subscribe((res) => {
+//         this.redemmable = 0
+//         this.transactions = res.json().transactions;
+//         console.log(this.transactions);
+//         this.transactions_count = res.json().transactions_count;
+
+//         loader.style.display = 'none';
+
+//         this.pagebtntmp = this.transactions_count / this.limit;
+//         for (var i = 1; i < this.pagebtntmp + 1; i++) {
+//           this.pagebtn.push(i);
+//         }
+
+//         this.transactions.forEach(element => {
+//           console.log(element.accepted)
+//           if(element.redemmed === false){
+//             this.redemmable += parseFloat(element.value)
+//           }
+//           this.redeemed +=parseFloat(element.value)
+>>>>>>> Stashed changes
           
         });
       });
@@ -163,7 +238,7 @@ export class TransactionsComponent implements OnInit {
 
     
     console.log(data)
-    this.http.postData('update-redemmed.php', data).subscribe({
+    this.http.postData('lodi-admin/update-redemmed.php', data).subscribe({
       next: (data) => {
         loader.style.display = 'none';
         const response = data.json();
@@ -238,5 +313,21 @@ S3Client
    */
 
 }
-   
+    paymentData($event){
+      this.payment_data = $event
+    }
+    show = true;
+    video:any;
+    showTransactions(id){
+      console.log(id)
+      this.show = !this.show
+      this.http.getData(`lodi-admin/get-video.php?id=${3}`).subscribe(data => {
+        this.video = data.json().videos
+        console.log(data);
+      })
+      
+      
+    }
+
+
 }

@@ -7,6 +7,7 @@
        <img id="right" src="assets/logo/moh-logo.png" />
      </div>
     </div> -->
+<<<<<<< Updated upstream
       <div id="cover-spin"></div>
           <!-- <app-modal [method]="method" [showId] = "showId" (done)='doneChange($event)'></app-modal> -->
                
@@ -14,22 +15,40 @@
                   <div class="alert alert-dark" role="alert" >
                           There are <strong *ngIf="updates">{{updatescount}}</strong> lodi right now
                       </div>
+=======
+    <div class="action-div" id="contentToConvert" >
+                  
+>>>>>>> Stashed changes
                       <!-- <button class="tblaction upload" (click)="addcert()" >UPLOAD RT-PCR</button>  -->
                      <!-- <button class="tblaction upload" data-toggle="modal" data-target="#report" *ngIf="userType == 1">Reports</button> -->
                   <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search lodi"> 
                  
+<<<<<<< Updated upstream
                   <button class="tblaction" (click)="refreshed()" >Refresh</button>
      
+=======
+                  <div>
+                    <nav class="navbar">
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                          <div class="input-group">
+                              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                  aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="search" (keyup.enter)="searchact()">
+                              <div class="input-group-append" style="position: relative;top:-2px;height:42px;">
+                                  <button class="btn btn-warning" type="button"(click)="refreshed()">
+                                      <i class="bi bi-search"></i>
+                                  </button>
+                              </div>
+                          </div>
+                        </div>
+                        <button class="filter btn-warning" data-toggle="modal" data-target="#addupdate" >Add Update</button>
+                      </nav>
+                    </div>
+>>>>>>> Stashed changes
                  
               
           </div>
 
-          <div class="row">
-            <div class="col-1">
-              <button class="filter" data-toggle="modal" data-target="#addupdate" >Add Update</button>
-            </div>
-             
-          </div>
+          
           <!-- <select class="custom-select" id="selector" [(ngModel)]="filterCustomer" (change)="changeFilter()">
             <option value="all" selected>all</option>
             <option value="active">active</option>
@@ -56,7 +75,11 @@
     
       
           <table class="table"  >
+<<<<<<< Updated upstream
                   <thead class="thead-dark">
+=======
+                  <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
+>>>>>>> Stashed changes
                     <tr>
                       <th>Date Created</th> 
                       <th>Descriptions</th> 
@@ -121,6 +144,9 @@
                 </tbody>
   
               </table>
+            </div>
+
+
               <div class="page showpage" *ngIf="!searchpass">
                 <div class="pagestablabel" ></div>Showing {{page}} of {{pagebtn.length}} pages&nbsp;&nbsp;<button *ngFor="let item of pagebtn" (click)="pager(item)">{{item}}</button>
   
@@ -134,7 +160,7 @@
  
   
 
-  <div class="modal fade" id="addupdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="addupdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"data-backdrop="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -164,7 +190,9 @@
   </div>
   
 
- 
+  <ion-footer style="height: 200px;padding: 40px;" class="bg-dark"> 
+    
+  </ion-footer>
 
 
    

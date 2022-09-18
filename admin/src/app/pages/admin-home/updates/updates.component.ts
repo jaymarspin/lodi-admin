@@ -156,7 +156,7 @@ private fileUpload1:  AngularFileUploaderComponent;
       }else{
         var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
-    this.http.getData("search-updates.php?search="+this.search).subscribe(res =>{
+    this.http.getData("lodi-admin/search-updates.php?search="+this.search).subscribe(res =>{
       console.log(res)
       // this.lodis = res.json()
       this.searchpass = true 
@@ -178,7 +178,7 @@ private fileUpload1:  AngularFileUploaderComponent;
     this.pagebtn = Array()
     var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
-    this.http.getData("get-updates.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
+    this.http.getData("lodi-admin/get-updates.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
        
       this.updates = res.json().updates
       console.log(this.updates)
@@ -219,7 +219,7 @@ delete(id){
  
   var c = confirm("Are you sure?")
     if(c){
-      this.http.postData("delete-lodi.php",data).subscribe(res =>{
+      this.http.postData("lodi-admin/delete-lodi.php",data).subscribe(res =>{
         let result = res.json()
         if(result.message = "success"){
           this.page = 1
@@ -276,7 +276,7 @@ uploadupdate(){
   this.loader = document.getElementById("cover-spin")
 
       this.loader.style.display = "block"
-  this.http.postData("add-updates.php",data).subscribe(res =>{
+  this.http.postData("lodi-admin/add-updates.php",data).subscribe(res =>{
     console.log(res)
     // let result = res.json()
     this.loader.style.display = "none"

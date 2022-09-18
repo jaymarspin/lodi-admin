@@ -17,6 +17,13 @@ import { ChatsComponent } from '../app/pages/admin-home/chats/chats.component'
 import { UpdatesComponent } from '../app/pages/admin-home/updates/updates.component'
 import { TransactionsComponent } from './pages/admin-home/transactions/transactions.component';
 import { RedeemRequestsComponent } from './pages/admin-home/redeem-requests/redeem-requests.component';
+<<<<<<< Updated upstream
+=======
+import { FeedsComponent } from './feeds/feeds.component';
+import { ChartsComponent } from './pages/charts/charts.component';
+import { UseroptionComponent } from './useroption/useroption.component';
+import { SettingsComponent } from './settings/settings.component';
+>>>>>>> Stashed changes
 
 const routes: Routes = [
   { 
@@ -30,19 +37,45 @@ const routes: Routes = [
   { path: 'addmedical', component: AddmedicalComponent},
   { path: 'admin-home', component: AdminHomeComponent,children: [
       {  path: '',
-        redirectTo: 'lodis',
+        redirectTo: 'useroption',
         pathMatch: 'full'
-      },{ path: 'addcert', component: AddcertComponent},
+      },
+      { path:'useroption',component:UseroptionComponent,children:[
+        {
+          path:'',
+          redirectTo:'lodis',
+          pathMatch:'full'
+        },
+        { path: 'user', component: UsersComponent}, 
+        { path: 'lodis', component: LodisComponent},
+        { path: 'fan', component: FanComponent},
+        { path: 'updates', component: UpdatesComponent},
+      ]},
+      { path: 'addcert', component: AddcertComponent},
       { path: 'certlisting', component: CertlistingComponent},
-      { path: 'user', component: UsersComponent}, 
-      { path: 'lodis', component: LodisComponent},
+      
       { path: 'requests/:id', component: RedeemRequestsComponent},
       { path: 'transactions/:id/:lodiid/:mybank_id/:choosen', component: TransactionsComponent},
+<<<<<<< Updated upstream
       { path: 'fan', component: FanComponent},
       { path: 'chats/:id', component: ChatsComponent},
       { path: 'updates', component: UpdatesComponent},
       
   ]},{path: 'client-home', component: ClientHomeComponent,children:[
+=======
+      { path: 'transactions/:id', component:TransactionsComponent},
+      
+      { path: 'chats', component: ChatsComponent},
+      
+      { path: 'feeds' , component:FeedsComponent },
+      { path:'charts' ,component:ChartsComponent},
+      { path:'settings',component:SettingsComponent}
+      
+  ]},
+      { path: 'chats/:id', component: ChatsComponent},
+  
+  {path: 'client-home', component: ClientHomeComponent,children:[
+>>>>>>> Stashed changes
     {  path: '',
     redirectTo: 'cert',
     pathMatch: 'full'
@@ -53,7 +86,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

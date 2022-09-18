@@ -273,7 +273,7 @@ private fileUpload1:  AngularFileUploaderComponent;
     this.approved = item.active
     this.category = item.category
  
-     this.http.getData("get-talent-fee.php?id="+this.updateid).subscribe(res =>{
+     this.http.getData("lodi-admin/get-talent-fee.php?id="+this.updateid).subscribe(res =>{
        
       let result = res.json();
       console.log(result)
@@ -335,7 +335,7 @@ private fileUpload1:  AngularFileUploaderComponent;
       }else{
         var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
-    this.http.getData("search-lodis.php?search="+this.search).subscribe(res =>{
+    this.http.getData("lodi-admin/search-lodis.php?search="+this.search).subscribe(res =>{
       console.log(res)
       this.lodis = res.json()
       this.searchpass = true
@@ -358,7 +358,7 @@ private fileUpload1:  AngularFileUploaderComponent;
     this.pagebtn = Array()
     var loader = document.getElementById("cover-spin")
     loader.style.display = "block"
-    this.http.getData("get-lodis.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
+    this.http.getData("lodi-admin/get-lodis.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
        
       this.lodis = res.json().lodis
       console.log(this.lodis)
@@ -399,7 +399,7 @@ delete(id){
  
   var c = confirm("Are you sure?")
     if(c){
-      this.http.postData("delete-lodi.php",data).subscribe(res =>{
+      this.http.postData("lodi-admin/delete-lodi.php",data).subscribe(res =>{
         let result = res.json()
         if(result.message = "success"){
           this.page = 1
@@ -516,7 +516,7 @@ uploadteaser(){
   this.loader = document.getElementById("cover-spin")
 
       this.loader.style.display = "block"
-  this.http.postData("teaser-upload.php",data).subscribe(res =>{
+  this.http.postData("lodi-admin/teaser-upload.php",data).subscribe(res =>{
     console.log(res)
     this.loader.style.display = "none"
   })
@@ -581,7 +581,9 @@ gotochats(id){
 transaction(id){
   this.router.navigate(["admin-home/requests",id])
 }
-
+navigateFanTransactions($event){
+  this.router.navigate([`/admin-home/transactions/id=${$event}`])
+}
 
 update_talentfee(){
   var loader = document.getElementById("cover-spin")
@@ -592,7 +594,7 @@ update_talentfee(){
     dm: this.dmamount,
     fansign: this.fansignamount
   }
-  this.http.postData("update_talentfee.php",data).subscribe(res =>{
+  this.http.postData("lodi-admin/update_talentfee.php",data).subscribe(res =>{
     console.log(res)
     loader.style.display = "none"
 
@@ -608,7 +610,7 @@ addbio(){
   }
   var loader = document.getElementById("cover-spin")
   loader.style.display = "block"
-  this.http.postData("add-bio.php",data).subscribe(res =>{
+  this.http.postData("lodi-admin/add-bio.php",data).subscribe(res =>{
     let result = res.json()
 
     if(result.message == "success"){

@@ -1,14 +1,7 @@
 import { Component, OnInit,ViewChild,NgZone, ChangeDetectorRef  } from '@angular/core';
-import pdfjs from 'jspdf';
- import { Router } from '@angular/router'
- import { ServiceService } from '../../../services/service.service'
- import { HttpRequestService} from '../../../services/http-request.service'
+
  
 
-import Swal from 'sweetalert2' 
-import * as $ from 'jquery'
-import { AngularFileUploaderComponent } from "angular-file-uploader";
-import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-chats',
   templateUrl: './chats.component.html',
@@ -16,66 +9,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ChatsComponent implements OnInit {
 
-  @ViewChild('fileUpload1')
-  customers = 6546798
-  chats = Array()
-  chat_count:number = 0
-  base64: any
-
-
-
-   search:string
-   searchpass:boolean = false
-
-
-   page:number
-   limit:number
-   pagebtntmp:any
-   pagebtn:any
-
- 
-
-    filter:any
-
-   usershow:boolean = false
-  
-   categories:any = Array()
-   userType:any
-
-   filtergo:boolean = false
+  chats =[
+    {},
+    {},
+    {},
+    
+  ]
 
   
-
-
- 
-
-resetVar:boolean = false
-caching:any
- 
- 
- id:any
-  constructor(private activateRoute: ActivatedRoute,private cd: ChangeDetectorRef,
-    private zone: NgZone,private router: Router,public service: ServiceService,public http: HttpRequestService) {
-    this.page = 1
-    this.limit = 50
-    this.pagebtn = Array()
-    this.filter = Array()
-    this.id = this.activateRoute.snapshot.paramMap.get("id")
- 
-   }
+  constructor() {
+}
   ngOnInit(): void {
   
- 
- 
-    this.userType = localStorage.getItem("role")
-    this.getdata(this.page)
-
-    
-
 
   }
  
 
+<<<<<<< Updated upstream
   cached(item){
  
     
@@ -245,6 +195,8 @@ gotochats(){
 
 
 
+=======
+>>>>>>> Stashed changes
 
 
 }

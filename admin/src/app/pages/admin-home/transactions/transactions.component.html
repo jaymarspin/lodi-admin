@@ -1,14 +1,18 @@
 <div class="main-wrapper" id="canvas">
+<<<<<<< Updated upstream
   <div id="cover-spin"></div>
 
   <div class="action-div" id="contentToConvert">
+=======
+  <!-- <div class="action-div" id="contentToConvert">
+>>>>>>> Stashed changes
     <div class="alert alert-dark" role="alert">
       request has
       <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions
     </div>
    
 
-    <div *ngIf="mybanks" class="alert alert-primary" style="margin-left: 5px;float: left;clear: left;" role="alert">
+    <div *ngIf="mybanks" class="alert bg-warning" id="mybanks" role="alert">
       <ion-list>
         <ion-radio-group [(ngModel)]="chosenAccount">
           <ion-list-header>
@@ -33,32 +37,66 @@
       </ion-list>
     </div>
 
-    <div class="alert alert-warning" style="float: right;clear: right;" role="alert">
+    <div class="alert bg-warning" style="float: right;clear: right;" role="alert">
       Redemmable {{redeemed}} Pesos
       <!-- <img class="reciept" (click)="openimage()" [src]="base64data" *ngIf="base64data"/> -->
        <!-- <button (click)="promiseCompressedImg()" >Upload Transfer Screenshot</button> -->
       <button *ngIf="redemmable"  class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
     </div>  
+<<<<<<< Updated upstream
   </div>
 
   <div class="row">
     <div class="col-1"></div>
   </div>
+=======
+  </div> -->
+  
+<div id="cover-spin"></div>
 
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th>Fan</th>
-        <th>Amount</th>
-        <th>Talent</th>
-        <th>Status</th>
-        <th>link</th>
-        <th>Redeem status</th>
-        <th>Date Request</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
+<div class="transaction-viewer">
+  <nav class="navbar">
+    <h1>{{infoname}}</h1>
+    <h1>Transactions({{transactions_count}})</h1>
+  </nav>
+  <div id="profile-image">
+    <img src="assets/logo.png" alt="" draggable="false">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-2 card">
+        <h1>Properties</h1>
+        <ul>
+          <li class="text-warning">Value : </li>
+          <li>Date Created : </li>
+          <li class="text-success">Date redeem : </li>
+          <li>Redeem : </li>
+          <li>Lodi : </li>
+          <li>Fan : </li>
+          <li>Description : </li>
+        </ul>
+      </div>
+      <div class="col card-mid">
+        <nav class="navbar">
+          <h4>Date Created : 6/12/2022</h4>
+          <h4>Type : Video greeting</h4>
+        </nav>
+        <video [autoplay]="true" controls [loop]="true" *ngFor="let src of video">
+          <source src="{{src.videosrc}}" type="video/mp4">
+        </video>
+        <div class="showed" *ngIf="show"><h1 >Nothing to show yet</h1></div>
+      </div>
+      <div class="col col-lg-2 card">
+        <h5>Followers : </h5>
+        <h5></h5>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> Stashed changes
 
+
+<<<<<<< Updated upstream
     <tbody *ngIf="transactions">
       <tr *ngFor="let item of transactions; index as i" [attr.data-index]="i">
         <td>{{item.fan.fname}} {{item.fan.lname}}</td>
@@ -93,3 +131,50 @@
     </button>
   </div>
 </div>
+=======
+
+  
+<div class="table-container">
+  <table id="customers">
+    <thead class="bg-warning">
+    <tr>
+      <th>name</th>
+      <th>Talent</th>
+      <th>Value</th>
+      <th>Date Created</th>
+      <th>Date Done</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr  *ngFor="let transaction of transactions;index as i"[attr.data-index]="i">
+      <td (click)="showTransactions(transaction.id)">{{transaction.fan.fname}} {{transaction.fan.lname}}</td>
+      <td>{{transaction.talent}}</td>
+      <td>{{transaction.value}}</td>
+      <td>{{transaction.date_created}}</td>
+      <td>Not yet</td>
+      <td><button class="btn btn-warning">actions</button></td>
+    </tr>
+    <div *ngIf="transactions_count === 0">
+      <h3> No Transactions Yet</h3>
+    </div>
+    <tr class="placeholder-glow" id="loading">
+      <td class="placeholder position-absolute"style="left:1rem;width: 130px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:13rem;width: 180px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:30rem;width: 150px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:45rem;width: 120px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:75rem;width: 110px;height:3rem;border-radius:20px;"></td>
+      <td class="placeholder position-absolute"style="left:100rem;width:110px;height:3rem;border-radius:20px;"></td>
+    </tr>
+    </tbody>
+  </table >
+</div>  
+
+
+
+
+
+
+  
+  
+>>>>>>> Stashed changes
