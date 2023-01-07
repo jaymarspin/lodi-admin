@@ -42,27 +42,27 @@
 <div id="cover-spin"></div>
 
 <div class="transaction-viewer">
-  <img id="profile-pic" src="{{info.profile.name20}}" alt="" data-toggle="modal" data-target="#gallery">
-  
+  <img id="profile-pic" src="{{info?.profile?.name20}}" alt="" data-toggle="modal" data-target="#gallery">
+  	<a data-amount="1" data-fee="0" data-expiry="6" data-description="Payment for services rendered" data-href="https://getpaid.gcash.com/paynow" data-public-key="pk_7cb46bbfa05155c21846e0a39d57e863" onclick="this.href = this.getAttribute('data-href')+'?public_key='+this.getAttribute('data-public-key')+'&amp;amount='+this.getAttribute('data-amount')+'&amp;fee='+this.getAttribute('data-fee')+'&amp;expiry='+this.getAttribute('data-expiry')+'&amp;description='+this.getAttribute('data-description');" href="https://getpaid.gcash.com/paynow?public_key=pk_7cb46bbfa05155c21846e0a39d57e863&amp;amount=100&amp;fee=0&amp;expiry=6&amp;description=Payment for services rendered" target="_blank" class="x-getpaid-button"><img src="https://getpaid.gcash.com/assets/img/paynow.png"></a>	
   <div class="transaction-info bg-light">
     <ion-grid>
       <ion-row>
         <ion-col>
           <ion-item>
             <ion-label position="stacked">id</ion-label>
-            <ion-input value="{{info.id}}" disabled="true"></ion-input>
+            <ion-input value="{{info?.id}}" disabled="true"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked">First Name : </ion-label>
-            <ion-input disabled="true" [value]="info.fname"></ion-input>
+            <ion-input disabled="true" [value]="info?.fname"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Last Name : </ion-label>
-            <ion-input value="{{info.lname}}" disabled="true"></ion-input>
+            <ion-input value="{{info?.lname}}" disabled="true"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -95,10 +95,10 @@
     </thead>
     <tbody >
     <tr  *ngFor="let transaction of transactions;index as i"[attr.data-index]="i">
-      <td (click)="showTransactions(transaction.id)">{{transaction.fan.fname}} {{transaction.fan.lname}}</td>
-      <td>{{transaction.talent}}</td>
-      <td>{{transaction.value}}</td>
-      <td>{{transaction.date_created}}</td>
+      <td (click)="showTransactions(transaction?.id)">{{transaction?.fan?.fname}} {{transaction?.fan.lname}}</td>
+      <td>{{transaction?.talent}}</td>
+      <td>{{transaction?.value}}</td>
+      <td>{{transaction?.date_created}}</td>
       <td>Not yet</td>
       <td><button class="btn btn-warning">actions</button></td>
     </tr>

@@ -15,7 +15,7 @@ export const environment = {
 
 // export const HOST_URL = 'http://192.168.1.16/lodiserver/lodi-admin/'; 
  
-export const HOST_URL = "http://lodiserverphp-env.eba-vsrebp3p.ap-southeast-1.elasticbeanstalk.com/v1/"
+export const HOST_URL = "http://localhost/lodiserver/v1/"
 export const apiURL = "http://localhost/lodiserver/v1/"
  
  
