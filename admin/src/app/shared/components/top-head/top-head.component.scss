@@ -1,22 +1,68 @@
-.top-head-tool{
-    background-color: #f3f3f3;
-    height: 50px;
-    // margin-bottom: 12px;
-    i{
-        font-size: 25px;
-    }
-    input{
-        border: transparent;
-        border-radius: 20px;
-        margin: 6px;
-        width: 32rem;
-        height: 2.5rem;
+.main-wrapper{
+    .navbar-light{
+        height: 3.5rem;
+        margin-bottom: 1.3rem;
+        .input-group{
+            width: 28rem;
+            .form-control{
+                border: transparent;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            }
+        }
+        .text-warning{
 
+            .bi-question-diamond{
+                font-size: 2vw;
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }
-    input:focus{
-        border-style: none;
-        border-color: transparent;
-        border: none solid;
-        outline-style: none;
+
+
+
+    
+    .search-box-closed{
+        height: 0vw;
+        width: 100%;
+        background-color:transparent;
+    }
+    .search-box-opened{
+        height: 15vw;
+        width: 100%;
+        z-index: 99;
+        background-color: #fff;
+        animation: ease box-open 0.1s;
+        @keyframes box-open {
+            0%{
+                scale: 0;
+            }
+            100%{
+                scale:15vw;
+            }
+        }
+    }
+    h3{
+        position: absolute;
+        right: 0;
+    }
+}
+
+#help-modal{
+    .modal-dialog{
+        .modal-content{
+            text-align: center;
+            p{
+                font-size: 1.6vw;
+                font-weight: 700;
+            }
+            ion-item{
+                &:hover{
+                    cursor: pointer;
+                    --background: #eeeeee;
+                }
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+
 import {AutologoutService} from '../../services/autologout.service'
 
 
@@ -12,7 +13,8 @@ interface SideNavToggle{
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
-  styleUrls: ['./admin-home.component.scss']
+  styleUrls: ['./admin-home.component.scss'],
+  
 })
 export class AdminHomeComponent implements OnInit {
 

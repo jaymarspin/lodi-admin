@@ -8,7 +8,9 @@ export const environment = {
   apiUrl: "http://localhost/lodiserver/v1/",
   baselink: "http://localhost/lodiserver",
   slsDeployed: "https://j9ky1won93.execute-api.ap-southeast-1.amazonaws.com/dev/",
-  beanstalk: "http://lodiserverphp-env.eba-vsrebp3p.ap-southeast-1.elasticbeanstalk.com/v1/"
+  beanstalk: "http://lodiserverphp-env.eba-vsrebp3p.ap-southeast-1.elasticbeanstalk.com/v1/",
+  server2: 'https://ec2-18-136-100-47.ap-southeast-1.compute.amazonaws.com/lodiserver/v1/'
+
 };
 
 // export const HOST_URL = 'http://192.168.1.16/lodiserver/lodi-admin/'; 

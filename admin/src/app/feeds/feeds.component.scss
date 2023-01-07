@@ -1,13 +1,42 @@
-.side-bar{
-    height: 100%;
-    width: 500px;
-    position: fixed;
-    z-index: 100;
-    
-    background-color: dark;
-}
-#dark-back{
-    ion-title{
-        color: #fff;
+.main-wrapper{
+    background-color: #ebebeb;
+    .navnav{
+        position: fixed;
+        height: 3.8rem;
+        top: 5vw;
+        .navbar-nav{
+            .nav-item{
+                margin-left: 0.8rem;
+                list-style: none;
+            }
+        }
+    }
+    .navbar-left-2{
+        height: 100%;
+        width: 26.3vw;
+        position: fixed;
+        top: 10vw;
+    }
+    .side-bar{
+        height: 100%;
+        width: 500px;
+        position: fixed;
+        z-index: 100;
+        
+        background-color: dark;
+    }
+    #dark-back{
+        height: 90%;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        left: 88%;
+        
+    }
+    .card{
+        position: relative;
+        left:15vw;
+        width: 50vw;
     }
 }
+
+

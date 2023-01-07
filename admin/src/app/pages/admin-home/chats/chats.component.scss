@@ -19,79 +19,12 @@
 }
 .avatar{
     position: absolute;
-<<<<<<< Updated upstream
-    right: 0px;
-    top: 10px;
-    right: 5px;
-}.alert{
-    float: left;
-    width: 500px;
-    position: relative;
-}.btn{
-    position: relative;
-    margin-right: 5px;
-}table{
-    border: 1px solid #f0eded;
-    background-color: #fff; 
-    button{
-        outline: none;
-        position: relative;
-        margin-right: 5px;
-        color: #f5f5f5;
-        background-color: #ffc107;
-        border: none;
-        border-radius: 5px;
-        z-index: 5;
-        margin-top: 5px;
-    }tbody{
-        height: auto;
-        overflow: hidden;
-        
-    }
-}
-table thead tr th,table tbody tr td,table tbody tr th{
-    text-align: center;
-    border: 1px solid #dedede;
-}.table tbody tr:hover{
-    background-color: #dedede;
-    cursor: pointer;
-}.table tbody tr:active{
-    background-color: #ccc;
-    
-}#selector{
-    width: 100%;
-    margin-top: -20px;
-    margin-bottom: 30px;
-    clear: both;
-    display: block;
-    position: relative;
-}.pager{
-    float: right;
-    position: relative;
-    clear: right; 
-    margin-right: 20px;
-    top: 20px;
-}.pager ul li{
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer;
-     
-}.pager ul{
-    list-style-type: none;
-    padding: 0
-}.pager ul li span:hover{
-    text-decoration: underline;
-}.btn{
-    position: relative;
-    margin-right: 5px;
-=======
     left: 1rem;
     width: 60px;
     height: 60px;
     border-radius: 50px;
 }
 #logo{
->>>>>>> Stashed changes
     width: 50px;
     height: 50px;
     background-color: rgb(238, 238, 238);

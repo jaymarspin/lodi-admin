@@ -3,7 +3,7 @@
     <h2> </h2>
     
     <div class="container-fluid">
-        <div class="box">
+        <div class="box" (click)="ViewSwal('Revenue')">
             <span>Revenue</span>
             <h1>₱ 100,000</h1>
             <div class="chart-container-bar text-success">
@@ -12,11 +12,23 @@
                 <h4>45% increase</h4>
             </div>
         </div>
-        <div class="box">
+        <div class="box" (click)="ViewSwal('Total Net Worth')">
             <span>Total Net Worth</span>
+            <h1>₱ 95,000</h1>
+            <div class="chart-container-bar text-success">
+                <canvas id="networth"></canvas>
+                <i class="bi bi-chevron-up"></i>
+                <h4>45% increase</h4>
+            </div>
         </div>
-        <div class="box">
+        <div class="box" (click)="ViewSwal('Total of Visits')">
             <span>Total of Visits</span>
+            <h1>People : 12</h1>
+            <div class="chart-container-bar text-success">
+                <canvas id="total"></canvas>
+                <i class="bi bi-chevron-up"></i>
+                <h4>45% increase</h4>
+            </div>
         </div>
     </div>
 
@@ -27,25 +39,31 @@
             <canvas id="first-charts"></canvas>
         </div>
         <div class="card-main bg-light">
-            <nav>
-                <h5>Timeline</h5>
+            <nav class="navbar">
+                <h1>Timeline or History for accurate</h1>
+                <i class="bi bi-journal-text"></i>
             </nav>
             <ul>
-                <li>asdkjaskldasldjkas</li>
-                <li>asdkjaskldasldjkas</li>
-                <li>asdkjaskldasldjkas</li>
-                <li>asdkjaskldasldjkas</li>
-                <li>asdkjaskldasldjkas</li>
+                <li>Users Total : ₱<span class="text-success">265</span> </li>
+                <li>Revenue : ₱<span class="text-success">100,000</span></li>
+                <li>Total Net Worth : ₱<span class="text-success">95,000</span></li>
+                <li>Fans : <span class="text-success">244</span></li>
+                <li>Lodis : <span class="text-success">19</span></li>
             </ul>
-
+            
         </div>
+        <nav class="navbar">
+            <button class="btn btn-warning">Next Chart</button>
+            <button class="btn btn-success" data-toggle="modal" data-target="#chart_modal">View Chart</button>
+        </nav>
+        
     </div>
-
+    
 
     <div class="infocontainer" >
         <nav class="navbar">
             <h4>Incomes</h4>
-            <button class="btn btn-primary">View all</button>
+            <button class="btn btn-primary" (click)="navigate('admin-home/viewall')">View all</button>
         </nav>
         <div class="information-container">
         <div class="block " *ngFor="let blocks of block">
@@ -56,7 +74,7 @@
         </div>
         </div>
         <nav class="navbar navbar-bottom">
-            <button class="btn btn-full-report">View the full Report</button>
+            <button class="btn btn-full-report" data-target="#fullreports" data-toggle="modal" >View the full Report</button>
         </nav>
     </div>
     
@@ -64,10 +82,105 @@
     <div class="Spread-sheet">
         <nav class="navbar">
             <h3>Popular Lodis</h3>
-            <button class="btn btn-primary">Hide</button>
+            <button class="btn btn-warning" id="hide" (click)="Hide()">Hide</button>
         </nav>
+        <div class="table-container" >
+            <table class="table">
+                <thead class="bg-warning">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>No. of Fans</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let items of lodis;let i = index">
+                        <td>{{i+1}}</td>
+                        <td data-toggle="modal" data-target="popularLodis">{{items.fname}} {{items.lname}}</td>
+                        <td>Not yet Record</td>
+                        <td><i class="bi bi-star-fill text-warning"></i></td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
     </div>
 
+    
 
+
+    <footer class="navbar footer bg-dark">
+        
+        <section class="middle-box">
+            <h1>Lodis.ph?</h1>
+        </section>
+
+        <div class="navbar">
+            <img src="assets/logo.png" alt="">
+            <h1 class="text-warning">Lodi.ph</h1>
+        </div>
+
+        <section>
+            <div class="card">
+                <ion-icon name="people-outline"></ion-icon>
+            </div>
+        </section>
+
+    </footer>
 
 </div>
+
+<div class="modal fade" #fullreports id="fullreports" data-show="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Full Reports</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>some reports are on process</p>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+<div class="modal fade" #fullreports id="popularLodis" data-show="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Full Reports</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>some reports are on process</p>
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="modal fade" #fullreports id="chart_modal" data-show="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Revenue</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>some reports are on process</p>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+
+
+

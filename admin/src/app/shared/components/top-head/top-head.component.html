@@ -1,11 +1,35 @@
+<div class="main-wrapper">
+    <nav class="navbar navbar-light bg-light">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-warning" id="basic-addon1"><i class="bi bi-search"></i></span>
+            </div>
+            <input type="text" (focusin)="search_Box()" (focusout)="search_Box()" #search class="form-control" placeholder="Search...." aria-label="Username" aria-describedby="basic-addon1">
+            <div class="search-box-closed" [ngClass]="collapsed ? 'search-box-opened':''">
 
-<header class="top-head-tool">
-    <i class="bi bi-filter"></i>
-    <input type="search" name="" id="" placeholder="Search Here......">
+            </div>
+        </div>
+        <h3 class="text-warning" id="help-sign" data-toggle="modal" data-target="#help-modal"><i class="bi bi-question-diamond text-warning"></i>Help</h3>
+    </nav>
+</div>
 
-    
+<div class="modal fade" id="help-modal" data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <p>What can i help you?</p>
+            <ion-item>
+                <ion-label>Help me with lodis</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>Help me with fans</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>Help me with updates</ion-label>
+            </ion-item>
+            <button class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
 
-</header>
 
-
-
+<div class="help-lodis"></div>

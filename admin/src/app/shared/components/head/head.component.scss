@@ -1,7 +1,12 @@
+
+.nav-tabs .nav-item .nav-link.active {
+    color: #ffffff;
+    background-color: gold;
+  }
 .head{
     height: 80px;
     background-color: #fff;
-    position: absolute;
+
     top: 0px;
     left: 0px;
 
@@ -91,8 +96,6 @@ small:link{
     transition: 0.3s;
     padding: 10px;
 
-<<<<<<< Updated upstream
-=======
 }
 // .navB{
 //     margin: -18%;
@@ -241,5 +244,4 @@ small:link{
     .sidenav-link-icon,.sidenav-link-text{
         color: #000;
     }
->>>>>>> Stashed changes
 }

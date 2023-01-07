@@ -1,42 +1,50 @@
 <div id="wrapper">
-    
-
-
-        <div class="row menu-wrap">
-<<<<<<< Updated upstream
-                <div class="col-3">
-
-                        <img  draggable="false" src="assets/logo.png" style="float: right; " />
-                </div>
-
-                <div class="col-6">
-                        <h1 >Lodi.ph</h1>
-                        <h2>We simply connect</h2> 
-                        <ul class="menu">
-                                <li (click)="menu('updates')" style="color: #333;">UPDATES</li>
-                                <li (click)="menu('lodis')" style="color: #333;">LODI</li>
-                                <li (click)="menu('fan')" style="color: #333;">FANS</li>
-                        
-                                <li *ngIf="usershow" style="color: #333;" data-toggle="modal" data-target="#report">REPORTS</li>
-                                <li *ngIf="usershow" (click)="menu('user')" style="color: #333;">USERS</li>
-                                
-                                <li (click)="signout()" style="color: #333;">SIGN OUT</li>
-                        </ul>
-=======
-                
-              <div class="row"><h2> </h2>
-                <div class="col-contains">
-                        <div class="container-box bg-light" *ngFor="let box of navigation" (click)="menu(box.menu)">
-                          <nav class="navbar">
-                          <h1>{{box.title}}</h1>
-                          <i class="bi bi-graph-down text-{{box.rate}}"></i>
-                          </nav>
-                          <h4><i class="{{box.icon}}"></i>total : {{lodis_count}}19</h4>
-                        </div>
->>>>>>> Stashed changes
-                </div>
-              </div>
+  <div class="row menu-wrap">
+    <div class="row"><h2> </h2>
+      <div class="col-contains">
+        <div class="container-box" (click)="menu('updates')">
+          <nav class="navbar">
+            <span>Updates</span>
+            <i class="bi bi-graph-down text-success"></i>
+          </nav>
+          <nav class="navbar">
+            <h4><i class='bi bi-people'></i>total : {{count.update_count}}</h4>
+            <h5 class="text-warning">Steady</h5>
+          </nav>
         </div>
+        <div class="container-box" (click)="menu('lodis')">
+          <nav class="navbar">
+            <span>Lodis</span>
+            <i class="bi bi-graph-down text-success"></i>
+          </nav>
+          <nav class="navbar">
+            <h4><i class='bi bi-people'></i>total : {{count.lodis_count}}</h4>
+            <h5 class="text-{{lodistatus}}">{{lodi_status}}</h5>
+          </nav>
+        </div>
+        <div class="container-box" (click)="menu('fan')">
+          <nav class="navbar">
+            <span>Fan</span>
+            <i class="bi bi-graph-down text-success"></i>
+          </nav>
+          <nav class="navbar">
+            <h4><i class='bi bi-people'></i>total : {{count.fans_count}}</h4>
+            <h5 class="text-{{fanstatus}}">{{fan_status}}</h5>
+          </nav>
+        </div>
+        <div class="container-box" >
+          <nav class="navbar">
+            <span>Total</span>
+            <i class="bi bi-graph-down text-success"></i>
+          </nav>
+          <nav class="navbar">
+            <h4><i class='bi bi-people'></i>total : {{count.lodis_count+count.fans_count+count.update_count}}</h4>
+            <h5 class="text-success">Today <i class="bi bi-alarm"></i></h5>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 

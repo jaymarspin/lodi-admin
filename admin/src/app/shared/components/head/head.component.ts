@@ -1,8 +1,6 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from "moment"
-<<<<<<< Updated upstream
-=======
 import { HttpRequestService } from 'src/app/services/http-request.service';
 import { NavData } from './variables'
 
@@ -11,20 +9,12 @@ interface SideNavToggle{
   collapsed:boolean;
 }
 
->>>>>>> Stashed changes
 @Component({
   selector: 'app-head',
   templateUrl: './head.component.html',
   styleUrls: ['./head.component.scss']
 })
 export class HeadComponent implements OnInit {
-<<<<<<< Updated upstream
-
-  
-  timestamp:any
-  usershow:boolean = false
-  constructor(private router:Router) { }
-=======
   @Output() onToggleSidenav:EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
@@ -35,7 +25,6 @@ export class HeadComponent implements OnInit {
   usershow:boolean = false
   name:string;
   
->>>>>>> Stashed changes
   @Output() valueChange = new EventEmitter();
   @HostListener('window:resize',['$event'])
   onResize(event:any) {
@@ -85,8 +74,6 @@ export class HeadComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['sign'])
    }
-<<<<<<< Updated upstream
-=======
    navigate($event){
     this.router.navigate([$event])
    }
@@ -104,5 +91,4 @@ export class HeadComponent implements OnInit {
     console.log($event)
    }
 
->>>>>>> Stashed changes
 }

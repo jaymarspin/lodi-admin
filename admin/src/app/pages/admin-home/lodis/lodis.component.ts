@@ -106,10 +106,15 @@ teaserplay:any
 dmamount:any
 videogreetingsamount
 fansignamount
- 
+showup = false;
 private fileUpload1:  AngularFileUploaderComponent;
   constructor(private cd: ChangeDetectorRef,
-    private zone: NgZone,private router: Router,public service: ServiceService,public http: HttpRequestService) {
+    private zone: NgZone,
+    private router: Router,
+    public service: ServiceService,
+    public http: HttpRequestService
+    ) 
+    {
     this.page = 1
     this.limit = 50
     this.pagebtn = Array()
@@ -196,6 +201,7 @@ private fileUpload1:  AngularFileUploaderComponent;
       value: "businesstycon",
       css: "unselected"
     })
+    
 
    }
   ngOnInit(): void {
@@ -209,14 +215,33 @@ private fileUpload1:  AngularFileUploaderComponent;
      
     })
 
-   
+    $(document).ajaxStart(function(){
+      $('#cover-spin').css({
+        'display':'block'
+      })
+    })
     this.userType = localStorage.getItem("role")
     this.getdata(this.page)
 
-    
+    // $(function () {
+    //   $('[data-toggle="tooltip"]').tooltip()
+    // })
 
 
   }
+  
+
+
+
+
+
+
+
+
+
+
+
+
   getBase64Image(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
@@ -299,8 +324,18 @@ private fileUpload1:  AngularFileUploaderComponent;
   }
 
 
+  miniprof:any;
+  getDATA(id){
+    const pager = 1;
+    console.log('getDATA is worked')
+    this.http.getDataFull("miniprof.php?id="+id+"&fan_id="+0).subscribe({
+      next: data =>{
+        console.log(data)
+        this.miniprof = data
 
-
+      }
+    })
+  }
 
  
 
@@ -356,8 +391,7 @@ private fileUpload1:  AngularFileUploaderComponent;
 
   getdata(pager){
     this.pagebtn = Array()
-    var loader = document.getElementById("cover-spin")
-    loader.style.display = "block"
+    
     this.http.getData("lodi-admin/get-lodis.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
        
       this.lodis = res.json().lodis
@@ -365,7 +399,9 @@ private fileUpload1:  AngularFileUploaderComponent;
       this.lodisCount = res.json().lodis_count
 
 
-      loader.style.display = "none"
+      $('#cover-spin').css({
+        'display':'none'
+      })
 
       this.pagebtntmp =  this.lodisCount / this.limit
       for(var i = 1;i < this.pagebtntmp + 1;i++){
@@ -581,8 +617,8 @@ gotochats(id){
 transaction(id){
   this.router.navigate(["admin-home/requests",id])
 }
-navigateFanTransactions($event){
-  this.router.navigate([`/admin-home/transactions/id=${$event}`])
+navigateFanTransactions(val){
+  this.router.navigate([`/admin-home/transactions/id=${val}`])
 }
 
 update_talentfee(){
@@ -630,6 +666,39 @@ addtalent(){
   alert("adawdawd")
 }
 
+miniPROF = false
+profile_name:any;
+profileshowup(profile_name,image){
+  this.profile_name = profile_name;
+  this.showup = true;
+  this.miniPROF = image;
+}
+profileunshow(){
+  this.showup = false;
+}
+pinStatus:any;
+pin(item){
+  
+  Swal.fire({
+    icon:'success',
+    title:'success pinned',
+    timer:1500
+  }).then(res => {
+    item.push(this.pinStatus = 'danger')
+  })
+}
+
+
+
+
+
+
+
+
+
+
 
 }
+
+
 

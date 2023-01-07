@@ -166,8 +166,8 @@ doc:any
     c:any = 0
   Submitbtn(){
 
-   
-    if($("#datecollected").val().trim() != "" && this.pdfbase.length > 0 && $("#dateexpiry").val().trim() != ""){
+   //jonas you delete some property or function because of erro like  this ---> val().trim()
+    if($("#datecollected").val() != "" && this.pdfbase.length > 0 && $("#dateexpiry").val() != ""){
       this.loader = document.getElementById("cover-spin")
 
       this.loader.style.display = "block"

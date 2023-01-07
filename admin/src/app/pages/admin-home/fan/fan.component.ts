@@ -81,7 +81,9 @@ caching:any
     this.userType = localStorage.getItem("role")
     this.getdata(this.page)
 
-    
+    $('#cover-spin').css({
+      'display':'block'
+    })
 
 
   }
@@ -162,15 +164,13 @@ caching:any
 
   getdata(pager){
     this.pagebtn = Array()
-    var loader = document.getElementById("cover-spin")
-    loader.style.display = "block"
     this.http.getData("lodi-admin/get-fans.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
        console.log(res)
       this.lodis = res.json().lodis
       this.lodisCount = res.json().lodis_count
-
-
-      loader.style.display = "none"
+      $('#cover-spin').css({
+        'display':'none'
+      })
 
       this.pagebtntmp =  this.lodisCount / this.limit
       for(var i = 1;i < this.pagebtntmp + 1;i++){
@@ -194,13 +194,9 @@ caching:any
 
 
 reportData:any
-<<<<<<< Updated upstream
-
-=======
 navigateFanTransactions($event){
   this.router.navigate([`/admin-home/transactions/id=${$event}`])
 }
->>>>>>> Stashed changes
 
 delete(id){
   let data = {

@@ -7,192 +7,136 @@
        <img id="right" src="assets/logo/moh-logo.png" />
      </div>
     </div> -->
-<<<<<<< Updated upstream
-      <div id="cover-spin"></div>
-          <!-- <app-modal [method]="method" [showId] = "showId" (done)='doneChange($event)'></app-modal> -->
-               
-          <div class="action-div" id="contentToConvert" >
-                  <div class="alert alert-dark" role="alert" >
-                          There are <strong *ngIf="updates">{{updatescount}}</strong> lodi right now
-                      </div>
-=======
-    <div class="action-div" id="contentToConvert" >
-                  
->>>>>>> Stashed changes
-                      <!-- <button class="tblaction upload" (click)="addcert()" >UPLOAD RT-PCR</button>  -->
-                     <!-- <button class="tblaction upload" data-toggle="modal" data-target="#report" *ngIf="userType == 1">Reports</button> -->
-                  <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search lodi"> 
-                 
-<<<<<<< Updated upstream
-                  <button class="tblaction" (click)="refreshed()" >Refresh</button>
-     
-=======
-                  <div>
-                    <nav class="navbar">
-                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                          <div class="input-group">
-                              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                  aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="search" (keyup.enter)="searchact()">
-                              <div class="input-group-append" style="position: relative;top:-2px;height:42px;">
-                                  <button class="btn btn-warning" type="button"(click)="refreshed()">
-                                      <i class="bi bi-search"></i>
-                                  </button>
-                              </div>
-                          </div>
-                        </div>
-                        <button class="filter btn-warning" data-toggle="modal" data-target="#addupdate" >Add Update</button>
-                      </nav>
-                    </div>
->>>>>>> Stashed changes
-                 
-              
+  <div class="action-div" id="contentToConvert" >              
+    <!-- <button class="tblaction upload" (click)="addcert()" >UPLOAD RT-PCR</button>  -->
+    <!-- <button class="tblaction upload" data-toggle="modal" data-target="#report" *ngIf="userType == 1">Reports</button> -->                
+    <div role="alert"><h3>Updates (<strong *ngIf="updates">{{updatescount}}</strong>)</h3>
+  </div>
+  <div>
+    <div class="navbar">
+      <div class="input_search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search ...."
+          [(ngModel)]="search" (keyup.enter)="searchact()">
+          <div class="input-group-prepend">
+            <i class="input-group-text bg-warning bi bi-search" (click)="searchact()"></i>
           </div>
-
-          
-          <!-- <select class="custom-select" id="selector" [(ngModel)]="filterCustomer" (change)="changeFilter()">
-            <option value="all" selected>all</option>
-            <option value="active">active</option>
-            <option value="paid" selected>paid</option>
-            <option value="repo">repo</option>
-            
-           
-        </select> -->
-         
-      <!-- <div class="pager">
-        <ul>
-          <li><select class="custom-select" id="selector" class="selector2" [(ngModel)]="limit" (change)="changeLimit()">
-            <option value="100">100 results</option>
-            <option value="250">250 results</option>
-            <option value="500">500 results</option>
-            <option value="1000">1000 results</option>
-            <option value="5000">5000 results</option>
-            <option value="13000">13000 results</option>
-            <option value="0">all results</option>
-          </select></li>
-         
-        </ul>
-      </div> -->
+        </div>
+      </div>
+      <button class="btn btn-warning" data-toggle="modal" data-target="#addupdate">Add Update</button>
+    </div>
+  </div>              
+</div>
+<div class="tabled">        
+  <div id="cover-spin"></div>
+    <!-- <app-modal [method]="method" [showId] = "showId" (done)='doneChange($event)'></app-modal> -->      
+    <!-- <select class="custom-select" id="selector" [(ngModel)]="filterCustomer" (change)="changeFilter()">
+      <option value="all" selected>all</option>
+      <option value="active">active</option>
+      <option value="paid" selected>paid</option>
+      <option value="repo">repo</option>
+    </select> -->     
+    <!-- <div class="pager">
+      <ul>
+        <li><select class="custom-select" id="selector" class="selector2" [(ngModel)]="limit" (change)="changeLimit()">
+          <option value="100">100 results</option>
+          <option value="250">250 results</option>
+          <option value="500">500 results</option>
+          <option value="1000">1000 results</option>
+          <option value="5000">5000 results</option>
+          <option value="13000">13000 results</option>
+          <option value="0">all results</option>
+        </select></li>       
+      </ul>
+    </div> -->
     
       
-          <table class="table"  >
-<<<<<<< Updated upstream
-                  <thead class="thead-dark">
-=======
-                  <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
->>>>>>> Stashed changes
-                    <tr>
-                      <th>Date Created</th> 
-                      <th>Descriptions</th> 
-                      <th>Media</th> 
-                      <th>Actions</th> 
-                      
-                      
-                     
-                      
-                     
-                      <!-- <th>EMPLOYMENT STATUS</th> -->
-                      <!-- <th>SALARY</th> -->
-                      
-                      
- 
-                    </tr>
-                  </thead>
-                  
-     
-                  <tbody *ngIf="updates">
-                    <tr *ngFor="let item of updates;index as i" [attr.data-index]="i"  >
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)" >{{item.date_created}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo"(click)="cached(item)" >{{item.description}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.paths}}</td>
-                     
-                   
-               
-                      
-                      <!-- <td>{{item.employment_status}}</td>  -->
-                      <!-- <td>{{item.voters_status}}</td>   -->
-                      
-                    <td> 
-                      <!-- <button type="button" (click)="gotochats(item.id)" style="padding-right:60px">Transactions</button> -->
-                      <button data-toggle="modal" (click)="talent_fee_chached(item)" data-toggle="modal" data-target="#talent_fee">Delete</button> 
-                       
-                          <!-- <button data-toggle="modal" data-target="#exampleModalCenter"  (click)="familySelected(item.id)">FAMILY</button>  -->
-                          <!-- <button (click)="viewCert()">PRINT</button>  -->
-                          <!-- <button (click)="cacheData(item)" data-toggle="modal" data-target="#exampleModalLong" >PRINT</button>
-                   
-                       <button (click)="delete(item.id)" *ngIf="userType == 1">DELETE</button>
-    
-                     
-                      </td>
-                    </tr>
-               
-                 
-                    
-                   
-                    
-                   
-                    <!-- <th>EMPLOYMENT STATUS</th> -->
-                    <!-- <th>SALARY</th> -->
-                    
-                    
-               
-  
-  
-                 
-  
-  
-  
-                </tbody>
-  
-              </table>
-            </div>
+  <table class="table"  >
+    <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
+      <tr>
+        <th>Date Created<i class="bi bi-chevron-down"></i></th> 
+        <th>Descriptions<i class="bi bi-chevron-down"></i></th> 
+        <th>Media<i class="bi bi-chevron-down"></i></th> 
+        <th>Actions<i class="bi bi-chevron-down"></i></th> 
+        <!-- <th>EMPLOYMENT STATUS</th> -->
+        <!-- <th>SALARY</th> -->
+      </tr>
+    </thead> 
+    <tbody *ngIf="updates">
+      <tr *ngFor="let item of updates;index as i" [attr.data-index]="i"  >
+        <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)" >{{item.date_created}}</td>
+        <td data-toggle="modal" data-target="#lodiinfo"(click)="cached(item)" >{{item.description}}</td>
+        <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.paths}}</td>
+        <!-- <td>{{item.employment_status}}</td>  -->
+        <!-- <td>{{item.voters_status}}</td>   -->              
+        <td> 
+          <!-- <button type="button" (click)="gotochats(item.id)" style="padding-right:60px">Transactions</button> -->
+          <button data-toggle="modal" (click)="talent_fee_chached(item)" data-toggle="modal" data-target="#update-action">Delete</button>             
+          <!-- <button data-toggle="modal" data-target="#exampleModalCenter"  (click)="familySelected(item.id)">FAMILY</button>  -->
+          <!-- <button (click)="viewCert()">PRINT</button>  -->
+          <!-- <button (click)="cacheData(item)" data-toggle="modal" data-target="#exampleModalLong" >PRINT</button>         
+          <button (click)="delete(item.id)" *ngIf="userType == 1">DELETE</button>-->          
+        </td>
+      </tr>
+          <!---- <th>EMPLOYMENT STATUS</th>-->
+          <!-- <th>SALARY</th> -->
+    </tbody>
+  </table>
+</div>
 
 
-              <div class="page showpage" *ngIf="!searchpass">
-                <div class="pagestablabel" ></div>Showing {{page}} of {{pagebtn.length}} pages&nbsp;&nbsp;<button *ngFor="let item of pagebtn" (click)="pager(item)">{{item}}</button>
+<div class="page showpage" *ngIf="!searchpass">
+  <div class="pagestablabel" ></div>Showing {{page}} of {{pagebtn.length}} pages&nbsp;&nbsp;<button *ngFor="let item of pagebtn" (click)="pager(item)">{{item}}</button>
+</div>
   
-              </div>
   
-  
-  </div>
+
   
   
   
  
   
 
-  <div class="modal fade" id="addupdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"data-backdrop="false">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Update</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          
-          
-          <div class="form-group col-12" >
-          <input id="input-b4" class="form-control" name="input-b4[]" data-allowed-file-extensions='["mp4","jpg","png"]'  type="file" class="file" multiple  (change)="handleUpload($event)"
-        data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select {files} for upload...">
-        <textarea [(ngModel)]="updatedescription">
-
-        </textarea>
+<div class="modal fade" id="addupdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"data-backdrop="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Update</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-        
-       
-    <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="uploadupdate()">Done</button>
-   
+      <div class="modal-body">
+        <div class="form-group col-12" >
+          <input id="input-b4" class="form-control" name="input-b4[]" data-allowed-file-extensions='["mp4","jpg","png"]'  type="file" class="file" multiple  (change)="handleUpload($event)"
+          data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select {files} for upload...">
+          <textarea [(ngModel)]="updatedescription"></textarea>
         </div>
-  
+        <button type="button"   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="uploadupdate()">Done</button>
       </div>
     </div>
   </div>
-  
+</div>
 
-  <ion-footer style="height: 200px;padding: 40px;" class="bg-dark"> 
+
+<div class="modal fade" role="dialog" id="update-action" data-backdrop="false">
+  <div class="modal-dialog modal-lg modal-dialog-centered" >
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Update Info</p>
+        <ion-item>
+          <ion-label position="stacked">Description</ion-label>
+          <ion-input type="text" placeholder="Description"></ion-input>
+        </ion-item>
+        <div class="btn-danger" data-dismiss="modal">close</div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<ion-footer style="height: 200px;padding: 40px;" class="bg-dark"> 
     
-  </ion-footer>
+</ion-footer>
 
 
    

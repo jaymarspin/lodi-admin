@@ -5,6 +5,7 @@ import { HttpRequestService } from '../../../services/http-request.service';
 import Swal from 'sweetalert2';
 import {NgxImageCompressService} from 'ngx-image-compress';
 import S3 from 'aws-s3';
+import { map } from 'jquery';
 @Component({
   selector: 'app-transactions',
   templateUrl: './transactions.component.html',
@@ -18,19 +19,27 @@ export class TransactionsComponent implements OnInit {
   id: any;
   lodiid:any
   mybank_id:any;
-
+  loading = false;
   page: number;
   limit: number;
   pagebtntmp: any;
   pagebtn: any;
-
+  showup = false;
   searchpass: boolean = false;
   search;
 
   mybanks: any;
-  
+  fname:any;
+  lname:any;
+  talent:any;
   chosenAccount: any;
-
+  td = [
+    {},
+    {},
+    {},
+    {},
+    {}
+  ]
   redemmable:any 
   choosen:any
 
@@ -64,33 +73,33 @@ export class TransactionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-<<<<<<< Updated upstream
-    this.getdata(this.page).then(() =>{
-      this.getBanks().then(() =>{
-        
-      })
-    })
-   
-=======
     // this.getdata(this.page).then(() =>{
     //   this.getBanks().then(res =>{
     //     console.log(res)
     //   })
     // })
+    $(document).ready(function(){
+      Swal.fire({
+        text:'loading ....',
+        timer:5000,
+        showCancelButton:false,
+        showConfirmButton:false,
+      })
+    })
+
+
    this.getTransactions()
    this.getInfo()
->>>>>>> Stashed changes
   }
   refreshed() {}
   searchact() {}
-
-
-<<<<<<< Updated upstream
-=======
-  infoname:any;
+  
+  id_fan:any;
+  info:any;
   getInfo(){
-    this.http.getData(`website/get-lodi-individual.php?id=${this.id}`).subscribe( res =>{
-      this.infoname = res.json().name
+    this.http.getDataFull(`get-lodi-individual.php?${this.id}&fan_id=${this.id}`).subscribe( {next:res=>{
+      this.info = res;
+    }
     })
   }
   getTransactions(){
@@ -115,7 +124,6 @@ export class TransactionsComponent implements OnInit {
   
 
 
->>>>>>> Stashed changes
  async getBanks(){
 
    await this.http.getData(`lodi-admin/get-banks.php?${this.id}`).subscribe({
@@ -152,37 +160,6 @@ export class TransactionsComponent implements OnInit {
 
   
  redeemed:any = 0
-<<<<<<< Updated upstream
- async getdata(pager) {
-    this.pagebtn = Array();
-    var loader = document.getElementById('cover-spin');
-    loader.style.display = 'block';
-    let link = `get-transactions.php?id=${this.id}&limit=${this.limit}&page=${pager}`
-    console.log(link)
-  await  this.http
-      .getData(
-        link
-      )
-      .subscribe((res) => {
-        this.redemmable = 0
-        this.transactions = res.json().transactions;
-        console.log(this.transactions);
-        this.transactions_count = res.json().transactions_count;
-
-        loader.style.display = 'none';
-
-        this.pagebtntmp = this.transactions_count / this.limit;
-        for (var i = 1; i < this.pagebtntmp + 1; i++) {
-          this.pagebtn.push(i);
-        }
-
-        this.transactions.forEach(element => {
-          console.log(element.accepted)
-          if(element.redemmed === false){
-            this.redemmable += parseFloat(element.value)
-          }
-          this.redeemed +=parseFloat(element.value)
-=======
 //  async getdata(pager) {
 //     this.pagebtn = Array();
 //     var loader = document.getElementById('cover-spin');
@@ -212,11 +189,10 @@ export class TransactionsComponent implements OnInit {
 //             this.redemmable += parseFloat(element.value)
 //           }
 //           this.redeemed +=parseFloat(element.value)
->>>>>>> Stashed changes
           
-        });
-      });
-  }
+//         });
+//       });
+//   }
   redemmedaction(e, id) {
     
     let data = {
@@ -243,7 +219,7 @@ export class TransactionsComponent implements OnInit {
         loader.style.display = 'none';
         const response = data.json();
         if (response.message === 'success') {
-          this.getdata(this.page);
+          // this.getdata(this.page);
         } else {
           Swal.fire({
             icon: 'error',
@@ -321,8 +297,8 @@ S3Client
     showTransactions(id){
       console.log(id)
       this.show = !this.show
-      this.http.getData(`lodi-admin/get-video.php?id=${3}`).subscribe(data => {
-        this.video = data.json().videos
+      this.http.getDataFull("lodi-admin/get-video.php?id="+id).subscribe(data => {
+        this.video = data;
         console.log(data);
       })
       

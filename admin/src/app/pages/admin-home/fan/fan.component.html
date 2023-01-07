@@ -8,172 +8,215 @@
        <img id="right" src="assets/logo/moh-logo.png" />
      </div>
     </div> -->
-<<<<<<< Updated upstream
-      <div id="cover-spin"></div>
-          <!-- <app-modal [method]="method" [showId] = "showId" (done)='doneChange($event)'></app-modal> -->
-               
-          <div class="action-div" id="contentToConvert" >
-                  <div class="alert alert-dark" role="alert" >
-                          There are <strong *ngIf="lodis">{{lodisCount}}</strong> fans right now
-                      </div>
-=======
-    <div class="action-div" id="contentToConvert" >
+  <div id="cover-spin"></div>
+  <div class="action-div" id="contentToConvert" >
                   
->>>>>>> Stashed changes
                       <!-- <button class="tblaction upload" (click)="addcert()" >UPLOAD RT-PCR</button>  -->
                      <!-- <button class="tblaction upload" data-toggle="modal" data-target="#report" *ngIf="userType == 1">Reports</button> -->
-                  <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search fans"> 
+                  
+                  
+    <div role="alert" >
+      <h3>Fans (<strong *ngIf="lodis">{{lodisCount}}</strong>)</h3>
+    </div>
                  
-                  <button class="tblaction" (click)="refreshed()" >Refresh</button>
-     
-                 
-              
+    <div class="navbar">
+      <div class="input_search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search ...."
+          [(ngModel)]="search" (keyup.enter)="searchact()">
+          <div class="input-group-prepend">
+
+            <i class="input-group-text bg-warning bi bi-search" (click)="searchact()"></i>
           </div>
-<<<<<<< Updated upstream
-          <table class="table"  >
-                  <thead class="thead-dark">
-                    <tr>
-                      <th>First Name</th> 
-                      <th>Last Name</th> 
-                      <th>Contact</th> 
-                      <th>Email</th> 
-                  
-                      <th>Actions</th> 
-                      
-                    </tr>
-                  </thead>
-                  
-     
-                  <tbody *ngIf="lodis">
-                    <tr *ngFor="let item of lodis;index as i"  >
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)" >{{item.fname}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo"(click)="cached(item)" >{{item.lname}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.contact}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.email}}</td>
-                      <td>
-                      <button (click)="inactivate(item)" >Inactivate</button> 
-                      <button data-toggle="modal" data-target="#lodiinfo" (click)="gettransactions(item)" >Transactions</button> 
-           
-                    </td>
-                </tbody>
-  
-              </table>
-=======
+        </div>
+      </div>
+      <button class="btn btn-warning" data-toggle="modal" data-target="#add-account">Create new Lodi Account</button>
+    </div>
+  </div>
       
           <!-- <app-modal [method]="method" [showId] = "showId" (done)='doneChange($event)'></app-modal> -->
-          <div class="tabled">   
+  <div class="tabled">   
           
           
-            <table class="table"  >
-              <div id="cover-spin"></div>
-                    <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
-                      <tr>
-                        <th>First Name<i class="bi bi-chevron-down"></i></th> 
-                        <th>Last Name<i class="bi bi-chevron-down"></i></th> 
-                        <th>Contact<i class="bi bi-chevron-down"></i></th> 
-                        <th>Email<i class="bi bi-chevron-down"></i></th> 
-                    
-                        <th>Actions<i class="bi bi-chevron-down"></i></th> 
-                        
-                      </tr>
-                    </thead>
-                    
+    <table class="table"  >
       
-                    <tbody *ngIf="lodis">
-                      <tr *ngFor="let item of lodis;index as i"  >
-                        <td data-toggle="modal" (click)="navigateFanTransactions(item.id)" >{{item.fname}}</td>
-                        <td data-toggle="modal" (click)="navigateFanTransactions(item.id)" >{{item.lname}}</td>
-                        <td data-toggle="modal" (click)="navigateFanTransactions(item.id)">{{item.contact}}</td>
-                        <td data-toggle="modal" (click)="navigateFanTransactions(item.id)">{{item.email}}</td>
-                        <td>
-                        <button (click)="inactivate(item)" >Inactivate</button> 
-                        <button data-toggle="modal" data-target="#lodiinfo" (click)="gettransactions(item)" >Transactions</button> 
+      <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
+        <tr>
+          <th>First Name<i class="bi bi-chevron-down"></i></th> 
+          <th>Last Name<i class="bi bi-chevron-down"></i></th> 
+          <th>Contact<i class="bi bi-chevron-down"></i></th> 
+          <th>Email<i class="bi bi-chevron-down"></i></th>         
+          <th>Actions<i class="bi bi-chevron-down"></i></th>             
+        </tr>
+      </thead>
+      <tbody *ngIf="lodis">
+        <tr *ngFor="let item of lodis;index as i"  >
+          <td data-toggle="modal" (click)="navigateFanTransactions(item.id)" >{{item.fname}}</td>
+          <td data-toggle="modal" (click)="navigateFanTransactions(item.id)" >{{item.lname}}</td>
+          <td data-toggle="modal" (click)="navigateFanTransactions(item.id)">{{item.contact}}</td>
+          <td data-toggle="modal" (click)="navigateFanTransactions(item.id)">{{item.email}}</td>
+          <!-- <td>
+                    <button (click)="inactivate(item)" >Inactivate</button> 
+                    <button data-toggle="modal" data-target="#lodiinfo" (click)="gettransactions(item)" >Transactions</button> 
             
-                      </td>
-                  </tbody>
-    
-            </table>
-          </div>  
-
->>>>>>> Stashed changes
-              <div class="page showpage" *ngIf="!searchpass">
-                <div class="pagestablabel" ></div>Showing {{page}} of {{pagebtn.length}} pages&nbsp;&nbsp;<button *ngFor="let item of pagebtn" (click)="pager(item)">{{item}}</button>
-  
-              </div>
-  
-  
+          </td> -->
+          <td><i class="bi bi-three-dots w-50" href="#" role="button" data-toggle="modal" data-target="#selection" aria-expanded="false"></i></td>
+        </tr>
+      </tbody>
+  </table>
+</div>  
+  <div class="page showpage" *ngIf="!searchpass">
+    <div class="pagestablabel" ></div>Showing {{page}} of {{pagebtn.length}} pages&nbsp;&nbsp;<button *ngFor="let item of pagebtn" (click)="pager(item)">{{item}}</button>
   </div>
+</div>
   
-  
-  
-  <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle"> </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
 
-        <div class="modal-body">
-          <div class="alert alert-warning" role="alert">
-            Has {{transactionsCount}} transaction(s)
-          </div>
-          <button class="btn-warning">Wide View</button>
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th>Fan</th>
-                <th>Amount</th>
-                <th>Talent</th>
-                <th>Status</th>
-                <th>link</th>
-                <th>Redeem status</th>
-                <th>Date Request</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-        
-            <tbody *ngIf="transactions">
-              <tr *ngFor="let item of transactions; index as i" >
-                <td>{{item.id}} {{item.fan.lname}}</td>
-                <td>{{item.value}}</td>
-                <td>{{item.talent}}</td>
-                <td><span *ngIf="item.accepted === false; else accepted">not yet responded</span><ng-template #accepted><span>Responded</span></ng-template>
-                </td>
-                <td></td>
-                <td>
-                  <ion-label>Redem Status</ion-label>
-            <!-- <ion-select placeholder="Select One" [value]="item.redemmed" (ionChange)='redemmedaction($event,item.id)'>
-              <ion-select-option value="true" >Redemmed</ion-select-option>
-              <ion-select-option value="false" >Not Yet Redemmed</ion-select-option>
-            </ion-select> -->
-                  <ion-label style="color: red;" *ngIf="item.redemmed === false; else redemmed">not yet redemmed</ion-label><ng-template #redemmed><ion-label style="color: green;">redemmed</ion-label></ng-template>
-                </td>
-                <td>{{item.date_created}}</td>
-                <td>
-                  
-                </td>
-                
-              </tr>
-            </tbody>
-          </table>
-         
+<ion-footer style="height: 200px;padding: 40px;" class="bg-dark"> 
+    
+</ion-footer>
+       
+<div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"> </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="alert alert-warning" role="alert">
+          Has {{transactionsCount}} transaction(s)
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
+        <button class="btn-warning">Wide View</button>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Fan</th>
+              <th>Amount</th>
+              <th>Talent</th>
+              <th>Status</th>
+              <th>link</th>
+              <th>Redeem status</th>
+              <th>Date Request</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+      
+          <tbody *ngIf="transactions">
+            <tr *ngFor="let item of transactions; index as i" >
+              <td>{{item.id}} {{item.fan.lname}}</td>
+              <td>{{item.value}}</td>
+              <td>{{item.talent}}</td>
+              <td><span *ngIf="item.accepted === false; else accepted">not yet responded</span><ng-template #accepted><span>Responded</span></ng-template>
+              </td>
+              <td></td>
+              <td>
+                <ion-label>Redem Status</ion-label>
+          <!-- <ion-select placeholder="Select One" [value]="item.redemmed" (ionChange)='redemmedaction($event,item.id)'>
+            <ion-select-option value="true" >Redemmed</ion-select-option>
+            <ion-select-option value="false" >Not Yet Redemmed</ion-select-option>
+          </ion-select> -->
+                <ion-label style="color: red;" *ngIf="item.redemmed === false; else redemmed">not yet redemmed</ion-label><ng-template #redemmed><ion-label style="color: green;">redemmed</ion-label></ng-template>
+              </td>
+              <td>{{item.date_created}}</td>
+              <td>
+                
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+       
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="add-account" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title" id="exampleModalLongTitle">Create Account</h5>
+        <select name="" id="" class="form-select">
+          <option value="Lodi">Lodi</option>
+          <option value="Fan">Fan</option>
+        </select>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ion-item>
+          <ion-label position="stacked">FirstName : </ion-label>
+          <ion-input type="text" placeholder="FirstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">MiddleName : </ion-label>
+          <ion-input type="text" placeholder="MiddleName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">LastName : </ion-label>
+          <ion-input type="text" placeholder="LastName"></ion-input>
+        </ion-item>  
+        <ion-item>
+          <ion-label position="stacked">Email : </ion-label>
+          <ion-input type="email" placeholder="Email ex.@gmail"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Password : </ion-label>
+          <ion-input type="password" placeholder="Password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Re Enter The Password </ion-label>
+          <ion-input type="password" placeholder="Re ennter Password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Male</ion-label>
+          <ion-checkbox></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Female</ion-label>
+          <ion-checkbox></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Leave a message (Optional)</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+      </div>
+      <div class="modal-footer bg-dark">
+        <button type="button" data-dismiss="modal" class="btn btn-warning" style="padding-right:60px" data-dismiss="modal">Done</button>
       </div>
     </div>
   </div>
+</div>
 
-  <ion-footer style="height: 200px;padding: 40px;" class="bg-dark"> 
-    
-  </ion-footer>
-       
-  
 
-  
+<div class="modal fade" id="selection" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title" id="exampleModalLongTitle">Name</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">          
+      </div>
+      <div class="modal-footer bg-dark">
+        <button type="button" data-dismiss="modal" class="btn btn-warning" style="padding-right:60px" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
   

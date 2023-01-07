@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpRequestService } from '../services/http-request.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-feeds',
@@ -7,42 +9,64 @@ import { HttpRequestService } from '../services/http-request.service';
   styleUrls: ['./feeds.component.scss']
 })
 export class FeedsComponent implements OnInit {
-  lodis: any;
+  lodis:any =[];
   lodisCount: any;
   transactions_count: any;
   album: any;
   id:any;
+  value:any
   s3 = "https://lodi-bucket.s3.ap-southeast-1.amazonaws.com/"
-
+  observe = new Observable((observes)=>{
+    observes.next('1')
+  })
   constructor(public http: HttpRequestService) { }
 
   clone_box = [
     {},
     {},
-    {},
-    {}
+    
   ]
 
 
   ngOnInit(): void {
-    this.getData()
-      this.getprofile()
+    this.observe.subscribe((res)=>{
+      console.log(res)
+      this.value = res
+    })
+    $('#loadingcard').css({
+      'display':'block'
+    })
     
+    this.getData()
+    this.getprofile()
+    this.jque()
   }
 
-
-  getData(){
-    var loadercard = document.getElementById('loadingcard').setAttribute('style','display:block;')
-    this.http.getData("lodi-admin/get-fan-transaction.php").subscribe(res =>{
-      var loadercard = document.getElementById('loadingcard').setAttribute('style','display:none;')
+  ress:any = [];
+ getData(){
+  this.http.getData("lodi-admin/get-fan-transaction.php").subscribe({next:res =>{
+      this.lodis = res.json().transaction
+      // this.lodis.pipe(map(data =>{ return data})).subscribe({next:res =>{
+      //   console.log(res)
+      // }})
+      $('#loadingcard').css({
+        'display':'none'
+      })
+      $('#fed-card').css({
+        'display':'block'
+      })
       console.log(res)
-      this.lodis = res.json().transactions
-      console.log(this.lodis)
-      this.transactions_count = res.json().transactions_count
-      this.id = res.json().transaction.id
+      console.log(this.ress)
+    }})
+
+    this.http.getData("lodi-admin/get-fan-transaction.php").subscribe(data =>{
+
+    },err =>{
       
-    }
-    )
+    })
+    
+      // this.lodis.pipe(map(data =>{ return data})).subscribe({next:res =>{
+      //   console.log(re})
     
   }
   getprofile(){
@@ -51,5 +75,28 @@ export class FeedsComponent implements OnInit {
       console.log(res)
     })
    }
+   scrollY:any;
+   jque(){
+    this.scrollY = $(document).scrollTop()
+    $(document).scroll(function(){
+      if($(this).scrollTop() >= 41){
+        $('.navbar-left-2').animate({
+          'top':'4.5vw'
+        },'fast')
+        $('.navnav').animate({
+          'top':'0'
+        },'fast')
+      }
+      if($(this).scrollTop() <= 40){
+        $('.navbar-left-2').animate({
+          'top':'10vw'
+        },'fast')
+        $('.navnav').animate({
+          'top':'5vw'
+        },'fast')
+      }
+    })
+   }
+
 
 }

@@ -1,9 +1,40 @@
 .main-wrapper{
     padding-top: 50px;
-    
-    width: 80%;
-    margin-left: 5px;
+    background-color: #ebebeb;
+    width: 100%;
     margin-top: 5px;
+    .navbar{
+        .input_search{
+            width: 28vw;
+            .input-group-prepend{
+                .input-group-text{
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .btn-warning{
+            width: 15vw;
+        }
+    }
+    #update-action{
+        .modal-dialog{
+            .modal-content{
+                .modal-body{
+                    p{
+                        text-align: center;
+                        font-size: 2vw;
+                    }
+                    .btn-danger{
+                        text-align: center;
+                        font-size: 2vw;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 .action-div{
@@ -14,15 +45,6 @@
   
  
     
-}.action-div input[type="text"]{
-    float: right;
-    width: 400px;
-    padding: 5px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    background-color: #e3deda;
-    padding-right: 30px;
 }.fa{
     float: right;
     position: absolute;
@@ -53,18 +75,14 @@
         overflow: hidden;
         
     }
-<<<<<<< Updated upstream
-=======
 }.tabled{
     
     padding: 10px;
 
-
-    width: 100%;
+    width: 90%;
+    margin: auto;
     border-radius: 30px;
-    height: 1000px;
-    overflow-y: auto;
->>>>>>> Stashed changes
+
 }
 
 
@@ -118,8 +136,6 @@ img{
     float: left;
     clear: both;
     width: 200px;
-    margin-bottom: 10px;
-}.form-control{
     margin-bottom: 10px;
 }.tab-content-wrapper{
     position: relative;

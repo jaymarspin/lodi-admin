@@ -1,13 +1,7 @@
-
+$warning:#FFCC00;
 .menu-wrap{
     position: relative;
     width: 100%;
-<<<<<<< Updated upstream
-    text-align: center;
-    z-index: 888;
-    top: 60px;
-=======
->>>>>>> Stashed changes
     .col-6,.col-3
     { 
         .menu{
@@ -32,13 +26,6 @@
         
 
     }
-<<<<<<< Updated upstream
-    img{
-        width: 200px;
-        height: 200px;
-        display: block;
-    }
-=======
 }#stars{
     object-fit: scale-down;
     position: absolute;
@@ -49,25 +36,41 @@
 }#wrapper{
     position: relative;
 
->>>>>>> Stashed changes
 }
 .col-contains{
     width: 115rem;
     display: flex;
     justify-content: space-evenly;
     .container-box{
-        width: 26rem;
-        height: 12rem;
+        width: 20vw;
+        height: 11vw;
         border-radius: 10px;
-        transform: box all 0.8s ease;
+        animation: box all 2s ease;
+        transition: 300ms;
         padding: 20px;
+        background-color: #fff;
+        span{
+            font-size:2vw;
+            font-weight: 600;
+        }
+        h4{
+            font-size: 1.3vw;
+        }
+        h5{
+            font-size: 1.3vw;
+        }
         i{
-            font-size: 5vh;
+            font-size: 2vw;
+        }
+        &:hover{
+            cursor: pointer;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            animation: box-cons 0.3s ease;
+        }
+        &:active{
+            background-color: $warning;
         }
     }
-    .container-box:hover{
-        cursor: pointer;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    }
+    
 }
 

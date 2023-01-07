@@ -8,9 +8,44 @@
             font-size: 30px;
         }
     }
+    .gestures{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        span{
+            font-size: 3vw;
+        }
+        .card{
+            width: 23vw;
+            height: 25vw;
+            margin: 3vw;
+            .card-content{
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                i{
+                    font-size: 10vw;
+                }
+            }
+            &:hover{
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.274);
+            }
+            
+        }
+    }
+    .list-col{
+        .search{
+            width: 77.1%;
+        }
+    }
 
 
 
-
-
+}
+*.list-col{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }

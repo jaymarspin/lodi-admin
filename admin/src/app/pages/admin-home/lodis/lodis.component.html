@@ -1,108 +1,86 @@
 <div class="main-wrapper" id="canvas">
+    <div id="cover-spin"></div>
+    <div class="namee"></div>
+    <div class="action-div" id="contentToConvert" >
+      <div role="alert" >
+        <h3>Lodis (<strong *ngIf="lodis">{{lodisCount}}</strong>)
+        </h3>
+      </div>
+    </div>
 
-      <div id="cover-spin"></div>
-<<<<<<< Updated upstream
-          <div class="action-div" id="contentToConvert" >
-                  <div class="alert alert-dark" role="alert" >
-                          There are <strong *ngIf="lodis">{{lodisCount}}</strong> lodi right now
-                      </div>
-                  <input type="text" id="search" [(ngModel)]="search" (keyup.enter)="searchact()" placeholder="Search lodi"> 
-=======
-      <div class="action-div" id="contentToConvert" >
-                  
-                  <div role="alert" >
-                    <h3>Lodis (
-                    <strong *ngIf="lodis">{{lodisCount}}</strong>
-                    )
-                    </h3>
-                  </div>
->>>>>>> Stashed changes
-                 
-                  <button class="tblaction" (click)="refreshed()" >Refresh</button>
-     
-                 
-              
+    <div class="navbar">
+      <div class="input_search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search ...."
+          [(ngModel)]="search" (keyup.enter)="searchact()">
+          <div class="input-group-prepend">
+
+            <i class="input-group-text bg-warning bi bi-search" (click)="searchact()"></i>
           </div>
-<<<<<<< Updated upstream
-=======
-          
-      
-      <div class="tabled">
-          
->>>>>>> Stashed changes
+        </div>
+      </div>
+      <button class="btn btn-warning" data-toggle="modal" data-target="#add-account">Create new Lodi Account</button>
+    </div>
 
-          <div class="row">
-            <div class="col-1">
-           </div>
-            <div class="col-11" class="filterwrap">
-              <ng-container *ngIf="filtergo"><span *ngFor="let item of filterarray">{{item}}</span></ng-container>
-              
+    <div class="tabled">
+    <div class="row">
+      <div class="col-1">
+      </div>
+      <div class="col-11" class="filterwrap">
+        <ng-container *ngIf="filtergo"><span *ngFor="let item of filterarray">{{item}}</span></ng-container>
+      </div>
+    </div>
+    <table class="table" style="border-collapse: collapse; width: 100%; ">
+      <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
+        <tr>
+          <th>First Name<i class="bi bi-chevron-down"></i></th> 
+          <th>Last Name<i class="bi bi-chevron-down"></i></th> 
+          <th>Contact<i class="bi bi-chevron-down"></i></th> 
+          <th>Email<i class="bi bi-chevron-down"></i></th> 
+          <th>Social<i class="bi bi-chevron-down"></i></th>
+          <th>Followers<i class="bi bi-chevron-down"></i></th>
+          <th>Actions<i class="bi bi-chevron-down"></i></th> 
+        </tr>
+      </thead>
+      <tbody >
+        <tr (mouseenter)="profileshowup($event,$event)" (mouseleave)="profileunshow()">
+          <td>example</td>
+          <td>example</td>
+          <td>example</td>
+          <td>example</td>
+          <td>example</td>
+          <td>example</td>
+          <td><i class="bi bi-three-dots w-50" href="#" role="button" data-toggle="modal" data-target="#selection" aria-expanded="false"></i></td>
+        </tr>
+        <tr *ngFor="let item of lodis;index as i" [attr.data-index]="i"  (mouseenter)="profileshowup(item.fname,item.profile.name20)" (mouseleave)="profileunshow()">
+          <td  (click)="navigateFanTransactions(item.id)">{{item.fname}}</td>
+          <td data-toggle="modal" data-target="#lodiinfo"(click)="cached(item)">{{item.lname}}</td>
+          <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.contact}}</td>
+          <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.email}}</td>
+          <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.social}}</td>
+          <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.followers}}</td>
+          <td> 
+            <div class="dropshere dropdown justify-content-start">
+              <i class="bi bi-three-dots w-50" href="#" role="button" data-toggle="modal" data-target="#selection" aria-expanded="false"></i>
+              <i class="bi bi-pin-angle-fill text-{{pinStatus}}" data-toggle="tooltip" data-placement="top" title="Pin It to be popular choices" (click)="pin(item)"></i>
             </div>
-          </div>
-     
-<<<<<<< Updated upstream
-          <table class="table"  >
-                  <thead class="thead-dark">
-=======
-          <table class="table" style="border-collapse: collapse; width: 100%; ">
-                  <thead class="bg-warning" style="position: sticky;top: 0;z-index: 1;">
->>>>>>> Stashed changes
-                    <tr>
-                      <th>First Name</th> 
-                      <th>Last Name</th> 
-                      <th>Contact</th> 
-                      <th>Email</th> 
-                      <th>Social</th>
-                      <th>Followers</th>
-                    
-                      <th>Actions</th> 
-                      
-                    </tr>
-                  </thead>
-                  
-     
-                  <tbody *ngIf="lodis">
-                    <tr *ngFor="let item of lodis;index as i" [attr.data-index]="i"  >
-                      <td  (click)="navigateFanTransactions(item.id)" >{{item.fname}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo"(click)="cached(item)" >{{item.lname}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.contact}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.email}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.social}}</td>
-                      <td data-toggle="modal" data-target="#lodiinfo" (click)="cached(item)">{{item.followers}}</td>
-                
-                    <td> 
-                      <button data-toggle="modal" (click)="talent_fee_chached(item)" data-toggle="modal" data-target="#talent_fee">Talent Fee</button> 
-                      <button data-toggle="modal" (click)="transaction(item.id)" >View Redeem Requests</button> 
-                      <button data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#bio">Bio</button> 
-                      <button data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#talents">Talents</button> 
-                       
-                     
-                      </td>
-                    </tr>
-               
-                </tbody>
-  
-              </table>
-            </div>
-
-
-              <div class="page showpage" *ngIf="!searchpass">
-                <div class="pagestablabel" ></div>Showing {{page}} of {{pagebtn.length}} pages&nbsp;&nbsp;<button *ngFor="let item of pagebtn" (click)="pager(item)">{{item}}</button>
-  
-              </div>
-  
-  
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
-  
-  
-<<<<<<< Updated upstream
-  <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-=======
+  <div class="page showpage" *ngIf="!searchpass">
+    <div class="pagestablabel" ></div>Showing {{page}} of {{pagebtn.length}} pages&nbsp;&nbsp;<button *ngFor="let item of pagebtn" (click)="pager(item)">{{item}}</button></div>
+    <div class="bg-light card-box" *ngIf="showup">
+      <h5>{{profile_name}}</h5>
+      <!-- <i class="bi bi-person" *ngIf="!miniPROF"></i> -->
+      <img src="{{miniPROF}}" alt="" *ngIf="miniPROF">
+    </div>
+  </div>
+
 
   <div class="modal fade" id="lodiinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
 
->>>>>>> Stashed changes
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -176,13 +154,9 @@
     </div>
   </div>
 
-<<<<<<< Updated upstream
-  <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-=======
 
   <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
 
->>>>>>> Stashed changes
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -239,13 +213,9 @@
   </div>
   
 
-<<<<<<< Updated upstream
-  <div class="modal fade" id="talent_fee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-=======
 
   <div class="modal fade" id="talent_fee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
 
->>>>>>> Stashed changes
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -299,13 +269,8 @@
 
 
 
-<<<<<<< Updated upstream
-  <div class="modal fade" id="bio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-=======
 
   <div class="modal fade" id="bio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
-
->>>>>>> Stashed changes
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -316,29 +281,20 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <!-- <label for="formGroupExampleInput">Example label</label> -->
+            <label for="formGroupExampleInput">Example label</label> -->
             <textarea disabled [(ngModel)]="bio" class="form-control" rows="7" placeholder="Example input">
-
-
             </textarea>
           </div>
-        
-    <button type="button" disabled   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="addbio()">Done</button>
-   
+          <button type="button" disabled   data-dismiss="modal" class="btn btn-primary" style="padding-right:60px" (click)="addbio()">Done</button>
         </div>
-  
       </div>
     </div>
   </div>
 
 
-<<<<<<< Updated upstream
-  <div class="modal fade" id="talents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-=======
 
   <div class="modal fade" id="talents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
 
->>>>>>> Stashed changes
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -363,15 +319,135 @@
   
       </div>
     </div>
-  </div>
-<<<<<<< Updated upstream
-  
-=======
-  <ion-footer style="height: 200px;padding: 40px;width: 100%;background: #333;"> 
+
+
+
     
+  </div>
+
+
+<div class="modal fade" id="selection" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title" id="exampleModalLongTitle">Name</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">          
+      </div>
+      <div class="modal-footer bg-dark">
+        <button type="button" data-dismiss="modal" class="btn btn-warning" style="padding-right:60px" (click)="addtalent()">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <div class="modal fade" id="add-account" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false"data-backdrop="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title" id="exampleModalLongTitle">Create Account</h5>
+          <select name="" id="" class="form-select">
+            <option value="Lodi">Lodi</option>
+            <option value="Fan">Fan</option>
+          </select>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ion-item>
+            <ion-label position="stacked">FirstName : </ion-label>
+            <ion-input type="text" placeholder="FirstName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">MiddleName : </ion-label>
+            <ion-input type="text" placeholder="MiddleName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">LastName : </ion-label>
+            <ion-input type="text" placeholder="LastName"></ion-input>
+          </ion-item>  
+          <ion-item>
+            <ion-label position="stacked">Email : </ion-label>
+            <ion-input type="email" placeholder="Email ex.@gmail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Password : </ion-label>
+            <ion-input type="password" placeholder="Password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Re Enter The Password </ion-label>
+            <ion-input type="password" placeholder="Re ennter Password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Male</ion-label>
+            <ion-checkbox></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Female</ion-label>
+            <ion-checkbox></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Leave a message (Optional)</ion-label>
+            <ion-textarea></ion-textarea>
+          </ion-item>
+        </div>
+        <div class="modal-footer bg-dark">
+          <button type="button" data-dismiss="modal" class="btn btn-warning" style="padding-right:60px" (click)="addtalent()">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <ion-footer> 
+    <section class="first-section">
+      <h1>Lodis</h1>
+      <ul>
+        <li><a href="#">Description</a></li>
+        <li><a href="#">Rules</a></li>
+        <li><ion-label>How to use Description in a sentence. He called the station and reported the description of the vehicle. Angry was a good description, she noted. Howie obtained a full description of the man and his vehicle and the license plate number.</ion-label></li>
+        <li><a href="#">Act</a></li>
+      </ul>
+    </section>
+    <section class="first-section">
+      <h1>Help</h1>
+      <ul>
+        <li><a href="#">How to use lodi admin</a></li>
+        <li><a href="#">methods</a></li>
+        <li><ion-label>How to use Description in a sentence. He called the station and reported the description of the vehicle. Angry was a good description, she noted. Howie obtained a full description of the man and his vehicle and the license plate number.</ion-label></li>
+        <li><a href="#">Contact for Help</a></li>
+        <input type="email" placeholder="@email">
+      </ul>
+    </section>
+    <section class="first-section">
+      <h1>Fans</h1>
+      <ul>
+        <li><a href="#">Description</a></li>
+        <li><a href="#">Rules</a></li>
+        <li><ion-label>Your bio on fans, also known as the About section, is one of the most important aspects of your profile page. When potential buyers land on your account it is key you make a strong impression. Since the majority of your content is locked behind a paywall it is crucial to entice the viewer with a well-written bio.</ion-label></li>
+        <li><a href="#">Act</a></li>
+      </ul>
+    </section>
   </ion-footer>
->>>>>>> Stashed changes
   
   
   
+<!--
+  <i class="bi bi-three-dots w-50" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+  <i class="bi bi-pin-angle-fill" data-toggle="tooltip" data-placement="top" title="Pin It to be popular choices"></i>
+     -->
+  
+<!-- <ul class="dropdown-menu">
+    <li class="dropdown-item" data-toggle="modal" (click)="talent_fee_chached(item)" data-toggle="modal" data-target="#talent_fee">Talent Fee</li>
+    <li class="dropdown-item" data-toggle="modal" (click)="transaction(item.id)" >View Redeem Requests</li>
+    <li class="dropdown-item" data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#bio">Bio</li>
+    <li class="dropdown-item" data-toggle="modal" (click)="cached(item)" data-toggle="modal" data-target="#talents">Talents</li>
+  </ul> -->
+
   

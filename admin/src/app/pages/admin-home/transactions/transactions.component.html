@@ -1,11 +1,5 @@
 <div class="main-wrapper" id="canvas">
-<<<<<<< Updated upstream
-  <div id="cover-spin"></div>
-
-  <div class="action-div" id="contentToConvert">
-=======
   <!-- <div class="action-div" id="contentToConvert">
->>>>>>> Stashed changes
     <div class="alert alert-dark" role="alert">
       request has
       <strong *ngIf="transactions">{{ transactions_count }}</strong> transactions
@@ -39,99 +33,52 @@
 
     <div class="alert bg-warning" style="float: right;clear: right;" role="alert">
       Redemmable {{redeemed}} Pesos
-      <!-- <img class="reciept" (click)="openimage()" [src]="base64data" *ngIf="base64data"/> -->
+       <img class="reciept" (click)="openimage()" [src]="base64data" *ngIf="base64data"/> -->
        <!-- <button (click)="promiseCompressedImg()" >Upload Transfer Screenshot</button> -->
-      <button *ngIf="redemmable"  class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
+      <!-- <button *ngIf="redemmable"  class="btn btn-warning" style="float: left;clear: both;width: 200px;" (click)="redemmedaction($event,0)">Redemmed All</button>
     </div>  
-<<<<<<< Updated upstream
-  </div>
-
-  <div class="row">
-    <div class="col-1"></div>
-  </div>
-=======
   </div> -->
   
 <div id="cover-spin"></div>
 
 <div class="transaction-viewer">
-  <nav class="navbar">
-    <h1>{{infoname}}</h1>
-    <h1>Transactions({{transactions_count}})</h1>
-  </nav>
-  <div id="profile-image">
-    <img src="assets/logo.png" alt="" draggable="false">
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col col-lg-2 card">
-        <h1>Properties</h1>
-        <ul>
-          <li class="text-warning">Value : </li>
-          <li>Date Created : </li>
-          <li class="text-success">Date redeem : </li>
-          <li>Redeem : </li>
-          <li>Lodi : </li>
-          <li>Fan : </li>
-          <li>Description : </li>
-        </ul>
-      </div>
-      <div class="col card-mid">
-        <nav class="navbar">
-          <h4>Date Created : 6/12/2022</h4>
-          <h4>Type : Video greeting</h4>
-        </nav>
-        <video [autoplay]="true" controls [loop]="true" *ngFor="let src of video">
-          <source src="{{src.videosrc}}" type="video/mp4">
-        </video>
-        <div class="showed" *ngIf="show"><h1 >Nothing to show yet</h1></div>
-      </div>
-      <div class="col col-lg-2 card">
-        <h5>Followers : </h5>
-        <h5></h5>
-      </div>
-    </div>
+  <img id="profile-pic" src="{{info.profile.name20}}" alt="" data-toggle="modal" data-target="#gallery">
+  
+  <div class="transaction-info bg-light">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">id</ion-label>
+            <ion-input value="{{info.id}}" disabled="true"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">First Name : </ion-label>
+            <ion-input disabled="true" [value]="info.fname"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Last Name : </ion-label>
+            <ion-input value="{{info.lname}}" disabled="true"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>1</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>1</ion-col>
+        <ion-col>2</ion-col>
+        <ion-col>3</ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </div>
->>>>>>> Stashed changes
 
 
-<<<<<<< Updated upstream
-    <tbody *ngIf="transactions">
-      <tr *ngFor="let item of transactions; index as i" [attr.data-index]="i">
-        <td>{{item.fan.fname}} {{item.fan.lname}}</td>
-        <td>{{item.value}}</td>
-        <td>{{item.talent}}</td>
-        <td><span *ngIf="item.accepted === false; else accepted">not yet responded</span><ng-template #accepted><span>Responded</span></ng-template>
-        </td>
-        <td></td>
-        <td>
-          <ion-label>Redem Status</ion-label>
-    <!-- <ion-select placeholder="Select One" [value]="item.redemmed" (ionChange)='redemmedaction($event,item.id)'>
-      <ion-select-option value="true" >Redemmed</ion-select-option>
-      <ion-select-option value="false" >Not Yet Redemmed</ion-select-option>
-    </ion-select> -->
-          <ion-label style="color: red;" *ngIf="item.redemmed === false; else redemmed">not yet redemmed</ion-label><ng-template #redemmed><ion-label style="color: green;">redemmed</ion-label></ng-template>
-        </td>
-        <td>{{item.date_created}}</td>
-        <td>
-          
-        </td>
-        
-      </tr>
-    </tbody>
-  </table>
-  <div class="page showpage" *ngIf="!searchpass">
-    <div class="pagestablabel"></div>
-    Showing {{ page }} of {{ pagebtn.length }} pages&nbsp;&nbsp;<button
-      *ngFor="let item of pagebtn"
-      (click)="pager(item)"
-    >
-      {{ item }}
-    </button>
-  </div>
-</div>
-=======
 
   
 <div class="table-container">
@@ -159,22 +106,31 @@
       <h3> No Transactions Yet</h3>
     </div>
     <tr class="placeholder-glow" id="loading">
-      <td class="placeholder position-absolute"style="left:1rem;width: 130px;height:3rem;border-radius:20px;"></td>
-      <td class="placeholder position-absolute"style="left:13rem;width: 180px;height:3rem;border-radius:20px;"></td>
-      <td class="placeholder position-absolute"style="left:30rem;width: 150px;height:3rem;border-radius:20px;"></td>
-      <td class="placeholder position-absolute"style="left:45rem;width: 120px;height:3rem;border-radius:20px;"></td>
-      <td class="placeholder position-absolute"style="left:75rem;width: 110px;height:3rem;border-radius:20px;"></td>
-      <td class="placeholder position-absolute"style="left:100rem;width:110px;height:3rem;border-radius:20px;"></td>
+      <h1>loading</h1>
     </tr>
     </tbody>
   </table >
+  <div class="bg-light card-box" *ngIf="showup">
+    <h5>{{profile_name}}</h5>
+    <i class="bi bi-person"></i>
+  </div>
 </div>  
 
-
-
+<!-- 
+<div class="modal" role="modal" id="gallery" data-backdrop="false">
+  <div class="modal-dialog dialog-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <i class="bi bi-x-circle close" data-dismiss="modal"></i>
+      </div>
+      <div class="modal-body">
+        <img src="{{info.profile.name20}}" alt="">
+      </div>
+    </div>
+  </div>
+</div> -->
 
 
 
   
   
->>>>>>> Stashed changes

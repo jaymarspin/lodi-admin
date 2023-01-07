@@ -5,7 +5,7 @@ import { HttpRequestService } from '../../../services/http-request.service'
 import pdfjs from 'jspdf';
 import {MedicalService}  from '../../../report-print/medical.service'
 import { navigationINFORMATION } from './navigationData';
-
+import { counts } from './navigationData';
 
 @Component({
   selector: 'app-menu',
@@ -46,6 +46,8 @@ export class MenuComponent implements OnInit {
       localStorage.clear()
       this.router.navigate([''])
     }
+
+    this.getCount();
   }
   menu(nagivate){
   
@@ -54,6 +56,40 @@ export class MenuComponent implements OnInit {
   signout(){
     localStorage.clear()
     this.router.navigate([''])
+  }
+  count:any;
+  SumCount:any;
+  lodistatus:any;
+  fanstatus:any;
+  lodi_status:any;
+  fan_status:any;
+  update_count:any;
+  getCount(){
+    this.http.getData(`lodi-admin/get-count.php?limit=${50}&page=${1}`).subscribe({
+      next:res => {
+        this.count = res.json();
+        const fans = res.json().fans_count;
+        const lods = res.json().lodis_count;
+        const update = res.json().upate_count;
+        this.SumCount = fans + lods + update;
+        if(lods < 50 ){
+          this.lodi_status = 'Decreasing';
+          this.lodistatus = 'danger';
+        }
+        if(fans < 50 ){
+          this.fan_status = 'Decreasing';
+          this.fanstatus = 'danger';
+        }
+        if(lods > 50){
+          this.lodi_status = 'Increasing';
+          this.lodistatus = 'success';
+        }
+        if(fans > 50){
+          this.fan_status = 'Increasing';
+          this.fanstatus = 'success';
+        }
+      }
+    })
   }
 
   report(){

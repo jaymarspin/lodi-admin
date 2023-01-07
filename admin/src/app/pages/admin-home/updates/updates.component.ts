@@ -16,49 +16,26 @@ import { AngularFileUploaderComponent } from "angular-file-uploader";
   styleUrls: ['./updates.component.scss']
 })
 export class UpdatesComponent implements OnInit {
-
   @ViewChild('fileUpload1')
-
   loader:any
   customers = 6546798
   updates = Array()
   updatescount:number
   base64: any
-
-
-
-   search:string
-   searchpass:boolean = false
-
-
-   page:number
-   limit:number
-   pagebtntmp:any
-   pagebtn:any
-
-  
-  
-
-
-    filter:any
-
-   usershow:boolean = false
-  
- 
- 
-
- 
- 
-
-
-resetVar:boolean = false
-caching:any
-
-teaserplay:any
-
-dmamount:any
-videogreetingsamount
-fansignamount
+  search:string
+  searchpass:boolean = false
+  page:number
+  limit:number
+  pagebtntmp:any
+  pagebtn:any
+  filter:any
+  usershow:boolean = false
+  resetVar:boolean = false
+  caching:any
+  teaserplay:any
+  dmamount:any
+  videogreetingsamount
+  fansignamount
  
 private fileUpload1:  AngularFileUploaderComponent;
   constructor(private cd: ChangeDetectorRef,
@@ -67,28 +44,21 @@ private fileUpload1:  AngularFileUploaderComponent;
     this.limit = 50
     this.pagebtn = Array()
     this.filter = Array()
-
-
-    
    }
   ngOnInit(): void {
     $(() =>{
-      
-     
       $.getScript("assets/bootstrap-fileinput/js/fileinput.min.js" )
       $('body #lodiinfo').on('hidden.bs.modal',  () => {
         
     });
-     
+    })
+    $('#cover-spin').css({
+      'display':'block'
     })
 
-    
     this.getdata(this.page)
-
-    
-
-
   }
+
   getBase64Image(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
@@ -102,9 +72,6 @@ private fileUpload1:  AngularFileUploaderComponent;
   cached(item){
     delete(this.teaserplay)
     console.log(item)
- 
-    
-    
     this.cd.markForCheck();
     setTimeout(() =>{
       this.caching = item
@@ -112,39 +79,17 @@ private fileUpload1:  AngularFileUploaderComponent;
       this.teaserplay = item.teaser[0].teaser
     } 
       this.cd.detectChanges()
-    },100)
-     
-    
+    },100) 
   }
 
- 
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
   searchact(){
-
-
     if(!this.search){
-
-
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Your searchbox is empty',
         footer: '<span>You need to fill the searchbox to search for something</span>'
       })
-
     }else{
       if(!this.search.trim()){
         Swal.fire({
@@ -176,8 +121,7 @@ private fileUpload1:  AngularFileUploaderComponent;
 
   getdata(pager){
     this.pagebtn = Array()
-    var loader = document.getElementById("cover-spin")
-    loader.style.display = "block"
+  
     this.http.getData("lodi-admin/get-updates.php?limit="+this.limit+"&page="+pager).subscribe(res =>{
        
       this.updates = res.json().updates
@@ -185,7 +129,9 @@ private fileUpload1:  AngularFileUploaderComponent;
       this.updatescount = res.json().updates_count
 
 
-      loader.style.display = "none"
+      $('#cover-spin').css({
+        'display':'none',
+      })
 
       this.pagebtntmp =  this.updatescount / this.limit
       for(var i = 1;i < this.pagebtntmp + 1;i++){
@@ -208,133 +154,120 @@ private fileUpload1:  AngularFileUploaderComponent;
 // }
 
 
-reportData:any
+  reportData:any
 
 
-delete(id){
-  let data = {
-    id: id,
-    userid: localStorage.getItem("userid")
-  }
- 
-  var c = confirm("Are you sure?")
-    if(c){
-      this.http.postData("lodi-admin/delete-lodi.php",data).subscribe(res =>{
-        let result = res.json()
-        if(result.message = "success"){
-          this.page = 1
-          this.getdata(this.page)
-          Swal.fire(
-            'Good job!',
-            'Successfully deleted',
-            'success'
-          )
-        }else{
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Error occured',
-            footer: ' '
-          })
-        }
-      })
+  delete(id){
+    let data = {
+      id: id,
+      userid: localStorage.getItem("userid")
     }
   
-}
- 
-
- 
- 
+    var c = confirm("Are you sure?")
+      if(c){
+        this.http.postData("lodi-admin/delete-lodi.php",data).subscribe(res =>{
+          let result = res.json()
+          if(result.message = "success"){
+            this.page = 1
+            this.getdata(this.page)
+            Swal.fire(
+              'Good job!',
+              'Successfully deleted',
+              'success'
+            )
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Error occured',
+              footer: ' '
+            })
+          }
+        })
+      }
+    
+  }
  
 // rtpcr(){
 //   this.router.navigate(["admin-home/"])
 // }
 
-
- 
- 
-
- 
-cacheData(item){
-  console.log(item)
-  this.caching = item
-}
-
-updatedescription:any
-uploadupdate(){
-
- 
-  //  $.post( this.http.server+"teaser-upload.php",{ "video": $("#video").val() },  res =>{
-  //   console.log(res)
-  // })
-
- 
-  let data = {
-    media: this.teaserarr[0],
-    description: this.updatedescription
-  }
-  this.loader = document.getElementById("cover-spin")
-
-      this.loader.style.display = "block"
-  this.http.postData("lodi-admin/add-updates.php",data).subscribe(res =>{
-    console.log(res)
-    // let result = res.json()
-    this.loader.style.display = "none"
-  })
-
-
+  cacheData(item){
+    console.log(item)
+    this.caching = item
   }
 
- getBase64(e) {
-  var file = e.target.files[0];
-    let reader = new FileReader();
-    reader.onload = (e) => {
-    let image = e.target.result;
-    console.log(image);
+  updatedescription:any
+  uploadupdate(){
+
+  
+    //  $.post( this.http.server+"teaser-upload.php",{ "video": $("#video").val() },  res =>{
+    //   console.log(res)
+    // })
+
+  
+    let data = {
+      media: this.teaserarr[0],
+      description: this.updatedescription
+    }
+    this.loader = document.getElementById("cover-spin")
+
+        this.loader.style.display = "block"
+    this.http.postData("lodi-admin/add-updates.php",data).subscribe(res =>{
+      console.log(res)
+      // let result = res.json()
+      this.loader.style.display = "none"
+    })
+
+
+    }
+
+  getBase64(e) {
+    var file = e.target.files[0];
+      let reader = new FileReader();
+      reader.onload = (e) => {
+      let image = e.target.result;
+      console.log(image);
+      };
+    reader.readAsDataURL(file);
+    
+  }
+  teaserarr:any = new Array()
+  handleUpload(event) {
+    $(".harang").css({display: "none"})
+    $(".fileinput-remove, fileinput-remove-button").click(() =>{
+    $(".harang").css({display: "block"})
+    })
+    for(var i =0;i < event.target.files.length;i++){
+      
+      const file = event.target.files[i];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        console.log
+        this.teaserarr.push({
+        base64: reader.result,
+        name: file.name
+      }) 
     };
-  reader.readAsDataURL(file);
-  
-}
-teaserarr:any = new Array()
-handleUpload(event) {
-  $(".harang").css({display: "none"})
-
-  $(".fileinput-remove, fileinput-remove-button").click(() =>{
-   $(".harang").css({display: "block"})
+    console.log(this.teaserarr);
+    setInterval((e) =>{
+      $(".kv-zoom-thumb").css({display: "none"}) 
+    },500)
     
-  })
-   
- for(var i =0;i < event.target.files.length;i++){
+      
     
-   const file = event.target.files[i];
-   const reader = new FileReader();
-   reader.readAsDataURL(file);
-   reader.onload = () => {
-       console.log
-       this.teaserarr.push({
-         base64: reader.result,
-         name: file.name
-       }) 
-       
-       
-   };
-
-   console.log(this.teaserarr)
-
-   setInterval((e) =>{
-     $(".kv-zoom-thumb").css({display: "none"}) 
-   },500)
-  
     
-  
-   
- }
+  }
 
  
  
  
 }
-
+  update_info:any;
+  updateinfo($event){
+    this.update_info = $event;
+  }
  
  
  

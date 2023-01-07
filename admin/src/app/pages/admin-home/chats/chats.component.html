@@ -6,42 +6,8 @@
   <div class="chat-section navbar placeholder-glow" *ngFor="let chat of chats">
     <div class="avatar bg-dark"></div>
     
-<<<<<<< Updated upstream
-      
-          <table class="table"  >
-                  <thead class="thead-dark">
-                    <tr >
-                      <th>Fan Name</th> 
-                    <th>Chat Date Initiated</th>
-                   
-                    </tr>
-                  </thead>
-                  
-     
-                  <tbody *ngIf="chats">
-                    <tr *ngFor="let item of chats;index as i" [attr.data-index]="i" data-target="#openchats" data-toggle="modal" >
-                      <td data-toggle="modal"  (click)="openchat(item.chat_table)" >{{item.person.fname}} {{item.person.lname}}</td>
-                      <td data-toggle="modal" (click)="openchat(item.chat_table)" >{{item.date_created}}</td>
-                    
-                       
-                   
-               
-                      
-                      <!-- <td>{{item.employment_status}}</td>  -->
-                      <!-- <td>{{item.voters_status}}</td>   -->
-                      
-            
-                      <!-- <button type="button" (click)="gotochats()" style="padding-right:60px">Chats</button>
-                      <button data-toggle="modal" (click)="cacheData(item)" data-toggle="modal" data-target="#teaser">Teaser</button>  -->
-                          <!-- <button data-toggle="modal" data-target="#exampleModalCenter"  (click)="familySelected(item.id)">FAMILY</button>  -->
-                          <!-- <button (click)="viewCert()">PRINT</button>  -->
-                          <!-- <button (click)="cacheData(item)" data-toggle="modal" data-target="#exampleModalLong" >PRINT</button>
-                   
-                       <button (click)="delete(item.id)" *ngIf="userType == 1">DELETE</button>
-=======
     <p class="placeholder col-4" style="left: 4rem;"></p>
     <p class="placeholder col-9" style="left: 4rem;"></p>
->>>>>>> Stashed changes
     
   </div>
   </div>

@@ -1,241 +1,58 @@
+// *{
+//   background-color: rgba(0, 128, 0, 0.509);
+// }
+
+
 .main-wrapper{
-
-  
+  background-color: #ebebeb;
   .transaction-viewer{
-    
-    
-<<<<<<< Updated upstream
-}#selector{
-    width: 100%;
-    margin-top: -20px;
-    margin-bottom: 30px;
-    clear: both;
-    display: block;
-    position: relative;
-}.pager{
-    float: right;
-    position: relative;
-    clear: right; 
-    margin-right: 20px;
-    top: 20px;
-}.pager ul li{
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer;
-     
-}.pager ul{
-    list-style-type: none;
-    padding: 0
-}.pager ul li span:hover{
-    text-decoration: underline;
-}.btn{
-    position: relative;
-    margin-right: 5px;
-    width: 50px;
-    float: right;
-}.action-btn:hover{
-    height: 40px;
-    width: 40px;
-    transition: all 0.8s;
-}
-img{
-    height: 20px;
-    width: 20px;
-}.residentadd{
-    position: relative;
-    float: left;
-    clear: both;
-    width: 200px;
-    margin-bottom: 10px;
-}.form-control{
-    margin-bottom: 10px;
-}.tab-content-wrapper{
-    position: relative;
-    margin-top: 20px;
-}.tblaction{
-    position: relative;
-    float: right;
-    margin-right: 5px;
-    margin-top: 2px;
-     
-    border-radius: 5px;
-    outline: none;
-}
-.page{
-    position: relative;
-text-align: right;
- top: -50px;
-   margin-left: auto;
-   margin-right: auto;
-  
-}
-.page button{
-    position: relative;
-    background-color: #333;
-    border-radius: 5px;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-right: 5px;
-    font-size: large;
-    color: white;
-}
-.page button:hover{
-   background-color: #4a4a4a;
-}
-
-.showpage{
-    position: relative;
-    padding-top: 50px;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-   
-}.pagestablabel{
-    width: 200px;
-    height: 50px;
-    float: left;
-    clear: left;
-    position: relative;
-    
-}
- .family{
-     font-weight: bold;
- } .table-editable {
-    position: relative;
-    
-    .glyphicon {
-      font-size: 20px;
-    }
-  }
-  
-  .table-remove {
-    color: #700;
-    cursor: pointer;
-    
-    &:hover {
-      color: #f00;
-    }
-  }
-  
-  .table-up, .table-down {
-    color: #007;
-    cursor: pointer;
-    
-    &:hover {
-      color: #00f;
-    }
-  }
-  
-  .table-add {
-    color: #070;
-    cursor: pointer;
-    position: absolute;
-    top: 8px;
-    right: 0;
-    
-    &:hover {
-      color: #0b0;
-=======
+    width: 60vw;
+    margin: auto;
     margin-bottom: 20px;
-    .navbar{
-      font-weight: 700;
->>>>>>> Stashed changes
-    }
-    #profile-image{
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      margin-bottom: 10px;
-      img{
-        background-color: #444444;
-        border-radius: 100px;
-        object-fit: cover;
-        height: 8rem;
-        width: 8rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    #profile-pic{
+      width: 10vw;
+      height: 10vw;
+      border-radius: 10vw;
+      object-fit: cover;
+      &:hover{
+        cursor: pointer;
       }
     }
-    .container{
-      margin: auto;
-      padding: 0px;
-        .row{
-        width: 150%;
-        .card{
-          border: solid transparent;
-          background-color: rgb(245, 245, 245);
-          width: 100rem;
-          margin: 0.1rem;
-          margin-top: 0px;
-          margin-bottom: 0px;
-          height: 500px;
-          h1{
-            border-bottom: solid #cacaca;
-          }
-          ul{
-            li{
-              list-style: none;
-              font-size: 20px;
-              margin-bottom: 12px;
-              margin-left: -30px;
-              font-weight: 600;
-            }
+    .transaction-box{
+      width: 50vw;
+      height: 30vw;
+      margin: 1vw;
+    }
+    .transaction-info{
+      width: 80vw;
+      height: 15vw;
+      border-radius: 20px;
+      ion-grid{
+        ion-row{
+          ion-col{
+            // background-color: rgba(0, 128, 0, 0.452);
+            // border: solid rgba(0, 128, 0, 0.445);
           }
         }
-        .card-mid{
-          background-color: rgb(245, 245, 245);
-          video{
-            width: 1100px;
-            height: 440px;
-            position: absolute;
-            object-fit: cover;
-          }
-          .showed{
-            margin: auto;
-            position: relative;
-            left: 23rem;
-            top: 12rem;
-          }
-        }
-        
       }
     }
-<<<<<<< Updated upstream
-}.filterwrap{
-    position: relative;
-    span{
-        display: block;
-        position: relative;
-        margin-right: 10px;
-        padding: 7px;
-        float: left;
-        background-color: #ffc107;
-        border-radius: 5px;
-    }
-}.reciept{
-    width: 100px;
-    height: 200px;
-    position: relative;
-    clear: both;
-}
-=======
-    
   }
 
 
 
   .table-container{
-    min-height: 100px;
-    max-height: 700px;
-    overflow-y: scroll;
     width: 90%;
     margin: auto;
     #customers {
         font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
         width: 100%;
-        font-weight: 700;
-        font-size: 22px;
+        font-weight: 600;
+        font-size: 1.3vw;
         color: #444444;
       }
       
@@ -258,15 +75,10 @@ text-align: right;
         color: white;
       }
 
-    .loading-tables{
-        left:13rem;
-        width: 200px;
-        height:3rem;
-    }
+   
   }
 }
 
 
 
 
->>>>>>> Stashed changes

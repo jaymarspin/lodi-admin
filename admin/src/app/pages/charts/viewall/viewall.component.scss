@@ -1,0 +1,22 @@
+.mainwrapper{
+    
+    .border-box{
+        margin: auto;
+        border-radius: 25px;
+        height: auto;
+        
+        width: 80%;
+        .box-square{
+            width: 90%;   
+            height: 8vw;
+            margin: auto;
+            background-color: #f8f8f8;
+            border-radius: 25px;
+            height: auto;
+            margin: 1vw;
+            .navbar{
+                padding: 3vw;
+            }
+        }
+    }
+}

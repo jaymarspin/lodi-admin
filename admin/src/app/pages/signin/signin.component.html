@@ -1,126 +1,78 @@
 <div id="cover-spin"></div>
-<<<<<<< Updated upstream
-<div class="row header">
-  <div class="col-3 imgwrapper">
-    <img  draggable="false" class="left" src="assets/logo.png" />
+
+
+
+<div class="wrapper" id="body-wrapper">
+
+
+
+<!-- <div class="form">
+  <div class="form__box">
+    <h1 class="titile">Welcome to Lodi Admin</h1>
+    <div class="form__left">
+      <div class="form__padding"><img class="form__image" src="assets/logo.png"/></div>
+    </div>
+    <div class="form__right">
+      <div class="form__padding-right">
+        
+          <h1 class="form__title">Member Login</h1>
+          <input class="form__email" id="email" type="text" placeholder="Email" [(ngModel)]="username" (keyup.enter)="login()"/>
+          <input class="form__password" id="password" type="password" placeholder="Password" [(ngModel)]="password" (keyup.enter)="login()"/>
+          <input class="form__submit-btn btn-warning" type="button" value="LOGIN"  (click)="login()" />
+        <span>Forgot <a class="form__link" href="#">Username</a><a>/</a><a class="form__link" href="#">Password</a></span>
+        <p> <a class="form__link" href="#">Create your account</a></p>
+      </div>
+    </div>
   </div>
-=======
-
-
-
-<div class="wrapper"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <img src="assets/example/stars.svg" alt="" id="wall-star"> -->
-<!-- <div class="row header">
-  <div class="col-3 imgwrapper"> -->
-    <!-- <img  draggable="false" class="left" src="assets/logo.png" /> -->
-  <!-- </div>
->>>>>>> Stashed changes
-  <div class="col-6 ">
-    <h1>LODI.ph</h1>
-    <h4>Where amazing meets</h4>
-  </div>
-  <div class="col-3 imgwrapper">
-    <!-- <img draggable="false" class="right" src="assets/logo/barmm-logo.png"/>  -->
-<<<<<<< Updated upstream
-  </div>
-</div>
-<div class="row form">
-=======
-  <!-- </div>
 </div> -->
-<!-- <div class="row form" id="sign-form">
->>>>>>> Stashed changes
-  <div class="col-12">
+
+  <!-- <div class="star-hover">
+    <i class="bi bi-star-fill fill-the-star" id="starla" data-toggle="tooltip" data-placement="top" title="Welcome to Lodi-Admin"></i>
+  </div> -->
+  <div class="box-login-mini-feeds">
     <div class="card">
-      <div class="row">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username" (keyup.enter)="login()" />
-        </div>
+      <i class="bi bi-chevron-down" id="Open-Closed" (click)="openclosed()"></i>
+      <div class="card-content">
+        <img src="assets/logo.png" alt="">
       </div>
-      <div class="row">
-        <div class="col">
-          <input type="password" class="form-control"  placeholder="Password" [(ngModel)]="password" (keyup.enter)="login()"/>
-        </div>
+      <p>Launching the lodi.ph</p>
+      <video id="video" [autoplay]="false" loop="true" [controls]="true">
+        <source src="">
+      </video>
+    </div>
+  </div>
+  
+  <div class="side-form form bg-light">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="">
+    </div>
+    <div class="form">
+      <h1 class="text-warning">Member Login</h1>
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="email" class="form-control input" placeholder="Email" name="" id="" [(ngModel)]="username" (keyup.enter)="login()">
+        <label for="inputPassword2" class="sr-only">Password</label>
+        <input type="password" class="form-control input" id="inputPassword2" placeholder="Password" [(ngModel)]="password" (keyup.enter)="login()">
       </div>
-      <div class="row">
-        <div class="col">
-          <input   (click)="login()" type="button" class="btn btn-warning" value="LOGIN" />
-        </div>
+      <span class="text-danger" data-toggle="modal" data-target="#forget-credentials">Forgot Username? or Password?</span>
+    </div>
+    <button class="login-button btn" (click)="login()">Login</button>
+  </div>
+  
+
+
+</div>
+
+
+<div class="modal " role="modal" data-backdrop="false" id="forget-credentials">
+  <div class="modal-dialog modal-dialog-lg modal-dialog-centered" >
+    <div class="modal-content">
+      <div class="modal-body" data-dismiss="modal">
+        <ion-item>
+          <ion-label>Forgot UserName or Password?</ion-label>
+        </ion-item>
       </div>
-      
     </div>
   </div>
 </div>
-<!-- <div class="wrap">
 
 
-
-
-    <div class="row">
-     
-      <div class="col">
-         <div class="loginform">
-           <div class="wrapper">
-          
-            <div class="row" style="margin-top: 40px;">
-              <div class="col">
-                <img draggable="false" src="assets/logo/barmm-logo.png"/> 
-              </div>
-              <div class="col">
-                <img  draggable="false" src="assets/logo/moh-logo.png" />
-              </div>
-            </div>
-           <div class="row" style="position: relative; margin-top: -50px;">
-
-             <div class="col" style="margin-top:60px;">
-
-
-             
-
-                <input type="text" placeholder="Username" [(ngModel)]="username" style="position: relative; top: 20px;"/>
-
-
-             </div>
-           </div>
-
-           <div class="row login">
-            <div class="col">
-
-               <input type="password"  placeholder="Password" [(ngModel)]="password" style="position: relative; top: 10px;"/>
-
-
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col">
-
-               <input   (click)="login()"   type="submit" class="btn btn-success" value="LOGIN" />
-
-
-            </div>
-          </div>
-
-         </div>
-        </div>
-      </div>
-    </div>
-
-
-
-  </div> -->
